@@ -32,29 +32,23 @@ in your browser, and click the button very quickly. (check the console log)
 
 ```
   react-redux
-    ✓ title check (16ms)
-    ✓ init check (132ms)
-    ✕ multiple click (482ms)
-    ✕ count check (766ms)
-    ✕ title check (not failed) (173ms)
+    ✕ multiple click (394ms)
   reactive-react-redux
-    ✓ title check (3ms)
-    ✓ init check (27ms)
-    ✓ multiple click (143ms)
-    ✓ count check (441ms)
-    ✓ title check (not failed) (1ms)
+    ✓ multiple click (564ms)
   react-tracked
-    ✓ title check (1ms)
-    ✓ init check (35ms)
-    ✓ multiple click (577ms)
-    ✓ count check (429ms)
-    ✓ title check (not failed) (1ms)
+    ✓ multiple click (551ms)
   constate
-    ✓ title check (3ms)
-    ✓ init check (10ms)
-    ✓ multiple click (339ms)
-    ✓ count check (471ms)
-    ✓ title check (not failed) (2ms)
+    ✓ multiple click (476ms)
+  unstated-next
+    ✓ multiple click (439ms)
+  zustand
+    ✕ multiple click (118ms)
+  react-sweet-state
+    ✕ multiple click (273ms)
+  storeon
+    ✕ multiple click (275ms)
+  react-hooks-global-state
+    ✓ multiple click (877ms)
 ```
 
 ## Caution
