@@ -7,6 +7,7 @@ const names = [
   'reactive-react-redux',
   'react-tracked',
   'constate',
+  'unstated-next',
 ];
 
 names.forEach((name) => {
