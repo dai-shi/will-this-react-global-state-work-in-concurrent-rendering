@@ -19,8 +19,8 @@ PORT=8080 npm run dev-server &
 PORT=8080 npm run jest
 ```
 
-You can also run it by opening `http://localhost:8080` in your browser,
-and click the button very quickly. (check console log)
+You can also test it by opening `http://localhost:8080/#react-redux`
+in your browser, and click the button very quickly. (check the console log)
 
 ## Result
 
