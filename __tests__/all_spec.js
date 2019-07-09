@@ -10,6 +10,8 @@ const names = [
   'unstated-next',
   'zustand',
   'react-sweet-state',
+  'storeon',
+  'react-hooks-global-state',
 ];
 
 names.forEach((name) => {
