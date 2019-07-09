@@ -69,5 +69,5 @@ The reason why I created this is to promote my projects!
 - [react-tracked](https://github.com/dai-shi/react-tracked)
 - [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux)
 
-The major point of these library is not concurrent mode friendly,
-but state usage tracking.
+The feature of these libraries is not only concurrent mode friendly,
+but also state usage tracking.
