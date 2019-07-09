@@ -28,7 +28,8 @@
     "react-tracked": "^0.4.0",
     "reactive-react-redux": "^4.0.0",
     "redux": "^4.0.2",
-    "unstated-next": "^1.1.0"
+    "unstated-next": "^1.1.0",
+    "zustand": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",

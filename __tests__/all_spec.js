@@ -8,6 +8,7 @@ const names = [
   'react-tracked',
   'constate',
   'unstated-next',
+  'zustand',
 ];
 
 names.forEach((name) => {
