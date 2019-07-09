@@ -9,6 +9,7 @@ const names = [
   'constate',
   'unstated-next',
   'zustand',
+  'react-sweet-state',
 ];
 
 names.forEach((name) => {

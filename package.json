@@ -25,6 +25,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
+    "react-sweet-state": "^1.0.3",
     "react-tracked": "^0.4.0",
     "reactive-react-redux": "^4.0.0",
     "redux": "^4.0.2",
