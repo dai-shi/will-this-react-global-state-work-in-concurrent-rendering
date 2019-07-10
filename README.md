@@ -15,6 +15,22 @@ Let's try to check it!
 - [Talk by Mark Erikson](https://www.youtube.com/watch?v=yOZ4Ml9LlWE&t=933s)
 - [Task by Flarnie Marchan](https://www.youtube.com/watch?v=V1Ly-8Z1wQA&t=1079s)
 
+## How does it work?
+
+A small app is implemented with each library.
+The state has one count.
+The app shows the count in two components.
+
+There's a button outside of React and
+if it's clicked it will trigger state mutation.
+This is to emulate mutating an external state outside of React,
+for example updating state by Redux middleware.
+
+The render has intentionaly expensive computation.
+If the mutation happens during rendering with in a tree,
+there could be an inconsistency in the state.
+If it finds the inconsistency, the test will fail.
+
 ## How to run
 
 ```bash
