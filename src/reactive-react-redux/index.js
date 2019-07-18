@@ -6,13 +6,17 @@ import {
   syncBlock,
   useRegisterClickHandler,
   reducer,
+  ids,
 } from '../common';
 
 const store = createStore(reducer);
 
 const Counter = ({ c }) => {
   const count = useSelector(state => state.count);
-  if (c !== count) throw new Error(`count mismatch: ${c} ${count}`);
+  if (c !== count) {
+    console.error(`count mismatch: ${c} ${count}`);
+    document.title = 'failed';
+  }
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 };
@@ -25,8 +29,9 @@ const Main = () => {
   }, [dispatch]));
   return (
     <div>
-      <Counter c={count} />
-      <Counter c={count} />
+      {ids.map(id => (
+        <Counter key={id} c={count} />
+      ))}
     </div>
   );
 };

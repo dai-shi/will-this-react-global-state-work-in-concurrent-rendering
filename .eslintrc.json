@@ -27,7 +27,8 @@
     "arrow-body-style": "off",
     "no-plusplus": "off",
     "import/no-useless-path-segments": 0,
-    "import/no-duplicates": "off"
+    "import/no-duplicates": "off",
+    "no-console": "off"
   },
   "overrides": [{
     "files": ["__tests__/**/*"],

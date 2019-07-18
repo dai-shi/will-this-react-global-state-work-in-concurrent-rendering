@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ErrorBoundary from './ErrorBoundary';
-
 const name = window.location.hash.slice(1) || 'react-redux';
 document.title = name;
 
@@ -10,4 +8,4 @@ document.title = name;
 const App = require(`./${name}`).default;
 
 const root = ReactDOM.unstable_createRoot(document.getElementById('app'));
-root.render(<ErrorBoundary><App /></ErrorBoundary>);
+root.render(<App />);

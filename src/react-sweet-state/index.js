@@ -6,6 +6,7 @@ import {
   useRegisterClickHandler,
   initialState,
   reducer,
+  ids,
 } from '../common';
 
 const Store = createStore({
@@ -22,7 +23,10 @@ const useCounter = createHook(Store);
 const Counter = ({ c }) => {
   const [state] = useCounter();
   const { count } = state;
-  if (c !== count) throw new Error(`count mismatch: ${c} ${count}`);
+  if (c !== count) {
+    console.error(`count mismatch: ${c} ${count}`);
+    document.title = 'failed';
+  }
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 };
@@ -35,8 +39,9 @@ const Main = () => {
   }, [actions]));
   return (
     <div>
-      <Counter c={count} />
-      <Counter c={count} />
+      {ids.map(id => (
+        <Counter key={id} c={count} />
+      ))}
     </div>
   );
 };

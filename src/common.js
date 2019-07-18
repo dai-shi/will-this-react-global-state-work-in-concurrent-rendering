@@ -1,13 +1,18 @@
 import React from 'react';
 
 const fib = i => (i <= 1 ? i : fib(i - 1) + fib(i - 2));
-export const syncBlock = () => fib(35);
+export const syncBlock = () => fib(30);
 
 export const useRegisterClickHandler = (handler) => {
   React.useEffect(() => {
-    const ele = document.getElementById('button');
-    ele.addEventListener('click', handler);
-    return () => ele.removeEventListener('click', handler);
+    const ele1 = document.getElementById('button1');
+    ele1.addEventListener('click', handler);
+    const ele2 = document.getElementById('button2');
+    ele2.addEventListener('click', handler);
+    return () => {
+      ele1.removeEventListener('click', handler);
+      ele2.removeEventListener('click', handler);
+    };
   }, [handler]);
 };
 
@@ -21,3 +26,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export const ids = [...Array(50).keys()];
