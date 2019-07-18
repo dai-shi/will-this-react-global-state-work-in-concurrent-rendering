@@ -48,23 +48,32 @@ in your browser, and click the button very quickly. (check the console log)
 
 ```
   react-redux
-    ✕ multiple click (394ms)
+    ✕ check no tearing (11ms)
+    ✓ check avg delay < 300ms (1ms)
   reactive-react-redux
-    ✓ multiple click (564ms)
+    ✓ check no tearing (2ms)
+    ✕ check avg delay < 300ms (1ms)
   react-tracked
-    ✓ multiple click (551ms)
+    ✓ check no tearing (1ms)
+    ✕ check avg delay < 300ms
   constate
-    ✓ multiple click (476ms)
+    ✓ check no tearing (27ms)
+    ✓ check avg delay < 300ms (1ms)
   unstated-next
-    ✓ multiple click (439ms)
+    ✓ check no tearing (52ms)
+    ✓ check avg delay < 300ms
   zustand
-    ✕ multiple click (118ms)
+    ✕ check no tearing (36ms)
+    ✓ check avg delay < 300ms (1ms)
   react-sweet-state
-    ✕ multiple click (273ms)
+    ✕ check no tearing (39ms)
+    ✓ check avg delay < 300ms (1ms)
   storeon
-    ✕ multiple click (275ms)
+    ✕ check no tearing (39ms)
+    ✓ check avg delay < 300ms (1ms)
   react-hooks-global-state
-    ✓ multiple click (877ms)
+    ✓ check no tearing (36ms)
+    ✓ check avg delay < 300ms (1ms)
 ```
 
 ## Caution

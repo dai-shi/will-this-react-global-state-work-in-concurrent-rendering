@@ -1,5 +1,7 @@
 /* global page, context */
 
+jest.setTimeout(15 * 1000);
+
 const port = process.env.PORT || '8080';
 
 const names = [
