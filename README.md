@@ -46,7 +46,8 @@ in your browser, and click the button very quickly. (check the console log)
 
 ## Screencast
 
-![rr-tearing](https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif)
+<img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
+
 
 ## Result
 
