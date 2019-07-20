@@ -37,48 +37,66 @@ If it finds the inconsistency, the test will fail.
 git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode.git
 cd will-this-react-global-state-work-in-concurrent-mode
 npm install
-PORT=8080 npm run dev-server &
+npm run build-all
+PORT=8080 npm run http-server &
 PORT=8080 npm run jest
 ```
 
-You can also test it by opening `http://localhost:8080/#react-redux`
+You can also test it by opening `http://localhost:8080/react-redux`
 in your browser, and click the button very quickly. (check the console log)
 
 ## Screencast
 
 <img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
 
-
 ## Result
 
 ```
   react-redux
-    ✕ check no tearing (11ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (298ms)
+    ✕ check2: no tearing during update (21ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5113ms)
   reactive-react-redux
-    ✓ check no tearing (2ms)
-    ✕ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (680ms)
+    ✓ check2: no tearing during update (2ms)
+    ✕ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (724ms)
   react-tracked
-    ✓ check no tearing (1ms)
-    ✕ check avg delay < 300ms
+    ✓ check1: updated properly (745ms)
+    ✓ check2: no tearing during update (1ms)
+    ✕ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (849ms)
   constate
-    ✓ check no tearing (27ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (2758ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (805ms)
   unstated-next
-    ✓ check no tearing (52ms)
-    ✓ check avg delay < 300ms
+    ✓ check1: updated properly (3350ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (904ms)
   zustand
-    ✕ check no tearing (36ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✕ check1: updated properly (10071ms)
+    ✕ check2: no tearing during update (3ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5057ms)
   react-sweet-state
-    ✕ check no tearing (39ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (929ms)
+    ✕ check2: no tearing during update (4ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5123ms)
   storeon
-    ✕ check no tearing (39ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (324ms)
+    ✕ check2: no tearing during update (16ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5110ms)
   react-hooks-global-state
-    ✓ check no tearing (36ms)
-    ✓ check avg delay < 300ms (1ms)
+    ✓ check1: updated properly (2421ms)
+    ✓ check2: no tearing during update (2ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (787ms)
 ```
 
 ## Caution
