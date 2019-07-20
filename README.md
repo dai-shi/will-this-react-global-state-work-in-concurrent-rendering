@@ -53,50 +53,50 @@ in your browser, and click the button very quickly. (check the console log)
 
 ```
   react-redux
-    ✓ check1: updated properly (298ms)
-    ✕ check2: no tearing during update (21ms)
+    ✓ check1: updated properly (975ms)
+    ✕ check2: no tearing during update (18ms)
     ✓ check3: ability to interrupt render (1ms)
-    ✕ check4: proper update after interrupt (5113ms)
+    ✕ check4: proper update after interrupt (5083ms)
   reactive-react-redux
-    ✓ check1: updated properly (680ms)
-    ✓ check2: no tearing during update (2ms)
-    ✕ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (724ms)
-  react-tracked
-    ✓ check1: updated properly (745ms)
-    ✓ check2: no tearing during update (1ms)
-    ✕ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (849ms)
-  constate
-    ✓ check1: updated properly (2758ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (805ms)
-  unstated-next
-    ✓ check1: updated properly (3350ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (904ms)
-  zustand
-    ✕ check1: updated properly (10071ms)
-    ✕ check2: no tearing during update (3ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✕ check4: proper update after interrupt (5057ms)
-  react-sweet-state
-    ✓ check1: updated properly (929ms)
-    ✕ check2: no tearing during update (4ms)
+    ✓ check1: updated properly (1448ms)
+    ✓ check2: no tearing during update (3ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5123ms)
-  storeon
-    ✓ check1: updated properly (324ms)
-    ✕ check2: no tearing during update (16ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✕ check4: proper update after interrupt (5110ms)
-  react-hooks-global-state
-    ✓ check1: updated properly (2421ms)
+    ✓ check4: proper update after interrupt (751ms)
+  react-tracked
+    ✓ check1: updated properly (3526ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (737ms)
+  constate
+    ✓ check1: updated properly (3454ms)
+    ✓ check2: no tearing during update (2ms)
+    ✓ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (724ms)
+  unstated-next
+    ✓ check1: updated properly (3411ms)
     ✓ check2: no tearing during update (2ms)
     ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (787ms)
+    ✓ check4: proper update after interrupt (718ms)
+  zustand
+    ✓ check1: updated properly (1525ms)
+    ✕ check2: no tearing during update (14ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5096ms)
+  react-sweet-state
+    ✓ check1: updated properly (1412ms)
+    ✕ check2: no tearing during update (27ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5146ms)
+  storeon
+    ✓ check1: updated properly (896ms)
+    ✕ check2: no tearing during update (21ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5090ms)
+  react-hooks-global-state
+    ✓ check1: updated properly (3493ms)
+    ✓ check2: no tearing during update (3ms)
+    ✓ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (720ms)
 ```
 
 ## Caution
