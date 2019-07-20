@@ -14,6 +14,7 @@ const names = [
   'react-hooks-global-state',
 ];
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
 const REPEAT = 5;
 
@@ -25,23 +26,22 @@ names.forEach((name) => {
       await page.goto(`http://localhost:${port}/${name}`);
       const title = await page.title();
       if (title !== name) throw new Error('initial name mismatch');
-      const ele = await page.$('.count');
-      const text = await page.evaluate(e => e.textContent, ele);
-      if (text !== '0') throw new Error('initial count mismatch');
+    });
 
+    it('check1: updated properly', async () => {
+      await expect(page).toMatchElement('.count', {
+        text: '0',
+      });
       delays = [];
       for (let i = 0; i < REPEAT; ++i) {
         const start = Date.now();
         await Promise.all([ // eslint-disable-line no-await-in-loop
           page.click('#button1'),
-          page.click('#button2'),
+          sleep(10).then(() => page.click('#button2')),
         ]);
         delays.push(Date.now() - start);
       }
       console.log(name, delays);
-    });
-
-    it('check1: updated properly', async () => {
       await expect(page).toMatchElement('.count', {
         text: `${REPEAT * 2}`,
         timeout: 10 * 1000,
