@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const name = window.location.hash.slice(1) || 'react-redux';
+const name = process.env.NAME || window.location.pathname.slice(1) || 'react-redux';
 document.title = name;
 
 // eslint-disable-next-line import/no-dynamic-require

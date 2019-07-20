@@ -1,9 +1,16 @@
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
+  output: {
+    path: path.join(__dirname, 'dist', process.env.NAME || 'react-redux'),
+    filename: '[name].js',
+  },
   plugins: [
+    new webpack.EnvironmentPlugin(['NAME']),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
@@ -24,5 +31,6 @@ module.exports = {
   },
   devServer: {
     port: process.env.PORT || '8080',
+    historyApiFallback: true,
   },
 };

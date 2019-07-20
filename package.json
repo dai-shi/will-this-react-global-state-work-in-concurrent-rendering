@@ -10,9 +10,20 @@
   },
   "scripts": {
     "test": "npm run eslint",
-    "eslint": "eslint .",
+    "eslint": "eslint --ignore-pattern dist .",
     "jest": "PORT=${PORT:-'8080'} BABEL_ENV=jest jest",
-    "dev-server": "PORT=${PORT:-'8080'} webpack-dev-server"
+    "dev-server": "PORT=${PORT:-'8080'} webpack-dev-server",
+    "http-server": "PORT=${PORT:-'8080'} http-server dist",
+    "build:react-redux": "NAME=react-redux webpack",
+    "build:reactive-react-redux": "NAME=reactive-react-redux webpack",
+    "build:react-tracked": "NAME=react-tracked webpack",
+    "build:constate": "NAME=constate webpack",
+    "build:unstated-next": "NAME=unstated-next webpack",
+    "build:zustand": "NAME=zustand webpack",
+    "build:react-sweet-state": "NAME=react-sweet-state webpack",
+    "build:storeon": "NAME=storeon webpack",
+    "build:react-hooks-global-state": "NAME=react-hooks-global-state webpack",
+    "build-all": "run-s build:*"
   },
   "keywords": [
     "react",
@@ -49,8 +60,10 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
     "jest": "^24.8.0",
     "jest-puppeteer": "^4.2.0",
+    "npm-run-all": "^4.1.5",
     "puppeteer": "^1.18.1",
     "wait-on": "^3.2.0",
     "webpack": "^4.35.2",
