@@ -19,7 +19,7 @@ Let's try to check it!
 
 A small app is implemented with each library.
 The state has one count.
-The app shows the count in two components.
+The app shows the count in fifty components.
 
 There's a button outside of React and
 if it's clicked it will trigger state mutation.
@@ -43,6 +43,11 @@ PORT=8080 npm run jest
 
 You can also test it by opening `http://localhost:8080/#react-redux`
 in your browser, and click the button very quickly. (check the console log)
+
+## Screencast
+
+<img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
+
 
 ## Result
 
