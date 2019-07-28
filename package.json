@@ -23,6 +23,7 @@
     "build:react-sweet-state": "NAME=react-sweet-state webpack",
     "build:storeon": "NAME=storeon webpack",
     "build:react-hooks-global-state": "NAME=react-hooks-global-state webpack",
+    "build:use-context-selector": "NAME=use-context-selector webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -43,6 +44,7 @@
     "redux": "^4.0.4",
     "storeon": "^0.9.1",
     "unstated-next": "^1.1.0",
+    "use-context-selector": "^0.4.0",
     "zustand": "^1.0.2"
   },
   "devDependencies": {

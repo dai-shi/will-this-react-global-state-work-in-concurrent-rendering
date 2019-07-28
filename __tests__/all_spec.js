@@ -12,6 +12,7 @@ const names = [
   'react-sweet-state',
   'storeon',
   'react-hooks-global-state',
+  'use-context-selector',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
