@@ -51,6 +51,9 @@ in your browser, and click the button very quickly. (check the console log)
 
 ## Result
 
+<details>
+<summary>Raw Output</summary>
+  
 ```
   react-redux
     ✓ check1: updated properly (1725ms)
@@ -108,6 +111,81 @@ in your browser, and click the button very quickly. (check the console log)
     ✓ check3: ability to interrupt render
     ✕ check4: proper update after interrupt (5040ms)
 ```
+
+</details>
+
+<table>
+  <tr>
+    <th></th>
+    <th>react-redux</th>
+    <th>reactive-react-redux</th>
+    <th>react-tracked</th>
+    <th>constate</th>
+    <th>unstated-next</th>
+    <th>zustand</th>
+    <th>react-sweet-state</th>
+    <th>storeon</th>
+    <th>react-hooks-global-state</th>
+    <th>use-context-selector</th>
+    <th>mobx-react-lite</th>
+  </tr>
+  <tr>
+    <th>check1: updated properly</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+  <tr>
+    <th>check2: no tearing during update</th>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+  <tr>
+    <th>check3: ability to interrupt render</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>check4: proper update after interrupt</th>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+</table>
 
 ## Caution
 
