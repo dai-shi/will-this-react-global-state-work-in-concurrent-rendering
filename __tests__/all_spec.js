@@ -13,11 +13,13 @@ const names = [
   'storeon',
   'react-hooks-global-state',
   'use-context-selector',
+  'mobx-react-lite',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
 const REPEAT = 5;
+const NUM_COMPONENTS = 50;
 
 names.forEach((name) => {
   describe(name, () => {
@@ -43,10 +45,12 @@ names.forEach((name) => {
         delays.push(Date.now() - start);
       }
       console.log(name, delays);
-      await expect(page).toMatchElement('.count', {
-        text: `${REPEAT * 2}`,
-        timeout: 10 * 1000,
-      });
+      await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+        await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+          text: `${REPEAT * 2}`,
+          timeout: 10 * 1000,
+        });
+      }));
     });
 
     it('check2: no tearing during update', async () => {
@@ -68,10 +72,12 @@ names.forEach((name) => {
         text: `${REPEAT * 2 + 2}`,
         timeout: 5 * 1000,
       });
-      await expect(page).toMatchElement('.count', {
-        text: `${REPEAT * 2 + 2}`,
-        timeout: 5 * 1000,
-      });
+      await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+        await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+          text: `${REPEAT * 2 + 2}`,
+          timeout: 5 * 1000,
+        });
+      }));
     });
 
     afterAll(async () => {

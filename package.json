@@ -24,6 +24,7 @@
     "build:storeon": "NAME=storeon webpack",
     "build:react-hooks-global-state": "NAME=react-hooks-global-state webpack",
     "build:use-context-selector": "NAME=use-context-selector webpack",
+    "build:mobx-react-lite": "NAME=mobx-react-lite webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -34,6 +35,8 @@
   "license": "MIT",
   "dependencies": {
     "constate": "^1.2.0",
+    "mobx": "^5.13.0",
+    "mobx-react-lite": "^2.0.0-alpha.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hooks-global-state": "^0.14.0",
