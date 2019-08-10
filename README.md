@@ -53,68 +53,68 @@ in your browser, and click the button very quickly. (check the console log)
 
 <details>
 <summary>Raw Output</summary>
-  
+
 ```
   react-redux
-    ✓ check1: updated properly (1790ms)
-    ✕ check2: no tearing during update (32ms)
+    ✓ check1: updated properly (2439ms)
+    ✕ check2: no tearing during update (19ms)
     ✓ check3: ability to interrupt render (1ms)
-    ✕ check4: proper update after interrupt (5145ms)
+    ✕ check4: proper update after interrupt (5111ms)
   reactive-react-redux
-    ✓ check1: updated properly (1503ms)
+    ✓ check1: updated properly (2336ms)
     ✓ check2: no tearing during update (2ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (867ms)
+    ✓ check4: proper update after interrupt (835ms)
   react-tracked
-    ✓ check1: updated properly (3692ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (813ms)
-  constate
-    ✓ check1: updated properly (3578ms)
+    ✓ check1: updated properly (4538ms)
     ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (792ms)
+    ✓ check4: proper update after interrupt (781ms)
+  constate
+    ✓ check1: updated properly (4343ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (770ms)
   unstated-next
-    ✓ check1: updated properly (3808ms)
+    ✓ check1: updated properly (4421ms)
     ✓ check2: no tearing during update (2ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (763ms)
+    ✓ check4: proper update after interrupt (775ms)
   zustand
-    ✕ check1: updated properly (10899ms)
+    ✕ check1: updated properly (11344ms)
     ✕ check2: no tearing during update (3ms)
-    ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5030ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5081ms)
   react-sweet-state
-    ✓ check1: updated properly (2872ms)
+    ✓ check1: updated properly (2984ms)
     ✕ check2: no tearing during update (28ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5124ms)
+    ✕ check4: proper update after interrupt (5126ms)
   storeon
-    ✓ check1: updated properly (1737ms)
-    ✕ check2: no tearing during update (15ms)
+    ✓ check1: updated properly (2297ms)
+    ✕ check2: no tearing during update (14ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5123ms)
+    ✕ check4: proper update after interrupt (5116ms)
   react-hooks-global-state
-    ✓ check1: updated properly (3569ms)
+    ✓ check1: updated properly (5057ms)
     ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (832ms)
+    ✓ check4: proper update after interrupt (801ms)
   use-context-selector
-    ✓ check1: updated properly (3132ms)
+    ✓ check1: updated properly (4426ms)
     ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (790ms)
+    ✓ check4: proper update after interrupt (771ms)
   mobx-react-lite
-    ✕ check1: updated properly (10905ms)
-    ✕ check2: no tearing during update (3ms)
-    ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5045ms)
+    ✕ check1: updated properly (11181ms)
+    ✕ check2: no tearing during update (2ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5034ms)
   use-subscription
-    ✓ check1: updated properly (2236ms)
-    ✕ check2: no tearing during update (13ms)
+    ✓ check1: updated properly (2365ms)
+    ✕ check2: no tearing during update (20ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5124ms)
+    ✕ check4: proper update after interrupt (5099ms)
 ```
 
 </details>

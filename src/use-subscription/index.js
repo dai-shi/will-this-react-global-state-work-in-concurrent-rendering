@@ -7,20 +7,18 @@ import {
   useRegisterClickHandler,
   reducer,
   ids,
-  renderedCounts,
   useCheckTearing,
 } from '../common';
 
 const store = createStore(reducer);
 
-const Counter = React.memo(({ i }) => {
+const Counter = React.memo(() => {
   const count = useSubscription(React.useMemo(() => ({
     getCurrentValue: () => store.getState().count,
     subscribe: (callback) => {
       return store.subscribe(callback);
     },
   }), []));
-  renderedCounts[i] = count;
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 });
@@ -41,9 +39,7 @@ const Main = () => {
     <div>
       <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
       <h1 className="parentCount">{count}</h1>
-      {ids.map((id, i) => (
-        <Counter key={id} i={i} />
-      ))}
+      {ids.map(id => <Counter key={id} />)}
     </div>
   );
 };

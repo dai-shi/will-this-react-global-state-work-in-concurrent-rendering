@@ -6,17 +6,15 @@ import {
   useRegisterClickHandler,
   initialState,
   ids,
-  renderedCounts,
   useCheckTearing,
 } from '../common';
 
 const Ctx = createContext();
 
-const Counter = React.memo(({ i }) => {
+const Counter = React.memo(() => {
   const store = useContext(Ctx);
   return useObserver(() => {
     const { count } = store;
-    renderedCounts[i] = count;
     if (count > 0) syncBlock();
     return <div className="count">{count}</div>;
   });
@@ -36,9 +34,7 @@ const Main = () => {
       <div>
         <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
         <h1 className="parentCount">{count}</h1>
-        {ids.map((id, i) => (
-          <Counter key={id} i={i} />
-        ))}
+        {ids.map(id => <Counter key={id} />)}
       </div>
     );
   });

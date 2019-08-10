@@ -19,7 +19,7 @@ const names = [
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
-const REPEAT = 5;
+const REPEAT = 8;
 const NUM_COMPONENTS = 50;
 
 names.forEach((name) => {

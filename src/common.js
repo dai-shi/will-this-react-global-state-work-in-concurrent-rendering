@@ -29,12 +29,13 @@ export const reducer = (state = initialState, action) => {
 
 export const ids = [...Array(50).keys()];
 
-export const renderedCounts = [];
-
 export const useCheckTearing = (count) => {
   React.useLayoutEffect(() => {
-    if (!renderedCounts.every(c => c === count)) {
-      console.log(renderedCounts);
+    const counts = ids.map(i => Number(
+      document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
+    ));
+    if (!counts.every(c => c === count)) {
+      console.error('count mismatch', counts);
       document.title = 'failed';
     }
   });
