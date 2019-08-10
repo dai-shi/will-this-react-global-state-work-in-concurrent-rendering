@@ -6,20 +6,17 @@ import {
   useRegisterClickHandler,
   initialState,
   ids,
+  renderedCounts,
+  useCheckTearing,
 } from '../common';
 
 const Ctx = createContext();
 
-let parentCount;
-
-const Counter = React.memo(() => {
+const Counter = React.memo(({ i }) => {
   const store = useContext(Ctx);
   return useObserver(() => {
     const { count } = store;
-    if (parentCount !== count) {
-      console.error(`count mismatch: ${parentCount} ${count}`);
-      document.title = 'failed';
-    }
+    renderedCounts[i] = count;
     if (count > 0) syncBlock();
     return <div className="count">{count}</div>;
   });
@@ -33,13 +30,14 @@ const Main = () => {
   const forceUpdate = React.useReducer(c => c + 1, 0)[1];
   return useObserver(() => {
     const { count } = store;
-    parentCount = count;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useCheckTearing(count);
     return (
       <div>
         <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
         <h1 className="parentCount">{count}</h1>
-        {ids.map(id => (
-          <Counter key={id} />
+        {ids.map((id, i) => (
+          <Counter key={id} i={i} />
         ))}
       </div>
     );

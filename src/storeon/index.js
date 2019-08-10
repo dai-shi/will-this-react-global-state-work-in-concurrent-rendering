@@ -9,6 +9,8 @@ import {
   initialState,
   reducer,
   ids,
+  renderedCounts,
+  useCheckTearing,
 } from '../common';
 
 const counter = (store) => {
@@ -18,21 +20,16 @@ const counter = (store) => {
 
 const store = createStore([counter]);
 
-let parentCount;
-
-const Counter = React.memo(() => {
+const Counter = React.memo(({ i }) => {
   const { count } = useStoreon('count');
-  if (parentCount !== count) {
-    console.error(`count mismatch: ${parentCount} ${count}`);
-    document.title = 'failed';
-  }
+  renderedCounts[i] = count;
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
   const { count, dispatch } = useStoreon('count');
-  parentCount = count;
+  useCheckTearing(count);
   useRegisterClickHandler(React.useCallback(() => {
     dispatch('dispatch', { type: 'increment' });
   }, [dispatch]));
@@ -41,8 +38,8 @@ const Main = () => {
     <div>
       <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
       <h1 className="parentCount">{count}</h1>
-      {ids.map(id => (
-        <Counter key={id} />
+      {ids.map((id, i) => (
+        <Counter key={id} i={i} />
       ))}
     </div>
   );

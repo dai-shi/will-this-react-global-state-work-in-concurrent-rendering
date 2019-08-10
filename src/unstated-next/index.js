@@ -7,20 +7,17 @@ import {
   initialState,
   reducer,
   ids,
+  renderedCounts,
+  useCheckTearing,
 } from '../common';
 
 const useValue = () => React.useReducer(reducer, initialState);
 const C = createContainer(useValue);
 
-let parentCount;
-
-const Counter = React.memo(() => {
+const Counter = React.memo(({ i }) => {
   const [state] = C.useContainer();
   const { count } = state;
-  if (parentCount !== count) {
-    console.error(`count mismatch: ${parentCount} ${count}`);
-    document.title = 'failed';
-  }
+  renderedCounts[i] = count;
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 });
@@ -28,7 +25,7 @@ const Counter = React.memo(() => {
 const Main = () => {
   const [state, dispatch] = C.useContainer();
   const { count } = state;
-  parentCount = count;
+  useCheckTearing(count);
   useRegisterClickHandler(React.useCallback(() => {
     dispatch({ type: 'increment' });
   }, [dispatch]));
@@ -37,8 +34,8 @@ const Main = () => {
     <div>
       <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
       <h1 className="parentCount">{count}</h1>
-      {ids.map(id => (
-        <Counter key={id} />
+      {ids.map((id, i) => (
+        <Counter key={id} i={i} />
       ))}
     </div>
   );

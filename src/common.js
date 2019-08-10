@@ -28,3 +28,14 @@ export const reducer = (state = initialState, action) => {
 };
 
 export const ids = [...Array(50).keys()];
+
+export const renderedCounts = [];
+
+export const useCheckTearing = (count) => {
+  React.useLayoutEffect(() => {
+    if (!renderedCounts.every(c => c === count)) {
+      console.log(renderedCounts);
+      document.title = 'failed';
+    }
+  });
+};

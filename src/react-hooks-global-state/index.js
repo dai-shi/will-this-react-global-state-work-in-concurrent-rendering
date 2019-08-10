@@ -7,25 +7,22 @@ import {
   initialState,
   reducer,
   ids,
+  renderedCounts,
+  useCheckTearing,
 } from '../common';
 
 const { GlobalStateProvider, dispatch, useGlobalState } = createStore(reducer, initialState);
 
-let parentCount;
-
-const Counter = React.memo(() => {
+const Counter = React.memo(({ i }) => {
   const [count] = useGlobalState('count');
-  if (parentCount !== count) {
-    console.error(`count mismatch: ${parentCount} ${count}`);
-    document.title = 'failed';
-  }
+  renderedCounts[i] = count;
   if (count > 0) syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
   const [count] = useGlobalState('count');
-  parentCount = count;
+  useCheckTearing(count);
   useRegisterClickHandler(React.useCallback(() => {
     dispatch({ type: 'increment' });
   }, []));
@@ -34,8 +31,8 @@ const Main = () => {
     <div>
       <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
       <h1 className="parentCount">{count}</h1>
-      {ids.map(id => (
-        <Counter key={id} />
+      {ids.map((id, i) => (
+        <Counter key={id} i={i} />
       ))}
     </div>
   );
