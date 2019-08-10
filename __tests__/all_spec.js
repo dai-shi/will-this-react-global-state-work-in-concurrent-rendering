@@ -14,6 +14,7 @@ const names = [
   'react-hooks-global-state',
   'use-context-selector',
   'mobx-react-lite',
+  'use-subscription',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));

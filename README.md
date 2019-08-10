@@ -56,60 +56,66 @@ in your browser, and click the button very quickly. (check the console log)
   
 ```
   react-redux
-    ✓ check1: updated properly (1725ms)
-    ✕ check2: no tearing during update (20ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✕ check4: proper update after interrupt (5094ms)
-  reactive-react-redux
-    ✓ check1: updated properly (2241ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (776ms)
-  react-tracked
-    ✓ check1: updated properly (3617ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (798ms)
-  constate
-    ✓ check1: updated properly (3605ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (853ms)
-  unstated-next
-    ✓ check1: updated properly (2918ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (852ms)
-  zustand
-    ✕ check1: updated properly (10931ms)
-    ✕ check2: no tearing during update (2ms)
-    ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5025ms)
-  react-sweet-state
-    ✓ check1: updated properly (2828ms)
-    ✕ check2: no tearing during update (27ms)
-    ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5167ms)
-  storeon
-    ✓ check1: updated properly (2280ms)
+    ✓ check1: updated properly (1663ms)
     ✕ check2: no tearing during update (15ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5107ms)
-  react-hooks-global-state
-    ✓ check1: updated properly (3567ms)
-    ✓ check2: no tearing during update
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (777ms)
-  use-context-selector
-    ✓ check1: updated properly (3586ms)
+    ✕ check4: proper update after interrupt (5106ms)
+  reactive-react-redux
+    ✓ check1: updated properly (2215ms)
     ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (846ms)
-  mobx-react-lite
-    ✕ check1: updated properly (10685ms)
-    ✕ check2: no tearing during update (1ms)
+    ✓ check4: proper update after interrupt (866ms)
+  react-tracked
+    ✓ check1: updated properly (2949ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (893ms)
+  constate
+    ✓ check1: updated properly (3845ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (826ms)
+  unstated-next
+    ✓ check1: updated properly (2938ms)
+    ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
-    ✕ check4: proper update after interrupt (5040ms)
+    ✓ check4: proper update after interrupt (793ms)
+  zustand
+    ✓ check1: updated properly (1604ms)
+    ✕ check2: no tearing during update (14ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5112ms)
+  react-sweet-state
+    ✓ check1: updated properly (2894ms)
+    ✕ check2: no tearing during update (26ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5159ms)
+  storeon
+    ✓ check1: updated properly (1614ms)
+    ✕ check2: no tearing during update (14ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5108ms)
+  react-hooks-global-state
+    ✓ check1: updated properly (3577ms)
+    ✓ check2: no tearing during update (1ms)
+    ✓ check3: ability to interrupt render
+    ✓ check4: proper update after interrupt (786ms)
+  use-context-selector
+    ✓ check1: updated properly (3792ms)
+    ✓ check2: no tearing during update (3ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✓ check4: proper update after interrupt (769ms)
+  mobx-react-lite
+    ✕ check1: updated properly (20841ms)
+    ✕ check2: no tearing during update (2ms)
+    ✓ check3: ability to interrupt render (1ms)
+    ✕ check4: proper update after interrupt (5074ms)
+  use-subscription
+    ✓ check1: updated properly (2285ms)
+    ✕ check2: no tearing during update (14ms)
+    ✓ check3: ability to interrupt render
+    ✕ check4: proper update after interrupt (5108ms)
+
 ```
 
 </details>
@@ -128,6 +134,7 @@ in your browser, and click the button very quickly. (check the console log)
     <th>react-hooks-global-state</th>
     <th>use-context-selector</th>
     <th>mobx-react-lite</th>
+    <th>use-subscription (w/ redux)</th>
   </tr>
   <tr>
     <th>check1: updated properly</th>
@@ -136,12 +143,13 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
   </tr>
   <tr>
     <th>check2: no tearing during update</th>
@@ -156,9 +164,11 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Fail</td>
+    <td>Fail</td>
   </tr>
   <tr>
     <th>check3: ability to interrupt render</th>
+    <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -183,6 +193,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Fail</td>
     <td>Fail</td>
   </tr>
 </table>

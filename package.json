@@ -25,6 +25,7 @@
     "build:react-hooks-global-state": "NAME=react-hooks-global-state webpack",
     "build:use-context-selector": "NAME=use-context-selector webpack",
     "build:mobx-react-lite": "NAME=mobx-react-lite webpack",
+    "build:use-subscription": "NAME=use-subscription webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -48,6 +49,7 @@
     "storeon": "^0.9.1",
     "unstated-next": "^1.1.0",
     "use-context-selector": "^0.4.0",
+    "use-subscription": "^1.0.0",
     "zustand": "^1.0.2"
   },
   "devDependencies": {
