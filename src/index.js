@@ -7,5 +7,9 @@ document.title = name;
 // eslint-disable-next-line import/no-dynamic-require
 const App = require(`./${name}`).default;
 
+// concurrent mode
 const root = ReactDOM.unstable_createRoot(document.getElementById('app'));
 root.render(<App />);
+
+// sync mode
+// ReactDOM.render(<App />, document.getElementById('app'));

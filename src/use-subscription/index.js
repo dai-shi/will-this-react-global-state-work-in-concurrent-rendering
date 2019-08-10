@@ -30,7 +30,7 @@ const Main = () => {
       return store.subscribe(callback);
     },
   }), []));
-  useCheckTearing(count);
+  useCheckTearing();
   useRegisterClickHandler(React.useCallback(() => {
     store.dispatch({ type: 'increment' });
   }, []));

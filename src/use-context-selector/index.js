@@ -30,7 +30,7 @@ const Counter = React.memo(() => {
 const Main = () => {
   const dispatch = useContextSelector(context, v => v[1]);
   const count = useContextSelector(context, v => v[0].count);
-  useCheckTearing(count);
+  useCheckTearing();
   useRegisterClickHandler(React.useCallback(() => {
     dispatch({ type: 'increment' });
   }, [dispatch]));

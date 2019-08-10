@@ -27,7 +27,7 @@ const Counter = React.memo(() => {
 
 const Main = () => {
   const { count, dispatch } = useStoreon('count');
-  useCheckTearing(count);
+  useCheckTearing();
   useRegisterClickHandler(React.useCallback(() => {
     dispatch('dispatch', { type: 'increment' });
   }, [dispatch]));

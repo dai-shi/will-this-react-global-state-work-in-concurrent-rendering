@@ -26,10 +26,9 @@ const Main = () => {
     store.count += 1;
   }, [store]));
   const forceUpdate = React.useReducer(c => c + 1, 0)[1];
+  useCheckTearing();
   return useObserver(() => {
     const { count } = store;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCheckTearing(count);
     return (
       <div>
         <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>

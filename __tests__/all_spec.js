@@ -55,7 +55,7 @@ names.forEach((name) => {
     });
 
     it('check2: no tearing during update', async () => {
-      await expect(page.title()).resolves.toBe(name);
+      await expect(page.title()).resolves.toBe(name); // check if not "failed"
     });
 
     it('check3: ability to interrupt render', async () => {
