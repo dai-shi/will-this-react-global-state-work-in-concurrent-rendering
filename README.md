@@ -186,10 +186,10 @@ in your browser, and click the button very quickly. (check the console log)
 
   </tr>
     <th>storeon</th>
-    <td>Fail</td>
     <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
