@@ -122,77 +122,105 @@ in your browser, and click the button very quickly. (check the console log)
 <table>
   <tr>
     <th></th>
-    <th>react-redux</th>
-    <th>reactive-react-redux</th>
-    <th>react-tracked</th>
-    <th>constate</th>
-    <th>unstated-next</th>
-    <th>zustand</th>
-    <th>react-sweet-state</th>
-    <th>storeon</th>
-    <th>react-hooks-global-state</th>
-    <th>use-context-selector</th>
-    <th>mobx-react-lite</th>
-    <th>use-subscription (w/ redux)</th>
-  </tr>
-  <tr>
     <th>check1: updated properly</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-  </tr>
-  <tr>
     <th>check2: no tearing during update</th>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-  </tr>
-  <tr>
     <th>check3: ability to interrupt render</th>
+    <th>check4: proper update after interrupt</th>
+  </tr>
+
+  <tr>
+    <th>react-redux</th>
     <td>Pass</td>
+    <td>Fail</td>
     <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+
+  <tr>
+    <th>reactive-react-redux</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
   </tr>
-  <tr>
-    <th>check4: proper update after interrupt</th>
+
+  </tr>
+    <th>react-tracked</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>constate</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>unstated-next</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>zustand</th>
+    <td>Fail</td>
     <td>Fail</td>
     <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+
+  </tr>
+    <th>react-sweet-state</th>
     <td>Pass</td>
     <td>Fail</td>
+    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+
+  </tr>
+    <th>storeon</th>
+    <td>Fail</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>react-hooks-global-state</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>use-context-selector</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+  </tr>
+
+  </tr>
+    <th>mobx-react-lite</th>
     <td>Fail</td>
     <td>Fail</td>
     <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+
+  </tr>
+    <th>use-subscription (w/ redux)</th>
     <td>Pass</td>
     <td>Fail</td>
+    <td>Pass</td>
     <td>Fail</td>
   </tr>
 </table>
