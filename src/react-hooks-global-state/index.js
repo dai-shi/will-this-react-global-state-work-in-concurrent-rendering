@@ -3,7 +3,7 @@ import { createStore } from 'react-hooks-global-state';
 
 import {
   syncBlock,
-  useRegisterClickHandler,
+  useRegisterIncrementDispatcher,
   initialState,
   reducer,
   ids,
@@ -14,22 +14,25 @@ const { GlobalStateProvider, dispatch, useGlobalState } = createStore(reducer, i
 
 const Counter = React.memo(() => {
   const [count] = useGlobalState('count');
-  if (count > 0) syncBlock();
+  syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
   const [count] = useGlobalState('count');
   useCheckTearing();
-  useRegisterClickHandler(React.useCallback(() => {
+  useRegisterIncrementDispatcher(React.useCallback(() => {
     dispatch({ type: 'increment' });
   }, []));
-  const forceUpdate = React.useReducer(c => c + 1, 0)[1];
+  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   return (
     <div>
-      <button type="button" id="forceupdate" onClick={forceUpdate}>force render</button>
-      <h1 className="parentCount">{count}</h1>
+      <h1>Remote Count</h1>
       {ids.map(id => <Counter key={id} />)}
+      <div className="count">{count}</div>
+      <h1>Local Count</h1>
+      {localCount}
+      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
     </div>
   );
 };

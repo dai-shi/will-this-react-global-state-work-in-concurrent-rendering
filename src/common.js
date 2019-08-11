@@ -1,19 +1,21 @@
 import React from 'react';
 
-const fib = i => (i <= 1 ? i : fib(i - 1) + fib(i - 2));
-export const syncBlock = () => fib(30);
+// block for about 20 ms
+export const syncBlock = () => {
+  const start = Date.now();
+  while (Date.now() - start < 20) {
+    // empty
+  }
+};
 
-export const useRegisterClickHandler = (handler) => {
+export const useRegisterIncrementDispatcher = (listener) => {
   React.useEffect(() => {
-    const ele1 = document.getElementById('button1');
-    ele1.addEventListener('click', handler);
-    const ele2 = document.getElementById('button2');
-    ele2.addEventListener('click', handler);
+    const ele = document.getElementById('remoteIncrement');
+    ele.addEventListener('click', listener);
     return () => {
-      ele1.removeEventListener('click', handler);
-      ele2.removeEventListener('click', handler);
+      ele.removeEventListener('click', listener);
     };
-  }, [handler]);
+  }, [listener]);
 };
 
 export const initialState = { count: 0 };
@@ -27,10 +29,13 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
+// 50 child components
 export const ids = [...Array(50).keys()];
 
+// check if all child components show the same count
+// and if not, change the title
 export const useCheckTearing = () => {
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const counts = ids.map(i => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
