@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider, useSelector, useDispatch } from 'react-tracked';
+import { createContainer } from 'react-tracked';
 
 import {
   syncBlock,
@@ -11,6 +11,8 @@ import {
 } from '../common';
 
 const useValue = () => React.useReducer(reducer, initialState);
+
+const { Provider, useSelector, useDispatch } = createContainer(useValue);
 
 const Counter = React.memo(() => {
   const count = useSelector(state => state.count);

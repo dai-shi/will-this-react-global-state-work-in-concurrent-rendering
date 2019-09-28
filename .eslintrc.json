@@ -29,7 +29,9 @@
     "import/no-useless-path-segments": 0,
     "import/no-duplicates": "off",
     "no-console": "off",
-    "no-await-in-loop": "off"
+    "no-await-in-loop": "off",
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+    "react/jsx-fragments": "off"
   },
   "overrides": [{
     "files": ["__tests__/**/*"],
