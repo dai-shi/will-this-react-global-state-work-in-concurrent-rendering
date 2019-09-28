@@ -12,7 +12,7 @@ import {
 
 const useValue = () => React.useReducer(reducer, initialState);
 
-const { Provider, useSelector, useDispatch } = createContainer(useValue);
+const { Provider, useSelector, useUpdate: useDispatch } = createContainer(useValue);
 
 const Counter = React.memo(() => {
   const count = useSelector(state => state.count);
