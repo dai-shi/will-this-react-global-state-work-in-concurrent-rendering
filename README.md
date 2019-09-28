@@ -180,7 +180,7 @@ in your browser, and click the button very quickly. (check the console log)
     <th>react-sweet-state</th>
     <td>Pass</td>
     <td>Fail</td>
-    <td>Pass</td>
+    <td>Fail (just a little bit slow)</td>
     <td>Fail</td>
   </tr>
 
@@ -219,7 +219,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
     <th>use-subscription (w/ redux)</th>
     <td>Pass</td>
-    <td>Fail</td>
+    <td>Pass</td>
     <td>Pass</td>
     <td>Fail</td>
   </tr>
