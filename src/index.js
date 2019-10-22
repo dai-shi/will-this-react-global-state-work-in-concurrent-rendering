@@ -8,7 +8,7 @@ document.title = name;
 const App = require(`./${name}`).default;
 
 // concurrent mode
-const root = ReactDOM.unstable_createRoot(document.getElementById('app'));
+const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(<App />);
 
 // sync mode
