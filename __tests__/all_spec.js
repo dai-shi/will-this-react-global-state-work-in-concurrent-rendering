@@ -3,16 +3,16 @@
 const port = process.env.PORT || '8080';
 
 const names = [
-  'react-redux',
-  'reactive-react-redux',
-  'react-tracked',
-  'constate',
-  'unstated-next',
-  'zustand',
-  'react-sweet-state',
-  'storeon',
-  'react-hooks-global-state',
-  'use-context-selector',
+  // 'react-redux',
+  // 'reactive-react-redux',
+  // 'react-tracked',
+  // 'constate',
+  // 'unstated-next',
+  // 'zustand',
+  // 'react-sweet-state',
+  // 'storeon',
+  // 'react-hooks-global-state',
+  // 'use-context-selector',
   'mobx-react-lite',
   'use-subscription',
 ];
@@ -39,7 +39,7 @@ names.forEach((name) => {
       }));
     });
 
-    it('check1: updated properly', async () => {
+    xit('check1: updated properly', async () => {
       delays = [];
       for (let loop = 0; loop < REPEAT; ++loop) {
         const start = Date.now();
@@ -61,13 +61,13 @@ names.forEach((name) => {
       }));
     });
 
-    it('check2: no tearing during update', async () => {
+    xit('check2: no tearing during update', async () => {
       // check if there's inconsistency duroing update
       // see useCheckTearing() in src/common.js
       await expect(page.title()).resolves.not.toBe('failed');
     });
 
-    it('check3: ability to interrupt render', async () => {
+    xit('check3: ability to interrupt render', async () => {
       // check delays taken by clicking buttons in check1
       // each render takes at least 20ms and there are 50 components,
       // it triggers triple clicks, so 300ms on average.
