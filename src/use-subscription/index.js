@@ -12,6 +12,7 @@ import {
 } from '../common';
 
 const store = createStore(reducer);
+window.store = store;
 
 const Counter = React.memo(() => {
   const count = useSubscription(React.useMemo(() => ({
