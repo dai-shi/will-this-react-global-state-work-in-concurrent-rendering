@@ -3,15 +3,16 @@
 const port = process.env.PORT || '8080';
 
 const names = [
-  'react-redux',
-  'reactive-react-redux',
-  'react-tracked',
-  'constate',
-  'zustand',
-  'react-sweet-state',
-  'storeon',
-  'react-hooks-global-state',
-  'use-context-selector',
+  // 'react-redux',
+  // 'reactive-react-redux',
+  // 'react-tracked',
+  // 'constate',
+  // 'unstated-next',
+  // 'zustand',
+  // 'react-sweet-state',
+  // 'storeon',
+  // 'react-hooks-global-state',
+  // 'use-context-selector',
   'mobx-react-lite',
   'use-subscription',
   'salvoravida-react-redux',
@@ -69,16 +70,11 @@ names.forEach((name) => {
         await expect(page.title()).resolves.not.toBe('failed');
       });
 
-      it('check 3: ability to interrupt render', async () => {
-        // check delays taken by clicking buttons in check1
-        // each render takes at least 20ms and there are 50 components,
-        // it triggers triple clicks, so 300ms on average.
-        const avg = delays.reduce((a, b) => a + b) / delays.length;
-        expect(avg).toBeLessThan(300);
-      });
-
-      it('check 4: proper update after interrupt', async () => {
-        // click both buttons to update local count during updating shared count
+    xit('check1: updated properly', async () => {
+      delays = [];
+      for (let loop = 0; loop < REPEAT; ++loop) {
+        const start = Date.now();
+        // click buttons three times
         await Promise.all([
           page.click('#remoteIncrement'),
           page.click('#remoteIncrement'),
@@ -96,25 +92,19 @@ names.forEach((name) => {
         }));
       });
 
-      afterAll(async () => {
-        await jestPuppeteer.resetBrowser();
-      });
+    xit('check2: no tearing during update', async () => {
+      // check if there's inconsistency duroing update
+      // see useCheckTearing() in src/common.js
+      await expect(page.title()).resolves.not.toBe('failed');
     });
 
-    describe('check with useTransaction', () => {
-      beforeAll(async () => {
-        await page.goto(`http://localhost:${port}/${name}/index.html`);
-        const title = await page.title();
-        if (title === 'failed') throw new Error('failed to reset title');
-        // wait until all counts become zero
-        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-            text: '0',
-            timeout: 5 * 1000,
-          });
-        }));
-        await sleep(1000); // to make it stable
-      });
+    xit('check3: ability to interrupt render', async () => {
+      // check delays taken by clicking buttons in check1
+      // each render takes at least 20ms and there are 50 components,
+      // it triggers triple clicks, so 300ms on average.
+      const avg = delays.reduce((a, b) => a + b) / delays.length;
+      expect(avg).toBeLessThan(300);
+    });
 
       it('check 5: updated properly with transition', async () => {
         // click a button with transition
