@@ -36,12 +36,12 @@
   "license": "MIT",
   "dependencies": {
     "constate": "^1.3.2",
-    "mobx": "^5.14.2",
+    "mobx": "^5.15.0",
     "mobx-react-lite": "^2.0.0-alpha.2",
     "react": "experimental",
     "react-dom": "experimental",
     "react-hooks-global-state": "^0.16.0",
-    "react-redux": "^7.1.1",
+    "react-redux": "^7.1.3",
     "react-sweet-state": "^1.1.1",
     "react-tracked": "^0.11.0",
     "reactive-react-redux": "^4.4.0",
@@ -50,17 +50,17 @@
     "unstated-next": "^1.1.0",
     "use-context-selector": "^1.0.1",
     "use-subscription": "^1.2.0",
-    "zustand": "^2.2.0"
+    "zustand": "^2.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -73,7 +73,7 @@
     "npm-run-all": "^4.1.5",
     "puppeteer": "^2.0.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "babel": {
