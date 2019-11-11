@@ -29,7 +29,7 @@ names.forEach((name) => {
     let delays;
 
     beforeAll(async () => {
-      await page.goto(`http://localhost:${port}/${name}`);
+      await page.goto(`http://localhost:${port}/${name}/index.html`);
       const title = await page.title();
       if (title === 'failed') throw new Error('failed to reset title');
       // wait until all counts become zero
