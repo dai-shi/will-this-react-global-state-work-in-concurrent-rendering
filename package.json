@@ -26,6 +26,7 @@
     "build:use-context-selector": "NAME=use-context-selector webpack",
     "build:mobx-react-lite": "NAME=mobx-react-lite webpack",
     "build:use-subscription": "NAME=use-subscription webpack",
+    "build:salvoravida-react-redux": "NAME=salvoravida-react-redux webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -35,6 +36,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@salvoravida/react-redux": "^7.1.6",
     "constate": "^1.3.2",
     "mobx": "^5.15.0",
     "mobx-react-lite": "^2.0.0-alpha.2",

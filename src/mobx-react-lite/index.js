@@ -25,7 +25,10 @@ const Main = () => {
   const store = useContext(Ctx);
   useCheckTearing();
   useRegisterIncrementDispatcher(React.useCallback(() => {
-    store.count += 1;
+    store.dummy += 1;
+    if (store.dummy % 2 === 1) {
+      store.count += 1;
+    }
   }, [store]));
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   return useObserver(() => {
