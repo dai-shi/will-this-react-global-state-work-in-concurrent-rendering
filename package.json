@@ -36,7 +36,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@salvoravida/react-redux": "^7.1.6",
+    "@salvoravida/react-redux": "^7.1.8",
     "constate": "^1.3.2",
     "mobx": "^5.15.0",
     "mobx-react-lite": "^2.0.0-alpha.2",
