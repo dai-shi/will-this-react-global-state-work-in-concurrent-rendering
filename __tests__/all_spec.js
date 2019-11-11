@@ -16,6 +16,7 @@ const names = [
   'mobx-react-lite',
   'use-subscription',
   'salvoravida-react-redux',
+  'lxsmnsyc-react-scoped-model',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
