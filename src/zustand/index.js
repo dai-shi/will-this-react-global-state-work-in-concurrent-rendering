@@ -8,6 +8,7 @@ import {
   reducer,
   ids,
   useCheckTearing,
+  shallowEqual,
 } from '../common';
 
 const [useStore] = create(set => ({
@@ -19,7 +20,7 @@ const Counter = React.memo(() => {
   const count = useStore(state => state.count);
   syncBlock();
   return <div className="count">{count}</div>;
-});
+}, shallowEqual);
 
 const Main = () => {
   const count = useStore(state => state.count);

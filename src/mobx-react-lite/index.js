@@ -7,6 +7,7 @@ import {
   initialState,
   ids,
   useCheckTearing,
+  shallowEqual,
 } from '../common';
 
 const Ctx = createContext();
@@ -18,7 +19,7 @@ const Counter = React.memo(() => {
     syncBlock();
     return <div className="count">{count}</div>;
   });
-});
+}, shallowEqual);
 
 const Main = () => {
   const store = useContext(Ctx);

@@ -45,3 +45,14 @@ export const useCheckTearing = () => {
     }
   });
 };
+
+// naive shallowEqual for React.memo
+// a hack until the issue is resolved
+// https://github.com/facebook/react/issues/17314
+// https://github.com/facebook/react/issues/17318
+export const shallowEqual = (prevProps, nextProps) => {
+  const prevKeys = Object.keys(prevProps);
+  const nextKeys = Object.keys(nextProps);
+  return prevKeys.every(key => prevProps[key] === nextProps[key])
+    && nextKeys.every(key => prevProps[key] === nextProps[key]);
+};

@@ -8,6 +8,7 @@ import {
   reducer,
   ids,
   useCheckTearing,
+  shallowEqual,
 } from '../common';
 
 const useValue = () => React.useReducer(reducer, initialState);
@@ -18,7 +19,7 @@ const Counter = React.memo(() => {
   const { count } = state;
   syncBlock();
   return <div className="count">{count}</div>;
-});
+}, shallowEqual);
 
 const Main = () => {
   const [state, dispatch] = C.useContainer();
