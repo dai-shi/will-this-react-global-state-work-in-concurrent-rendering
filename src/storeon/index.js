@@ -34,12 +34,12 @@ const Main = () => {
   }, [dispatch]));
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   const normalIncrement = () => {
-    dispatch({ type: 'increment' });
+    dispatch('dispatch', { type: 'increment' });
   };
   const [startTransition, isPending] = useTransition();
   const transitionIncrement = () => {
     startTransition(() => {
-      dispatch({ type: 'increment' });
+      dispatch('dispatch', { type: 'increment' });
     });
   };
   return (
