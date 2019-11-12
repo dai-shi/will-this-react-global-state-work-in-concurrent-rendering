@@ -47,6 +47,8 @@ export const useCheckTearing = () => {
     const counts = ids.map(i => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
+    // add count in <Main>
+    counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
     if (!counts.every(c => c === counts[0])) {
       console.error('count mismatch', counts);
       document.title = 'failed';
