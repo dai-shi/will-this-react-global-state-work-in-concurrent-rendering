@@ -75,11 +75,6 @@ in your browser, and click the button very quickly. (check the console log)
     ✓ check2: no tearing during update (1ms)
     ✓ check3: ability to interrupt render
     ✓ check4: proper update after interrupt (2187ms)
-  unstated-next
-    ✓ check1: updated properly (8231ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (2341ms)
   zustand
     ✓ check1: updated properly (3186ms)
     ✕ check2: no tearing during update (20ms)
@@ -154,14 +149,6 @@ in your browser, and click the button very quickly. (check the console log)
 
   </tr>
     <th>constate</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-  </tr>
-
-  </tr>
-    <th>unstated-next</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>

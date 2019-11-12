@@ -18,7 +18,6 @@
     "build:reactive-react-redux": "cross-env NAME=reactive-react-redux webpack",
     "build:react-tracked": "cross-env NAME=react-tracked webpack",
     "build:constate": "cross-env NAME=constate webpack",
-    "build:unstated-next": "cross-env NAME=unstated-next webpack",
     "build:zustand": "cross-env NAME=zustand webpack",
     "build:react-sweet-state": "cross-env NAME=react-sweet-state webpack",
     "build:storeon": "cross-env NAME=storeon webpack",
@@ -49,7 +48,6 @@
     "reactive-react-redux": "^4.4.0",
     "redux": "^4.0.4",
     "storeon": "^0.9.5",
-    "unstated-next": "^1.1.0",
     "use-context-selector": "^1.0.1",
     "use-subscription": "^1.2.0",
     "zustand": "^2.2.1"

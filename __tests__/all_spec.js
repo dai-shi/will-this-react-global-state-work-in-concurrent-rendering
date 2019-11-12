@@ -7,7 +7,6 @@ const names = [
   'reactive-react-redux',
   'react-tracked',
   'constate',
-  'unstated-next',
   'zustand',
   'react-sweet-state',
   'storeon',
