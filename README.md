@@ -56,60 +56,115 @@ in your browser, and click the button very quickly. (check the console log)
 
 ```
   react-redux
-    ✓ check1: updated properly (3185ms)
-    ✕ check2: no tearing during update (20ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1464ms)
+    check with events from outside
+      ✓ check 1: updated properly (3195ms)
+      ✕ check 2: no tearing during update (23ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1405ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (4506ms)
+      ✕ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (5439ms)
   reactive-react-redux
-    ✓ check1: updated properly (3147ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1157ms)
+    check with events from outside
+      ✓ check 1: updated properly (3112ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1399ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (4481ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (7423ms)
   react-tracked
-    ✓ check1: updated properly (8271ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1120ms)
+    check with events from outside
+      ✓ check 1: updated properly (8799ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2135ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (5534ms)
+      ✓ check 6: no tearing with transition (3ms)
+      ✓ check 7: proper branching with transition (3757ms)
   constate
-    ✓ check1: updated properly (8198ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (2187ms)
+    check with events from outside
+      ✓ check 1: updated properly (8167ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2304ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (6606ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✓ check 7: proper branching with transition (3472ms)
   zustand
-    ✓ check1: updated properly (3186ms)
-    ✕ check2: no tearing during update (20ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1459ms)
+    check with events from outside
+      ✓ check 1: updated properly (3191ms)
+      ✕ check 2: no tearing during update (22ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1426ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (4518ms)
+      ✕ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (5442ms)
   react-sweet-state
-    ✓ check1: updated properly (10614ms)
-    ✕ check2: no tearing during update (1ms)
-    ✕ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (1092ms)
+    check with events from outside
+      ✓ check 1: updated properly (10589ms)
+      ✕ check 2: no tearing during update (1ms)
+      ✕ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (2423ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (8610ms)
+      ✕ check 6: no tearing with transition (3ms)
+      ✕ check 7: proper branching with transition (7570ms)
   storeon
-    ✓ check1: updated properly (3144ms)
-    ✕ check2: no tearing during update (20ms)
-    ✓ check3: ability to interrupt render (1ms)
-    ✓ check4: proper update after interrupt (1239ms)
+    check with events from outside
+      ✓ check 1: updated properly (3220ms)
+      ✕ check 2: no tearing during update (21ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1489ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (4650ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (7426ms)
   react-hooks-global-state
-    ✓ check1: updated properly (8592ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (2207ms)
+    check with events from outside
+      ✓ check 1: updated properly (8848ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1320ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (5495ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (7326ms)
   use-context-selector
-    ✓ check1: updated properly (8601ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1100ms)
+    check with events from outside
+      ✓ check 1: updated properly (8333ms)
+      ✓ check 2: no tearing during update (3ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2155ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (5524ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (3499ms)
   mobx-react-lite
-    ✓ check1: updated properly (2855ms)
-    ✕ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (1156ms)
+    check with events from outside
+      ✓ check 1: updated properly (2934ms)
+      ✕ check 2: no tearing during update (2ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (1302ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (4647ms)
+      ✕ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (5585ms)
   use-subscription
-    ✓ check1: updated properly (8222ms)
-    ✓ check2: no tearing during update (1ms)
-    ✓ check3: ability to interrupt render
-    ✓ check4: proper update after interrupt (2270ms)
+    check with events from outside
+      ✓ check 1: updated properly (8602ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1281ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (6527ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (7425ms)
 ```
 
 </details>
@@ -117,10 +172,13 @@ in your browser, and click the button very quickly. (check the console log)
 <table>
   <tr>
     <th></th>
-    <th>check1: updated properly</th>
-    <th>check2: no tearing during update</th>
-    <th>check3: ability to interrupt render</th>
-    <th>check4: proper update after interrupt</th>
+    <th>check 1: updated properly</th>
+    <th>check 2: no tearing during update</th>
+    <th>check 3: ability to interrupt render</th>
+    <th>check 4: proper update after interrupt</th>
+    <th>check 5: updated properly with transition</th>
+    <th>check 6: no tearing with transition</th>
+    <th>check 7: proper branching with transition</th>
   </tr>
 
   <tr>
@@ -129,6 +187,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
   </tr>
 
   <tr>
@@ -137,10 +198,16 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
     <th>react-tracked</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -153,6 +220,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
   </tr>
 
   </tr>
@@ -161,6 +231,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
@@ -169,6 +242,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Fair (just a little bit slow)</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
@@ -177,6 +253,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
@@ -185,10 +264,16 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
-    <th>use-context-selector</th>
+    <th>use-context-selector (w/ useReducer)</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -201,6 +286,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Fail</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Fail</td>
   </tr>
 
   </tr>
@@ -209,6 +297,9 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
   </tr>
 </table>
 
