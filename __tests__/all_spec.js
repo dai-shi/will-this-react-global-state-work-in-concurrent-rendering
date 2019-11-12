@@ -135,7 +135,7 @@ names.forEach((name) => {
           });
         }));
         // check if pending is clear
-        await sleep(3000); // to make it stable
+        await sleep(1000); // to make it stable
         await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
       });
 
