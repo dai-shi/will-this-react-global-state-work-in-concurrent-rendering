@@ -39,7 +39,7 @@ const Main = () => {
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   return (
     <div>
-      <h1>Remote Count</h1>
+      <h1>Shared Count</h1>
       {ids.map(id => <Counter key={id} />)}
       <div className="count">{count}</div>
       <h1>Local Count</h1>

@@ -77,7 +77,7 @@ names.forEach((name) => {
     });
 
     it('check4: proper update after interrupt', async () => {
-      // click both buttons to update local count during updating remote count
+      // click both buttons to update local count during updating shared count
       await Promise.all([
         page.click('#remoteIncrement'),
         page.click('#remoteIncrement'),
