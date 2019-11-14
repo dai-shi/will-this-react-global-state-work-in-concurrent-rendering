@@ -1,39 +1,42 @@
 import React from 'react';
-import create from 'zustand';
+import { createStore } from 'redux';
+import { useSubscription } from 'use-subscription';
 
 import {
   syncBlock,
   useRegisterIncrementDispatcher,
-  initialState,
   reducer,
   ids,
   useCheckTearing,
 } from '../common';
 
-const [useStore] = create(set => ({
-  ...initialState,
-  dispatch: action => set(state => reducer(state, action)),
-}));
+const store = createStore(reducer);
+window.store = store;
 
-const Counter = React.memo(() => {
-  const count = useStore(state => state.count);
+const Counter = React.memo(({count}) => {
   syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
-  const count = useStore(state => state.count);
-  const dispatch = useStore(state => state.dispatch);
+  const [remoteCount, setRemoteCount] = React.useState(0);
+
   useCheckTearing();
+
   useRegisterIncrementDispatcher(React.useCallback(() => {
-    dispatch({ type: 'increment' });
-  }, [dispatch]));
+    // This will be handled outside of the React lifecycle.
+    // This has a side-effect that means the event will be processed at a lower
+    // priority than an event handler normally would, so React will still interrupt
+    // updates when you click
+    setRemoteCount(c => c + 1)
+  }, []));
+
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   return (
     <div>
       <h1>Remote Count</h1>
-      {ids.map(id => <Counter key={id} />)}
-      <div className="count">{count}</div>
+      {ids.map(id => <Counter key={id} count={remoteCount} />)}
+      <div className="count">{remoteCount}</div>
       <h1>Local Count</h1>
       {localCount}
       <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
