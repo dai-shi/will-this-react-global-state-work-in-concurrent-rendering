@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 const name = process.env.NAME || window.location.pathname.slice(1) || 'react-redux';
 document.title = name;
 
+console.log(name);
+
 // eslint-disable-next-line import/no-dynamic-require
 const App = require(`./${name}`).default;
 

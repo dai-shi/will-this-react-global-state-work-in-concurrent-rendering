@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useTransition } from 'react';
 import { useObserver, useLocalStore } from 'mobx-react-lite';
+import { configure, runInAction } from 'mobx';
 
 import {
   syncBlock,
@@ -9,9 +10,27 @@ import {
   useCheckTearing,
   shallowEqual,
 } from '../common';
+// import { flushSync } from 'react-dom';
+import * as ReactDOM from 'react-dom';
+console.log(ReactDOM);
 
+
+configure({
+  enforceActions: "always",
+  reactionScheduler: (fn) => {
+    // Doing this seems to prevent tearing, but means that any Mobx update
+    // is run at a blocking update level.
+    // ReactDOM.unstable_discreteUpdates( () => {
+      fn();
+    // })
+  }
+})
 const Ctx = createContext();
 
+// Due to a bug in React, we must ensure that the component doesn't become a `SimpleMemoComponent`
+// This is done by passing in a `compare` function, or can be done by setting a `.defaultProps` on
+// the component.
+// See: https://github.com/facebook/react/issues/17314
 const Counter = React.memo(() => {
   const store = useContext(Ctx);
   return useObserver(() => {
@@ -19,16 +38,17 @@ const Counter = React.memo(() => {
     syncBlock();
     return <div className="count">{count}</div>;
   });
-}, shallowEqual);
+});
+// Set the defaultProps, to prevent React from treating this as a `SimpleMemoComponent`
+Counter.defaultProps = { }
 
 const Main = () => {
   const store = useContext(Ctx);
   useCheckTearing();
   useRegisterIncrementDispatcher(React.useCallback(() => {
-    store.dummy += 1;
-    if (store.dummy % 2 === 1) {
+    runInAction(() => {
       store.count += 1;
-    }
+    });
   }, [store]));
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
   const normalIncrement = () => {
