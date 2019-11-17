@@ -23,20 +23,6 @@ export const initialState = {
   dummy: 0,
 };
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'increment':
-      return {
-        ...state,
-        dummy: state.dummy + 1,
-        // only update once in two
-        count: state.dummy % 2 === 1 ? state.count + 1 : state.count,
-      };
-    default:
-      return state;
-  }
-};
-
 // 50 child components
 export const ids = [...Array(50).keys()];
 

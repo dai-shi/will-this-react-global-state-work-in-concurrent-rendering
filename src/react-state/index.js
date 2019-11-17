@@ -33,15 +33,7 @@ const Main = () => {
   }, []));
 
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
-  const normalIncrement = () => {
-    dispatch({ type: 'increment' });
-  };
-  const [startTransition, isPending] = useTransition();
-  const transitionIncrement = () => {
-    startTransition(() => {
-      dispatch({ type: 'increment' });
-    });
-  };
+
   return (
     <div>
       <h1>Remote Count</h1>

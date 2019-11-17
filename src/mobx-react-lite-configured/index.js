@@ -20,9 +20,9 @@ configure({
   reactionScheduler: (fn) => {
     // Doing this seems to prevent tearing, but means that any Mobx update
     // is run at a blocking update level.
-    // ReactDOM.unstable_discreteUpdates( () => {
+    ReactDOM.unstable_discreteUpdates(() => {
       fn();
-    // })
+    })
   }
 })
 const Ctx = createContext();
@@ -50,9 +50,7 @@ const Main = () => {
       store.count += 1;
     });
   }, [store]));
-
-  const [localCount, increment] = React.useReducer(c => c + 1, 0);
-
+  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
 
   return useObserver(() => {
     const { count } = store;
@@ -63,7 +61,7 @@ const Main = () => {
         <div className="count">{count}</div>
         <h1>Local Count</h1>
         {localCount}
-        <button type="button" id="localIncrement" onClick={increment}>Increment local count</button>
+        <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
       </div>
     );
   });
