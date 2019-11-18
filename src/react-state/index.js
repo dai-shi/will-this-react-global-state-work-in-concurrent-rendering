@@ -8,7 +8,7 @@ import {
   reducer,
   initialState,
 } from '../common';
-console.log('react-state')
+
 const Ctx = createContext();
 
 const Counter = React.memo(() => {
