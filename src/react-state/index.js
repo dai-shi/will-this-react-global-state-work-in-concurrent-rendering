@@ -21,7 +21,6 @@ const Main = ({ dispatch }) => {
   const store = useContext(Ctx);
   useCheckTearing();
   useRegisterIncrementDispatcher(React.useCallback(() => {
-    console.log('here');
     dispatch({ type: 'increment' });
   }, [dispatch]));
   const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
