@@ -26,6 +26,8 @@
     "build:mobx-react-lite": "cross-env NAME=mobx-react-lite webpack",
     "build:use-subscription": "cross-env NAME=use-subscription webpack",
     "build:salvoravida-react-redux": "cross-env NAME=salvoravida-react-redux webpack",
+    "build:react-state": "cross-env NAME=react-state webpack",
+    "build:mobx-use-sub": "cross-env NAME=mobx-use-sub webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
