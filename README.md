@@ -155,6 +155,16 @@ in your browser, and click the button very quickly. (check the console log)
       ✓ check 5: updated properly with transition (2629ms)
       ✕ check 6: no tearing with transition (2ms)
       ✕ check 7: proper branching with transition (5583ms)
+  mobx-use-sub
+    check with events from outside
+      ✓ check 1: updated properly (8644ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (1145ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (3528ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (6437ms)
   use-subscription
     check with events from outside
       ✓ check 1: updated properly (8579ms)
@@ -165,6 +175,16 @@ in your browser, and click the button very quickly. (check the console log)
       ✓ check 5: updated properly with transition (4536ms)
       ✓ check 6: no tearing with transition (1ms)
       ✕ check 7: proper branching with transition (7426ms)
+  react-state
+    check with events from outside
+      ✓ check 1: updated properly (8118ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2141ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (3417ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (2435ms)
 ```
 
 </details>
@@ -300,6 +320,27 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Fail</td>
+  </tr>
+
+  <tr>
+    <th>Mobx (w/use-subscription)</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
+  </tr>
+  <tr>
+    <th>React State</th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
   </tr>
 </table>
 

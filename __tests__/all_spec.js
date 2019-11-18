@@ -13,8 +13,10 @@ const names = [
   'react-hooks-global-state',
   'use-context-selector',
   'mobx-react-lite',
+  'mobx-use-sub',
   'use-subscription',
   'salvoravida-react-redux',
+  'react-state',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
