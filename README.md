@@ -332,7 +332,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Fail</td>
   </tr>
-    <tr>
+  <tr>
     <th>React State</th>
     <td>Pass</td>
     <td>Pass</td>
