@@ -28,6 +28,7 @@
     "build:salvoravida-react-redux": "cross-env NAME=salvoravida-react-redux webpack",
     "build:react-state": "cross-env NAME=react-state webpack",
     "build:mobx-use-sub": "cross-env NAME=mobx-use-sub webpack",
+    "build:simplux": "cross-env NAME=simplux webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -38,6 +39,8 @@
   "license": "MIT",
   "dependencies": {
     "@salvoravida/react-redux": "^7.1.9",
+    "@simplux/core": "^0.10.2",
+    "@simplux/react": "^0.10.2",
     "constate": "^1.3.2",
     "mobx": "^5.15.0",
     "mobx-react-lite": "^2.0.0-alpha.2",

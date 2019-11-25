@@ -17,6 +17,7 @@ const names = [
   'use-subscription',
   'salvoravida-react-redux',
   'react-state',
+  'simplux',
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
