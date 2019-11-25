@@ -185,6 +185,16 @@ in your browser, and click the button very quickly. (check the console log)
       ✓ check 5: updated properly with transition (3417ms)
       ✓ check 6: no tearing with transition (1ms)
       ✓ check 7: proper branching with transition (2435ms)
+  simplux
+    check with events from outside
+      √ check 1: updated properly (8570ms)
+      √ check 2: no tearing during update (1ms)
+      √ check 3: ability to interrupt render
+      √ check 4: proper update after interrupt (2381ms)
+    check with useTransaction
+      √ check 5: updated properly with transition (3510ms)
+      √ check 6: no tearing with transition (2ms)
+      × check 7: proper branching with transition (5459ms)
 ```
 
 </details>
@@ -341,6 +351,17 @@ in your browser, and click the button very quickly. (check the console log)
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/MrWolfZ/simplux">simplux</a></th>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Pass</td>
+    <td>Fail</td>
   </tr>
 </table>
 
