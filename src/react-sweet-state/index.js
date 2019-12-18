@@ -14,7 +14,7 @@ import {
 const Store = createStore({
   initialState,
   actions: {
-    dispatch: action => ({ setState, getState }) => {
+    dispatch: (action) => ({ setState, getState }) => {
       setState(reducer(getState(), action));
     },
   },
@@ -36,7 +36,7 @@ const Main = () => {
   useRegisterIncrementDispatcher(React.useCallback(() => {
     actions.dispatch({ type: 'increment' });
   }, [actions]));
-  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
+  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
   const normalIncrement = () => {
     actions.dispatch({ type: 'increment' });
   };
@@ -52,7 +52,7 @@ const Main = () => {
       <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
       <span id="pending">{isPending && 'Pending...'}</span>
       <h1>Shared Count</h1>
-      {ids.map(id => <Counter key={id} />)}
+      {ids.map((id) => <Counter key={id} />)}
       <div className="count">{count}</div>
       <h1>Local Count</h1>
       {localCount}
@@ -62,9 +62,9 @@ const Main = () => {
 };
 
 const App = () => (
-  <React.Fragment>
+  <>
     <Main />
-  </React.Fragment>
+  </>
 );
 
 export default App;

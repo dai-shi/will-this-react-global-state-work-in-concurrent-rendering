@@ -44,12 +44,12 @@ export const ids = [...Array(50).keys()];
 // and if not, change the title
 export const useCheckTearing = () => {
   React.useEffect(() => {
-    const counts = ids.map(i => Number(
+    const counts = ids.map((i) => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
     // add count in <Main>
     counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
-    if (!counts.every(c => c === counts[0])) {
+    if (!counts.every((c) => c === counts[0])) {
       console.error('count mismatch', counts);
       document.title = 'failed';
     }
@@ -63,6 +63,6 @@ export const useCheckTearing = () => {
 export const shallowEqual = (prevProps, nextProps) => {
   const prevKeys = Object.keys(prevProps);
   const nextKeys = Object.keys(nextProps);
-  return prevKeys.every(key => prevProps[key] === nextProps[key])
-    && nextKeys.every(key => prevProps[key] === nextProps[key]);
+  return prevKeys.every((key) => prevProps[key] === nextProps[key])
+    && nextKeys.every((key) => prevProps[key] === nextProps[key]);
 };

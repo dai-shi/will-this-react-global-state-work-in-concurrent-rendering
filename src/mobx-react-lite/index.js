@@ -30,7 +30,7 @@ const Main = () => {
       store.count += 1;
     }
   }, [store]));
-  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
+  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
   const normalIncrement = () => {
     store.dummy += 1;
     if (store.dummy % 2 === 1) {
@@ -54,7 +54,7 @@ const Main = () => {
         <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
         <span id="pending">{isPending && 'Pending...'}</span>
         <h1>Shared Count</h1>
-        {ids.map(id => <Counter key={id} />)}
+        {ids.map((id) => <Counter key={id} />)}
         <div className="count">{count}</div>
         <h1>Local Count</h1>
         {localCount}

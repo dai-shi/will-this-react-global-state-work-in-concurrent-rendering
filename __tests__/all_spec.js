@@ -20,7 +20,7 @@ const names = [
   'simplux',
 ];
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
 const REPEAT = 5;
 const DOUBLE = 2; // two clicks to increment one
@@ -46,7 +46,7 @@ names.forEach((name) => {
 
       it('check 1: updated properly', async () => {
         delays = [];
-        for (let loop = 0; loop < REPEAT * DOUBLE; ++loop) {
+        for (let loop = 0; loop < REPEAT * DOUBLE; loop += 1) {
           const start = Date.now();
           // click buttons three times
           await Promise.all([
