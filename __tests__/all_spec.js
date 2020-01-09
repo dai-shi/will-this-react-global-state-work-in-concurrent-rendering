@@ -13,9 +13,8 @@ const names = [
   'react-hooks-global-state',
   'use-context-selector',
   'mobx-react-lite',
-  'mobx-use-sub',
   'use-subscription',
-  'salvoravida-react-redux',
+  'mobx-use-sub',
   'react-state',
   'simplux',
 ];
