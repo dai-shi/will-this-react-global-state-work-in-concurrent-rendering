@@ -1,4 +1,4 @@
-# Will this React global state work in concurrent mode?
+# Will this React global state work in Concurrent Mode?
 
 Checking tearing in React concurrent mode
 
