@@ -212,7 +212,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   <tr>
-    <th>react-redux</th>
+    <th><a href="https://react-redux.js.org">react-redux</a></th>
     <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
@@ -223,7 +223,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   <tr>
-    <th>reactive-react-redux</th>
+    <th><a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a></th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -234,7 +234,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>react-tracked</th>
+    <th><a href="https://react-tracked.js.org">react-tracked</a></th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -245,7 +245,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>constate</th>
+    <th><a href="https://github.com/diegohaz/constate">constate</a></th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -256,7 +256,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>zustand</th>
+    <th><a href="https://github.com/react-spring/zustand">zustand</a></th>
     <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
@@ -267,7 +267,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>react-sweet-state</th>
+    <th><a href="https://github.com/atlassian/react-sweet-state">react-sweet-state</a></th>
     <td>Pass</td>
     <td>Fail</td>
     <td>Fair (just a little bit slow)</td>
@@ -278,7 +278,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>storeon</th>
+    <th><a href="https://github.com/storeon/storeon">storeon</a></th>
     <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
@@ -289,7 +289,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>react-hooks-global-state</th>
+    <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a></th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -300,7 +300,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>use-context-selector (w/ useReducer)</th>
+    <th><a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -311,7 +311,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>mobx-react-lite</th>
+    <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
     <td>Pass</td>
     <td>Fail</td>
     <td>Pass</td>
@@ -322,7 +322,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th>use-subscription (w/ redux)</th>
+    <th><a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -333,7 +333,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   <tr>
-    <th>Mobx (w/use-subscription)</th>
+    <th><a href="https://mobx.js.org/">Mobx</a> (w/ use-subscription)</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
