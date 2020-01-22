@@ -5,17 +5,27 @@ import { ApolloProvider, useQuery, useMutation } from '@apollo/react-hooks';
 import {
   syncBlock,
   useRegisterIncrementDispatcher,
+  reducer,
   ids,
   useCheckTearing,
   shallowEqual,
+  initialState,
 } from '../common';
 
 const typeDefs = gql`
   type Query {
+    dummy: Int!
     count: Int!
   }
   type Mutation {
     increment: Bool!
+  }
+`;
+
+const STATE_QUERY = gql`
+  query StateQuery {
+    count @client
+    dummy @client
   }
 `;
 
@@ -33,10 +43,8 @@ const INCREMENT_MUTATION = gql`
 
 const cacheInstance = new InMemoryCache();
 cacheInstance.writeQuery({
-  query: COUNT_QUERY,
-  data: {
-    count: 0,
-  },
+  query: STATE_QUERY,
+  data: initialState,
 });
 
 const client = new ApolloClient({
@@ -54,14 +62,13 @@ const client = new ApolloClient({
       },
       Mutation: {
         increment(root, args, { cache }) {
-          const { count } = cache.readQuery({
-            query: COUNT_QUERY,
+          const currentState = cache.readQuery({
+            query: STATE_QUERY,
           });
+          console.log(currentState);
           cache.writeQuery({
-            query: COUNT_QUERY,
-            data: {
-              count: count + 1,
-            },
+            query: STATE_QUERY,
+            data: reducer(currentState, { type: 'increment' }),
           });
           return true;
         },
