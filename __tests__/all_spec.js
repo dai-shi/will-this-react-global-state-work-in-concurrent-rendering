@@ -17,6 +17,7 @@ const names = [
   'mobx-use-sub',
   'react-state',
   'simplux',
+  'react-apollo',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
