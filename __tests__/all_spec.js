@@ -3,21 +3,21 @@
 const port = process.env.PORT || '8080';
 
 const names = [
-  'react-redux',
-  'reactive-react-redux',
-  'react-tracked',
-  'constate',
-  'zustand',
-  'react-sweet-state',
-  'storeon',
-  'react-hooks-global-state',
-  'use-context-selector',
-  'mobx-react-lite',
+  // 'react-redux',
+  // 'reactive-react-redux',
+  // 'react-tracked',
+  // 'constate',
+  // 'zustand',
+  // 'react-sweet-state',
+  // 'storeon',
+  // 'react-hooks-global-state',
+  // 'use-context-selector',
+  // 'mobx-react-lite',
   'use-subscription',
-  'mobx-use-sub',
-  'react-state',
-  'simplux',
-  'react-apollo',
+  // 'mobx-use-sub',
+  // 'react-state',
+  // 'simplux',
+  // 'react-apollo',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -11,7 +11,7 @@ import {
   shallowEqual,
 } from '../common';
 
-const { GlobalStateProvider, dispatch, useGlobalState } = createStore(reducer, initialState);
+const { dispatch, useGlobalStateProvider, useGlobalState } = createStore(reducer, initialState);
 
 const Counter = React.memo(() => {
   const [count] = useGlobalState('count');
@@ -50,10 +50,9 @@ const Main = () => {
   );
 };
 
-const App = () => (
-  <GlobalStateProvider>
-    <Main />
-  </GlobalStateProvider>
-);
+const App = () => {
+  useGlobalStateProvider(); // required for state branching
+  return <Main />;
+};
 
 export default App;

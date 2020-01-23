@@ -57,154 +57,154 @@ in your browser, and click the button very quickly. (check the console log)
 ```
   react-redux
     check with events from outside
-      ✓ check 1: updated properly (3278ms)
-      ✕ check 2: no tearing during update (22ms)
-      ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1496ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (2536ms)
-      ✕ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5430ms)
-  reactive-react-redux
-    check with events from outside
-      ✓ check 1: updated properly (3182ms)
-      ✓ check 2: no tearing during update (2ms)
-      ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1361ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (2476ms)
-      ✓ check 6: no tearing with transition (5ms)
-      ✕ check 7: proper branching with transition (7427ms)
-  react-tracked
-    check with events from outside
-      ✓ check 1: updated properly (8379ms)
-      ✓ check 2: no tearing during update (1ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2462ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (3532ms)
-      ✓ check 6: no tearing with transition (1ms)
-      ✓ check 7: proper branching with transition (3716ms)
-  constate
-    check with events from outside
-      ✓ check 1: updated properly (8146ms)
-      ✓ check 2: no tearing during update
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1134ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (4692ms)
-      ✓ check 6: no tearing with transition (1ms)
-      ✓ check 7: proper branching with transition (4512ms)
-  zustand
-    check with events from outside
-      ✓ check 1: updated properly (3257ms)
-      ✕ check 2: no tearing during update (24ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1465ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (2520ms)
-      ✕ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5425ms)
-  react-sweet-state
-    check with events from outside
-      ✓ check 1: updated properly (11066ms)
-      ✕ check 2: no tearing during update (1ms)
-      ✕ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (2426ms)
-    check with useTransaction
-      ✕ check 5: updated properly with transition (3980ms)
-      ✕ check 6: no tearing with transition (40ms)
-      ✕ check 7: proper branching with transition (8695ms)
-  storeon
-    check with events from outside
-      ✓ check 1: updated properly (3237ms)
+      ✓ check 1: updated properly (3263ms)
       ✕ check 2: no tearing during update (21ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1476ms)
+      ✓ check 4: proper update after interrupt (1505ms)
     check with useTransaction
-      ✕ check 5: updated properly with transition (2646ms)
-      ✓ check 6: no tearing with transition (19ms)
-      ✕ check 7: proper branching with transition (7421ms)
-  react-hooks-global-state
+      ✓ check 5: updated properly with transition (2606ms)
+      ✕ check 6: no tearing with transition (4ms)
+      ✕ check 7: proper branching with transition (5395ms)
+  reactive-react-redux
     check with events from outside
-      ✓ check 1: updated properly (8373ms)
+      ✓ check 1: updated properly (3315ms)
+      ✓ check 2: no tearing during update (2ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1316ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (2526ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (7468ms)
+  react-tracked
+    check with events from outside
+      ✓ check 1: updated properly (8546ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (2447ms)
+      ✓ check 4: proper update after interrupt (1181ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (3531ms)
-      ✓ check 6: no tearing with transition (4ms)
-      ✓ check 7: proper branching with transition (3712ms)
-  use-context-selector
+      ✓ check 5: updated properly with transition (3601ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✓ check 7: proper branching with transition (2581ms)
+  constate
     check with events from outside
-      ✓ check 1: updated properly (8383ms)
+      ✓ check 1: updated properly (8339ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1349ms)
+      ✓ check 4: proper update after interrupt (1253ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (3551ms)
+      ✓ check 5: updated properly with transition (4739ms)
       ✓ check 6: no tearing with transition (1ms)
-      ✓ check 7: proper branching with transition (3617ms)
+      ✓ check 7: proper branching with transition (3569ms)
+  zustand
+    check with events from outside
+      ✓ check 1: updated properly (3192ms)
+      ✕ check 2: no tearing during update (18ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1441ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (2591ms)
+      ✕ check 6: no tearing with transition (2ms)
+      ✕ check 7: proper branching with transition (5406ms)
+  react-sweet-state
+    check with events from outside
+      ✓ check 1: updated properly (11190ms)
+      ✕ check 2: no tearing during update (2ms)
+      ✕ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (1281ms)
+    check with useTransaction
+      ✕ check 5: updated properly with transition (4359ms)
+      ✕ check 6: no tearing with transition (40ms)
+      ✕ check 7: proper branching with transition (7762ms)
+  storeon
+    check with events from outside
+      ✓ check 1: updated properly (3502ms)
+      ✕ check 2: no tearing during update (21ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1383ms)
+    check with useTransaction
+      ✕ check 5: updated properly with transition (2708ms)
+      ✓ check 6: no tearing with transition (20ms)
+      ✕ check 7: proper branching with transition (7453ms)
+  react-hooks-global-state
+    check with events from outside
+      ✓ check 1: updated properly (8540ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2379ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (3635ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✓ check 7: proper branching with transition (4485ms)
+  use-context-selector
+    check with events from outside
+      ✓ check 1: updated properly (8562ms)
+      ✓ check 2: no tearing during update (4ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2383ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (3547ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (3569ms)
   mobx-react-lite
     check with events from outside
-      ✓ check 1: updated properly (2885ms)
-      ✕ check 2: no tearing during update (1ms)
-      ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1337ms)
+      ✓ check 1: updated properly (2922ms)
+      ✕ check 2: no tearing during update (2ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1323ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (2632ms)
+      ✓ check 5: updated properly with transition (2688ms)
       ✕ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5565ms)
+      ✕ check 7: proper branching with transition (5554ms)
   use-subscription
     check with events from outside
-      ✓ check 1: updated properly (8657ms)
-      ✓ check 2: no tearing during update (1ms)
+      ✓ check 1: updated properly (8588ms)
+      ✓ check 2: no tearing during update (2ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2369ms)
+    check with useTransaction
+      ✓ check 5: updated properly with transition (3550ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (7422ms)
+  mobx-use-sub
+    check with events from outside
+      ✓ check 1: updated properly (8221ms)
+      ✓ check 2: no tearing during update (2ms)
       ✓ check 3: ability to interrupt render
       ✓ check 4: proper update after interrupt (2378ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (4595ms)
-      ✓ check 6: no tearing with transition (1ms)
-      ✕ check 7: proper branching with transition (7426ms)
-  mobx-use-sub
-    check with events from outside
-      ✓ check 1: updated properly (8387ms)
-      ✓ check 2: no tearing during update (1ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2444ms)
-    check with useTransaction
-      ✓ check 5: updated properly with transition (3646ms)
+      ✓ check 5: updated properly with transition (3658ms)
       ✓ check 6: no tearing with transition (2ms)
       ✕ check 7: proper branching with transition (6440ms)
   react-state
     check with events from outside
-      ✓ check 1: updated properly (8404ms)
+      ✓ check 1: updated properly (8351ms)
       ✓ check 2: no tearing during update (2ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2273ms)
+      ✓ check 4: proper update after interrupt (2199ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (3570ms)
-      ✓ check 6: no tearing with transition (4ms)
-      ✓ check 7: proper branching with transition (2522ms)
+      ✓ check 5: updated properly with transition (3516ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✓ check 7: proper branching with transition (3588ms)
   simplux
     check with events from outside
-      ✓ check 1: updated properly (8445ms)
+      ✓ check 1: updated properly (8820ms)
       ✓ check 2: no tearing during update (1ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1139ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (2562ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (3561ms)
-      ✓ check 6: no tearing with transition (6ms)
-      ✕ check 7: proper branching with transition (5404ms)
+      ✓ check 5: updated properly with transition (3500ms)
+      ✓ check 6: no tearing with transition (3ms)
+      ✕ check 7: proper branching with transition (5424ms)
   react-apollo
     check with events from outside
-      ✓ check 1: updated properly (3380ms)
-      ✕ check 2: no tearing during update (21ms)
+      ✓ check 1: updated properly (3480ms)
+      ✕ check 2: no tearing during update (20ms)
       ✓ check 3: ability to interrupt render
-      ✕ check 4: proper update after interrupt (5189ms)
+      ✕ check 4: proper update after interrupt (5187ms)
     check with useTransaction
-      ✓ check 5: updated properly with transition (3528ms)
-      ✕ check 6: no tearing with transition (6ms)
-      ✕ check 7: proper branching with transition (5455ms)
+      ✓ check 5: updated properly with transition (3537ms)
+      ✕ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (5445ms)
 ```
 
 </details>
