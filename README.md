@@ -51,16 +51,16 @@ in your browser, and click the button very quickly. (check the console log)
 
 ## Check scenario
 
-- Normal tearing in Concurrent Mode (check 1-4)
+- Normal tearing in Concurrent Mode
   - check 1: updated properly (3187ms)
   - check 2: no tearing during update (23ms)
   - check 3: ability to interrupt render
   - check 4: proper update after interrupt (1481ms)
-- Tearing and state branching with useTransition (check 5-7)
+- Tearing and state branching with useTransition
   - check 5: updated properly with transition (2530ms)
   - check 6: no tearing with transition (2ms)
   - check 7: proper branching with transition (5444ms)
-- Tearing with intentional update in render (check 8-9)
+- Tearing with intentional update in render
   - check 8: updated properly with auto increment (2972ms)
   - check 9: no tearing with auto increment (2ms)
 
