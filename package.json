@@ -9,7 +9,7 @@
     "url": "https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode.git"
   },
   "scripts": {
-    "test": "npm run eslint",
+    "test": "run-s eslint",
     "eslint": "eslint --ignore-pattern dist .",
     "jest": "cross-env PORT=8080 BABEL_ENV=jest jest",
     "dev-server": "cross-env PORT=8080 webpack-dev-server",

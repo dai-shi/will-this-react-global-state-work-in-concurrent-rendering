@@ -105,7 +105,7 @@ names.forEach((name) => {
       });
     });
 
-    describe('check with useTransaction', () => {
+    describe('check with useTransition', () => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         const title = await page.title();
