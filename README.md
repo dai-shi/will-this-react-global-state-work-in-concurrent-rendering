@@ -284,223 +284,223 @@ in your browser, and click the button very quickly. (check the console log)
 
 <table>
   <tr>
-    <th></th>
-    <th>check 1</th>
-    <th>check 2</th>
-    <th>check 3</th>
-    <th>check 4</th>
-    <th>check 5</th>
-    <th>check 6</th>
-    <th>check 7</th>
-    <th>check 8</th>
-    <th>check 9</th>
+    <th>Check</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+    <th>6</th>
+    <th>7</th>
+    <th>8</th>
+    <th>9</th>
   </tr>
 
   <tr>
     <th><a href="https://react-redux.js.org">react-redux</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   <tr>
     <th><a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a></th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   </tr>
     <th><a href="https://react-tracked.js.org">react-tracked</a></th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/diegohaz/constate">constate</a></th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/react-spring/zustand">zustand</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/atlassian/react-sweet-state">react-sweet-state</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail (slow pending)</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/storeon/storeon">storeon</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail (slow pending)</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a></th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a> (w/ useGlobalStateProvider)</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
     <th><a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   <tr>
     <th><a href="https://mobx.js.org/">Mobx</a> (w/ use-subscription)</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
   <tr>
     <th>React State</th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 
   <tr>
     <th><a href="https://github.com/MrWolfZ/simplux">simplux</a></th>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:x:</td>
   </tr>
 
   <tr>
     <th><a href="https://github.com/apollographql/react-apollo">react-apollo</a></th>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Pass</td>
-    <td>Fail</td>
-    <td>Fail</td>
-    <td>Pass</td>
-    <td>Fail</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 </table>
 
