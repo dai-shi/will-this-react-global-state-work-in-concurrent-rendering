@@ -191,5 +191,45 @@ names.forEach((name) => {
         await jestPuppeteer.resetBrowser();
       });
     });
+
+    describe('check with intensive auto increment', () => {
+      beforeAll(async () => {
+        await page.goto(`http://localhost:${port}/${name}/index.html`);
+        const title = await page.title();
+        if (title === 'failed') throw new Error('failed to reset title');
+        // wait until all counts become zero
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: '0',
+            timeout: 5 * 1000,
+          });
+        }));
+        await page.evaluate((count) => {
+          document.getElementById('autoIncrementCount').value = count;
+        }, REPEAT * DOUBLE);
+      });
+
+      it('check 8: updated properly with auto increment', async () => {
+        await page.click('#remoteIncrement');
+        await page.click('#remoteIncrement');
+        // check if all counts become REPEAT + 1
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${REPEAT + 1}`,
+            timeout: 10 * 1000,
+          });
+        }));
+      });
+
+      it('check 9: no tearing with auto increment', async () => {
+        // check if there's inconsistency during update
+        // see useCheckTearing() in src/common.js
+        await expect(page.title()).resolves.not.toBe('failed');
+      });
+
+      afterAll(async () => {
+        await jestPuppeteer.resetBrowser();
+      });
+    });
   });
 });

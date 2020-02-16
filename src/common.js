@@ -1,7 +1,19 @@
 import React from 'react';
 
+let skipCount = 0;
+
 // block for about 20 ms
 export const syncBlock = () => {
+  skipCount += 1;
+  if (skipCount % 10 === 0) {
+    // just one tenth, auto click the increment button
+    const count = document.getElementById('autoIncrementCount').value;
+    if (count > 0) {
+      document.getElementById('autoIncrementCount').value = count - 1;
+      document.getElementById('remoteIncrement').click();
+      return;
+    }
+  }
   const start = Date.now();
   while (Date.now() - start < 20) {
     // empty
