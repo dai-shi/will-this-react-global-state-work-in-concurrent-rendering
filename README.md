@@ -54,7 +54,7 @@ in your browser, and click the button very quickly. (check the console log)
 - Normal tearing in Concurrent Mode (check 1-4)
 - Tearing and state branching with useTransition (check 5-7)
 
-## Result
+## Results
 
 <details>
 <summary>Raw Output</summary>
@@ -325,7 +325,7 @@ in your browser, and click the button very quickly. (check the console log)
   </tr>
 
   </tr>
-    <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a> with useGlobalStateProvider</th>
+    <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a> (w/ useGlobalStateProvider)</th>
     <td>Pass</td>
     <td>Pass</td>
     <td>Pass</td>
@@ -416,7 +416,7 @@ in your browser, and click the button very quickly. (check the console log)
 
 Tearing may not be an issue depending on app requirements.
 The test is done in a very limited way.
-The result might have unexpected errors.
+The results might contain unexpected errors.
 
 ## If you are interested
 
