@@ -15,6 +15,7 @@
     "dev-server": "cross-env PORT=8080 webpack-dev-server",
     "http-server": "cross-env PORT=8080 http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
+    "build:redux-use-mutable-source": "cross-env NAME=redux-use-mutable-source webpack",
     "build:reactive-react-redux": "cross-env NAME=reactive-react-redux webpack",
     "build:react-tracked": "cross-env NAME=react-tracked webpack",
     "build:constate": "cross-env NAME=constate webpack",
