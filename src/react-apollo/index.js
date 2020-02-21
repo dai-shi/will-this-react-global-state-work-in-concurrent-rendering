@@ -8,7 +8,6 @@ import {
   reducer,
   ids,
   useCheckTearing,
-  shallowEqual,
   initialState,
 } from '../common';
 
@@ -81,7 +80,7 @@ const Counter = React.memo(() => {
   const { loading, error, data } = useQuery(COUNT_QUERY, { fetchPolicy: 'cache-only' });
   syncBlock();
   return <div className="count">{(!loading && !error && data) ? data.count : 0}</div>;
-}, shallowEqual);
+});
 
 const Main = () => {
   const [increment] = useMutation(INCREMENT_MUTATION);

@@ -8,7 +8,6 @@ import {
   reducer,
   ids,
   useCheckTearing,
-  shallowEqual,
 } from '../common';
 
 const context = createContext(null);
@@ -26,7 +25,7 @@ const Counter = React.memo(() => {
   const count = useContextSelector(context, (v) => v[0].count);
   syncBlock();
   return <div className="count">{count}</div>;
-}, shallowEqual);
+});
 
 const Main = () => {
   const dispatch = useContextSelector(context, (v) => v[1]);

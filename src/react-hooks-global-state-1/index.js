@@ -8,7 +8,6 @@ import {
   reducer,
   ids,
   useCheckTearing,
-  shallowEqual,
 } from '../common';
 
 const { dispatch, useGlobalState } = createStore(reducer, initialState);
@@ -17,7 +16,7 @@ const Counter = React.memo(() => {
   const [count] = useGlobalState('count');
   syncBlock();
   return <div className="count">{count}</div>;
-}, shallowEqual);
+});
 
 const App = () => {
   const [count] = useGlobalState('count');

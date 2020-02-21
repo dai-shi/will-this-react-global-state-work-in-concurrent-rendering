@@ -9,7 +9,6 @@ import {
   initialState,
   ids,
   useCheckTearing,
-  shallowEqual,
 } from '../common';
 
 function useCount(store) {
@@ -26,7 +25,7 @@ const Counter = React.memo(() => {
   const count = useCount(store);
   syncBlock();
   return <div className="count">{count}</div>;
-}, shallowEqual);
+});
 
 const Main = () => {
   const store = useContext(Ctx);

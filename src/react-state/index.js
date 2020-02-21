@@ -4,7 +4,6 @@ import {
   useRegisterIncrementDispatcher,
   ids,
   useCheckTearing,
-  shallowEqual,
   reducer,
   initialState,
 } from '../common';
@@ -15,7 +14,7 @@ const Counter = React.memo(() => {
   const store = useContext(Ctx);
   syncBlock();
   return <div className="count">{store}</div>;
-}, shallowEqual);
+});
 
 const Main = ({ dispatch }) => {
   const store = useContext(Ctx);

@@ -7,7 +7,6 @@ import {
   useRegisterIncrementDispatcher,
   ids,
   useCheckTearing,
-  shallowEqual,
   initialState,
 } from '../common';
 
@@ -33,7 +32,7 @@ const Counter = React.memo(() => {
   const count = useSimplux(counter.value);
   syncBlock();
   return <div className="count">{count}</div>;
-}, shallowEqual);
+});
 
 const Main = () => {
   const count = useSimplux(counter.value);
