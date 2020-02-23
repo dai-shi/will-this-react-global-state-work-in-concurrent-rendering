@@ -3,15 +3,12 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
-  useState,
   createMutableSource,
   useMutableSource,
 } from 'react';
-import { unstable_batchedUpdates as batchedUpdates } from 'react-dom';
 import { createStore } from 'redux';
 
 import {
@@ -23,34 +20,10 @@ import {
 } from '../common';
 
 const StoreContext = createContext();
-const subscribe = ({ subscribersRef }, callback) => {
-  const subscribers = subscribersRef.current;
-  subscribers.push(callback);
-  return () => {
-    const index = subscribers.indexOf(callback);
-    subscribers.splice(index, 1);
-  };
-};
+const subscribe = (store, callback) => store.subscribe(callback);
 const Provider = ({ store, children }) => {
-  const [storeState, setStoreState] = useState(store.getState());
-  useEffect(() => {
-    const callback = () => {
-      setStoreState(store.getState());
-    };
-    const unsubscribe = store.subscribe(callback);
-    callback();
-    return unsubscribe;
-  }, [store]);
-  const storeStateRef = useRef(storeState);
-  const subscribersRef = useRef([]);
-  useEffect(() => {
-    batchedUpdates(() => {
-      storeStateRef.current = storeState;
-      subscribersRef.current.forEach((callback) => callback());
-    });
-  });
   const contextValue = useMemo(() => ({
-    source: createMutableSource({ storeStateRef, subscribersRef }, () => storeStateRef.current),
+    source: createMutableSource(store, () => store.getState()),
     dispatch: store.dispatch,
   }), [store]);
   return (
@@ -65,11 +38,8 @@ const useSelector = (selector) => {
   useLayoutEffect(() => {
     selectorRef.current = selector;
   });
+  const getSnapshot = useCallback((store) => selectorRef.current(store.getState()), []);
   const { source } = useContext(StoreContext);
-  const getSnapshot = useCallback(
-    ({ storeStateRef }) => selectorRef.current(storeStateRef.current),
-    [],
-  );
   return useMutableSource(source, getSnapshot, subscribe);
 };
 
