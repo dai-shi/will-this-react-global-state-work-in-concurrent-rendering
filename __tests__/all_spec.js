@@ -13,6 +13,7 @@ const names = [
   'react-hooks-global-state-1',
   'react-hooks-global-state-2',
   'use-context-selector',
+  'use-enhanced-reducer',
   'mobx-react-lite',
   'use-subscription',
   'mobx-use-sub',
