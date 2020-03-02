@@ -200,6 +200,19 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (3078ms)
       ✓ check 9: no tearing with auto increment (2ms)
+  use-enhanced-reducer
+    check with events from outside
+      √ check 1: updated properly (8624ms)
+      √ check 2: no tearing during update (1ms)
+      √ check 3: ability to interrupt render (1ms)
+      √ check 4: proper update after interrupt (2388ms)
+    check with useTransition
+      √ check 5: updated properly with transition (4650ms)
+      √ check 6: no tearing with transition
+      √ check 7: proper branching with transition (3407ms)
+    check with intensive auto increment
+      √ check 8: updated properly with auto increment (4011ms)
+      √ check 9: no tearing with auto increment (1ms)
   mobx-react-lite
     check with events from outside
       ✓ check 1: updated properly (2815ms)
@@ -426,6 +439,19 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
   </tr>
 
+  <tr>
+    <th><a href="https://github.com/coinbase/rest-hooks/tree/master/packages/use-enhanced-reducer">@rest-hooks/use-enhanced-reducer</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+  </tr>
+  
   </tr>
     <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
     <td>:white_check_mark:</td>

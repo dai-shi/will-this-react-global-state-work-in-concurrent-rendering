@@ -1033,6 +1033,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@rest-hooks/use-enhanced-reducer@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rest-hooks/use-enhanced-reducer/-/use-enhanced-reducer-1.0.1.tgz#ad32e8466412562ad3af5312a078787dcfe8398c"
+  integrity sha512-0VCsp8bbsOqq7aRVVnceGa/tndzfaqN2tftYsedL8ZwqShMeB9czrgJn1yGfKmj64aOe+uDmdvf2WHJEu65hjQ==
+
 "@salvoravida/react-redux@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@salvoravida/react-redux/-/react-redux-7.2.3.tgz#5e24a977cc94e28f0a1e2d291668657498d48316"
