@@ -72,225 +72,225 @@ in your browser, and click the button very quickly. (check the console log)
 ```
   react-redux
     check with events from outside
-      ✓ check 1: updated properly (3216ms)
-      ✕ check 2: no tearing during update (22ms)
+      ✓ check 1: updated properly (3996ms)
+      ✕ check 2: no tearing during update (25ms)
       ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1448ms)
+      ✓ check 4: proper update after interrupt (1614ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (2525ms)
-      ✕ check 6: no tearing with transition (2ms)
+      ✓ check 5: updated properly with transition (3879ms)
+      ✕ check 6: no tearing with transition (1ms)
       ✕ check 7: proper branching with transition (5444ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2986ms)
-      ✕ check 9: no tearing with auto increment (2ms)
+      ✓ check 8: updated properly with auto increment (3524ms)
+      ✕ check 9: no tearing with auto increment (3ms)
   reactive-react-redux
     check with events from outside
-      ✓ check 1: updated properly (3229ms)
+      ✓ check 1: updated properly (8417ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1301ms)
+      ✓ check 4: proper update after interrupt (1459ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (2473ms)
+      ✓ check 5: updated properly with transition (5018ms)
       ✓ check 6: no tearing with transition (1ms)
-      ✕ check 7: proper branching with transition (7421ms)
+      ✕ check 7: proper branching with transition (7584ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2993ms)
-      ✓ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (3608ms)
+      ✕ check 9: no tearing with auto increment (2ms)
   react-tracked
     check with events from outside
-      ✓ check 1: updated properly (8264ms)
-      ✓ check 2: no tearing during update
+      ✓ check 1: updated properly (9101ms)
+      ✓ check 2: no tearing during update (4ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1158ms)
+      ✓ check 4: proper update after interrupt (3084ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3504ms)
-      ✓ check 6: no tearing with transition (2ms)
-      ✓ check 7: proper branching with transition (3650ms)
+      ✓ check 5: updated properly with transition (6384ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (5165ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2955ms)
-      ✓ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (4773ms)
+      ✕ check 9: no tearing with auto increment (6ms)
   constate
     check with events from outside
-      ✓ check 1: updated properly (8577ms)
+      ✓ check 1: updated properly (8657ms)
       ✓ check 2: no tearing during update (1ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2378ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (2443ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (4679ms)
-      ✓ check 6: no tearing with transition (1ms)
-      ✓ check 7: proper branching with transition (4485ms)
+      ✓ check 5: updated properly with transition (6190ms)
+      ✓ check 6: no tearing with transition (2ms)
+      ✓ check 7: proper branching with transition (4950ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3975ms)
-      ✓ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (4650ms)
+      ✓ check 9: no tearing with auto increment (2ms)
   zustand
     check with events from outside
-      ✓ check 1: updated properly (3188ms)
-      ✕ check 2: no tearing during update (21ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1462ms)
+      ✓ check 1: updated properly (3809ms)
+      ✕ check 2: no tearing during update (23ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (1660ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (2555ms)
+      ✓ check 5: updated properly with transition (3749ms)
       ✕ check 6: no tearing with transition (1ms)
-      ✕ check 7: proper branching with transition (5438ms)
+      ✕ check 7: proper branching with transition (5443ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2966ms)
+      ✓ check 8: updated properly with auto increment (3575ms)
       ✕ check 9: no tearing with auto increment (1ms)
   react-sweet-state
     check with events from outside
-      ✓ check 1: updated properly (4194ms)
-      ✕ check 2: no tearing during update (20ms)
+      ✓ check 1: updated properly (3891ms)
+      ✕ check 2: no tearing during update (31ms)
       ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1422ms)
+      ✓ check 4: proper update after interrupt (1631ms)
     check with useTransition
-      ✕ check 5: updated properly with transition (2668ms)
-      ✓ check 6: no tearing with transition (16ms)
-      ✕ check 7: proper branching with transition (7400ms)
+      ✕ check 5: updated properly with transition (3907ms)
+      ✓ check 6: no tearing with transition (18ms)
+      ✕ check 7: proper branching with transition (7590ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (4009ms)
-      ✕ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (4899ms)
+      ✕ check 9: no tearing with auto increment (2ms)
   storeon
     check with events from outside
-      ✓ check 1: updated properly (3182ms)
-      ✕ check 2: no tearing during update (17ms)
+      ✓ check 1: updated properly (4386ms)
+      ✕ check 2: no tearing during update (28ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1472ms)
+      ✓ check 4: proper update after interrupt (1423ms)
     check with useTransition
-      ✕ check 5: updated properly with transition (2667ms)
-      ✓ check 6: no tearing with transition (20ms)
-      ✕ check 7: proper branching with transition (7416ms)
+      ✕ check 5: updated properly with transition (3850ms)
+      ✓ check 6: no tearing with transition (22ms)
+      ✕ check 7: proper branching with transition (8655ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3020ms)
-      ✕ check 9: no tearing with auto increment (20ms)
+      ✓ check 8: updated properly with auto increment (3417ms)
+      ✕ check 9: no tearing with auto increment (30ms)
   react-hooks-global-state-1
     check with events from outside
-      ✓ check 1: updated properly (8846ms)
+      ✓ check 1: updated properly (8356ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1071ms)
+      ✓ check 4: proper update after interrupt (1393ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3511ms)
-      ✓ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5439ms)
+      ✓ check 5: updated properly with transition (4785ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✕ check 7: proper branching with transition (5423ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2959ms)
+      ✓ check 8: updated properly with auto increment (3502ms)
       ✕ check 9: no tearing with auto increment (1ms)
   react-hooks-global-state-2
     check with events from outside
-      ✓ check 1: updated properly (8358ms)
+      ✓ check 1: updated properly (9246ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2325ms)
+      ✓ check 4: proper update after interrupt (2693ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3534ms)
-      ✓ check 6: no tearing with transition (2ms)
-      ✓ check 7: proper branching with transition (3456ms)
+      ✓ check 5: updated properly with transition (5012ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (3952ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2963ms)
+      ✓ check 8: updated properly with auto increment (3597ms)
       ✓ check 9: no tearing with auto increment (1ms)
   use-context-selector
     check with events from outside
-      ✓ check 1: updated properly (8636ms)
+      ✓ check 1: updated properly (8923ms)
       ✓ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2142ms)
+      ✓ check 4: proper update after interrupt (2833ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3549ms)
+      ✓ check 5: updated properly with transition (4804ms)
       ✓ check 6: no tearing with transition (1ms)
-      ✓ check 7: proper branching with transition (2479ms)
+      ✓ check 7: proper branching with transition (4066ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3078ms)
-      ✓ check 9: no tearing with auto increment (2ms)
+      ✓ check 8: updated properly with auto increment (3338ms)
+      ✓ check 9: no tearing with auto increment (1ms)
   use-enhanced-reducer
     check with events from outside
-      √ check 1: updated properly (8624ms)
-      √ check 2: no tearing during update (1ms)
-      √ check 3: ability to interrupt render (1ms)
-      √ check 4: proper update after interrupt (2388ms)
+      ✓ check 1: updated properly (9443ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2517ms)
     check with useTransition
-      √ check 5: updated properly with transition (4650ms)
-      √ check 6: no tearing with transition
-      √ check 7: proper branching with transition (3407ms)
+      ✓ check 5: updated properly with transition (6100ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (3738ms)
     check with intensive auto increment
-      √ check 8: updated properly with auto increment (4011ms)
-      √ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (4866ms)
+      ✓ check 9: no tearing with auto increment
   mobx-react-lite
     check with events from outside
-      ✓ check 1: updated properly (2815ms)
+      ✓ check 1: updated properly (3332ms)
       ✕ check 2: no tearing during update (1ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1310ms)
+      ✓ check 4: proper update after interrupt (1504ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (2626ms)
+      ✓ check 5: updated properly with transition (4142ms)
       ✕ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5582ms)
+      ✕ check 7: proper branching with transition (5546ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2785ms)
+      ✓ check 8: updated properly with auto increment (3216ms)
       ✕ check 9: no tearing with auto increment (1ms)
   use-subscription
     check with events from outside
-      ✓ check 1: updated properly (8713ms)
-      ✓ check 2: no tearing during update (2ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2137ms)
+      ✓ check 1: updated properly (9408ms)
+      ✓ check 2: no tearing during update (1ms)
+      ✓ check 3: ability to interrupt render (1ms)
+      ✓ check 4: proper update after interrupt (1208ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (4571ms)
+      ✓ check 5: updated properly with transition (4778ms)
       ✓ check 6: no tearing with transition (1ms)
-      ✕ check 7: proper branching with transition (7434ms)
+      ✕ check 7: proper branching with transition (7711ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2993ms)
-      ✕ check 9: no tearing with auto increment (3ms)
+      ✓ check 8: updated properly with auto increment (3424ms)
+      ✕ check 9: no tearing with auto increment (1ms)
   mobx-use-sub
     check with events from outside
-      ✓ check 1: updated properly (8233ms)
-      ✓ check 2: no tearing during update (1ms)
+      ✓ check 1: updated properly (8644ms)
+      ✓ check 2: no tearing during update
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2350ms)
+      ✓ check 4: proper update after interrupt (2626ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3612ms)
+      ✓ check 5: updated properly with transition (5054ms)
       ✓ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (6448ms)
+      ✕ check 7: proper branching with transition (6678ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2739ms)
-      ✕ check 9: no tearing with auto increment (1ms)
+      ✓ check 8: updated properly with auto increment (3189ms)
+      ✕ check 9: no tearing with auto increment (2ms)
   react-state
     check with events from outside
-      ✓ check 1: updated properly (8827ms)
-      ✓ check 2: no tearing during update
-      ✓ check 3: ability to interrupt render (1ms)
-      ✓ check 4: proper update after interrupt (1119ms)
+      ✓ check 1: updated properly (9433ms)
+      ✓ check 2: no tearing during update (2ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1353ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3514ms)
-      ✓ check 6: no tearing with transition (2ms)
-      ✓ check 7: proper branching with transition (3684ms)
+      ✓ check 5: updated properly with transition (4951ms)
+      ✓ check 6: no tearing with transition (1ms)
+      ✓ check 7: proper branching with transition (2968ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2960ms)
+      ✓ check 8: updated properly with auto increment (3388ms)
       ✓ check 9: no tearing with auto increment (1ms)
   simplux
     check with events from outside
-      ✓ check 1: updated properly (8252ms)
-      ✓ check 2: no tearing during update (1ms)
+      ✓ check 1: updated properly (9352ms)
+      ✓ check 2: no tearing during update (5ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2413ms)
+      ✓ check 4: proper update after interrupt (2670ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3520ms)
-      ✓ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5444ms)
+      ✓ check 5: updated properly with transition (4825ms)
+      ✓ check 6: no tearing with transition (3ms)
+      ✕ check 7: proper branching with transition (5441ms)
     check with intensive auto increment
-      ✕ check 8: updated properly with auto increment (10084ms)
-      ✕ check 9: no tearing with auto increment (2ms)
+      ✕ check 8: updated properly with auto increment (10113ms)
+      ✕ check 9: no tearing with auto increment (6ms)
   react-apollo
     check with events from outside
-      ✓ check 1: updated properly (3223ms)
-      ✕ check 2: no tearing during update (20ms)
+      ✓ check 1: updated properly (4196ms)
+      ✕ check 2: no tearing during update (23ms)
       ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2450ms)
+      ✓ check 4: proper update after interrupt (5097ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (3490ms)
+      ✓ check 5: updated properly with transition (4766ms)
       ✕ check 6: no tearing with transition (2ms)
-      ✕ check 7: proper branching with transition (5465ms)
+      ✕ check 7: proper branching with transition (5477ms)
     check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (4031ms)
-      ✕ check 9: no tearing with auto increment (20ms)
+      ✓ check 8: updated properly with auto increment (3651ms)
+      ✕ check 9: no tearing with auto increment (23ms)
 ```
 
 </details>
@@ -332,7 +332,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:x:</td>
     <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>
@@ -345,7 +345,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 
   </tr>

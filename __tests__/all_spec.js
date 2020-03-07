@@ -118,7 +118,7 @@ names.forEach((name) => {
             timeout: 5 * 1000,
           });
         }));
-        await sleep(1000); // to make it stable
+        await sleep(2000); // to make it stable
       });
 
       it('check 5: updated properly with transition', async () => {
@@ -140,7 +140,7 @@ names.forEach((name) => {
           });
         }));
         // check if pending is clear
-        await sleep(1000); // to make it stable
+        await sleep(2000); // to make it stable
         await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
       });
 
