@@ -3,23 +3,24 @@
 const port = process.env.PORT || '8080';
 
 const names = [
-  // 'react-redux',
+  'react-redux',
   'redux-use-mutable-source',
-  // 'reactive-react-redux',
-  // 'react-tracked',
-  // 'constate',
-  // 'zustand',
-  // 'react-sweet-state',
-  // 'storeon',
-  // 'react-hooks-global-state-1',
-  // 'react-hooks-global-state-2',
-  // 'use-context-selector',
-  // 'mobx-react-lite',
-  // 'use-subscription',
-  // 'mobx-use-sub',
-  // 'react-state',
-  // 'simplux',
-  // 'react-apollo',
+  'reactive-react-redux',
+  'react-tracked',
+  'constate',
+  'zustand',
+  'react-sweet-state',
+  'storeon',
+  'react-hooks-global-state-1',
+  'react-hooks-global-state-2',
+  'use-context-selector',
+  'use-enhanced-reducer',
+  'mobx-react-lite',
+  'use-subscription',
+  'mobx-use-sub',
+  'react-state',
+  'simplux',
+  'react-apollo',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -118,7 +119,7 @@ names.forEach((name) => {
             timeout: 5 * 1000,
           });
         }));
-        await sleep(1000); // to make it stable
+        await sleep(2000); // to make it stable
       });
 
       it('check 5: updated properly with transition', async () => {
@@ -140,7 +141,7 @@ names.forEach((name) => {
           });
         }));
         // check if pending is clear
-        await sleep(1000); // to make it stable
+        await sleep(2000); // to make it stable
         await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
       });
 
