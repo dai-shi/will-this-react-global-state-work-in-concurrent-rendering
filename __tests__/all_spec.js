@@ -4,6 +4,7 @@ const port = process.env.PORT || '8080';
 
 const names = [
   'react-redux',
+  'redux-use-mutable-source',
   'reactive-react-redux',
   'react-tracked',
   'constate',
