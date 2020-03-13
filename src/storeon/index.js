@@ -1,7 +1,6 @@
 import React, { useTransition } from 'react';
-import createStore from 'storeon';
-import useStoreon from 'storeon/react';
-import StoreContext from 'storeon/react/context';
+import { createStore } from 'storeon';
+import { useStoreon, StoreContext } from 'storeon/react';
 
 import {
   syncBlock,
