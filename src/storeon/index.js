@@ -1,5 +1,5 @@
 import React, { unstable_useTransition as useTransition } from 'react';
-import { createStore } from 'storeon';
+import { createStoreon } from 'storeon';
 import { useStoreon, StoreContext } from 'storeon/react';
 
 import {
@@ -16,7 +16,7 @@ const counter = (store) => {
   store.on('dispatch', reducer);
 };
 
-const store = createStore([counter]);
+const store = createStoreon([counter]);
 
 const Counter = React.memo(() => {
   const { count } = useStoreon('count');
