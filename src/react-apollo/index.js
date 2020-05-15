@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React, { unstable_useTransition as useTransition } from 'react';
 import ApolloClient, { gql, InMemoryCache } from 'apollo-boost';
 import { ApolloProvider, useQuery, useMutation } from '@apollo/react-hooks';
 

@@ -20,6 +20,7 @@ const names = [
   'react-state',
   'simplux',
   'react-apollo',
+  'recoil',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

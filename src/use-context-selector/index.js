@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React, { unstable_useTransition as useTransition } from 'react';
 import { createContext, useContextSelector } from 'use-context-selector';
 
 import {

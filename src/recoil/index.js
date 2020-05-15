@@ -1,28 +1,42 @@
 import React, { unstable_useTransition as useTransition } from 'react';
-import createUseContext from 'constate';
+import {
+  RecoilRoot,
+  useRecoilState,
+  atom,
+  selector,
+} from 'recoil';
 
 import {
   syncBlock,
   useRegisterIncrementDispatcher,
-  initialState,
-  reducer,
   ids,
   useCheckTearing,
+  reducer,
+  initialState,
 } from '../common';
 
-const useValue = () => React.useReducer(reducer, initialState);
-const useValueContext = createUseContext(useValue);
+const globalState = atom({
+  key: 'globalState',
+  default: initialState,
+});
+
+const countState = selector({
+  key: 'countState',
+  get: ({ get }) => get(globalState).count,
+  set: ({ get, set }, action) => {
+    set(globalState, reducer(get(globalState), action));
+  },
+});
+console.log(globalState, countState);
 
 const Counter = React.memo(() => {
-  const [state] = useValueContext();
-  const { count } = state;
+  const [count] = useRecoilState(countState);
   syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
-  const [state, dispatch] = useValueContext();
-  const { count } = state;
+  const [count, dispatch] = useRecoilState(countState);
   useCheckTearing();
   useRegisterIncrementDispatcher(React.useCallback(() => {
     dispatch({ type: 'increment' });
@@ -37,6 +51,7 @@ const Main = () => {
       dispatch({ type: 'increment' });
     });
   };
+
   return (
     <div>
       <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally (two clicks to increment one)</button>
@@ -53,9 +68,9 @@ const Main = () => {
 };
 
 const App = () => (
-  <useValueContext.Provider useValue={useValue}>
+  <RecoilRoot>
     <Main />
-  </useValueContext.Provider>
+  </RecoilRoot>
 );
 
 export default App;

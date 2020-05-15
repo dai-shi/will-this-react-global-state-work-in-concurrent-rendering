@@ -1,4 +1,4 @@
-import React, { useTransition, createContext, useContext } from 'react';
+import React, { unstable_useTransition as useTransition, createContext, useContext } from 'react';
 import useEnhancedReducer from '@rest-hooks/use-enhanced-reducer';
 
 import {

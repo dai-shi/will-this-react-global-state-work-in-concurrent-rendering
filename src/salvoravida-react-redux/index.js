@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React, { unstable_useTransition as useTransition } from 'react';
 import { createStore } from 'redux';
 import { Provider, useSelector, useDispatch } from '@salvoravida/react-redux';
 

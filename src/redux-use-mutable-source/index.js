@@ -1,5 +1,5 @@
 import React, {
-  useTransition,
+  unstable_useTransition as useTransition,
   createContext,
   useCallback,
   useContext,

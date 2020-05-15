@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useTransition } from 'react';
+import React, { createContext, useContext, unstable_useTransition as useTransition } from 'react';
+
 import {
   syncBlock,
   useRegisterIncrementDispatcher,

@@ -32,6 +32,7 @@
     "build:mobx-use-sub": "cross-env NAME=mobx-use-sub webpack",
     "build:simplux": "cross-env NAME=simplux webpack",
     "build:react-apollo": "cross-env NAME=react-apollo webpack",
+    "build:recoil": "cross-env NAME=recoil webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -58,6 +59,7 @@
     "react-sweet-state": "^2.1.2",
     "react-tracked": "^1.4.0",
     "reactive-react-redux": "^4.9.0",
+    "recoil": "^0.0.7",
     "redux": "^4.0.5",
     "storeon": "^2.0.2",
     "use-context-selector": "^1.1.1",

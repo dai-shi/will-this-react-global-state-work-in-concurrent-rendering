@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React, { unstable_useTransition as useTransition } from 'react';
 import { createStore, createHook } from 'react-sweet-state';
 
 import {
