@@ -27,7 +27,6 @@ const countState = selector({
     set(globalState, reducer(get(globalState), action));
   },
 });
-console.log(globalState, countState);
 
 const Counter = React.memo(() => {
   const [count] = useRecoilState(countState);
