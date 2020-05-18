@@ -3125,6 +3125,18 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+effector-react@^20.7.2:
+  version "20.7.2"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-20.7.2.tgz#e22ab98339b3c8737f0918a9d9fd87c406cd22ca"
+  integrity sha512-oVGD6hwKeZtym0lQL7voB09Pb3lFGFJPkQ4TIj8LiGPDTesZvowr3PhnTRIOWFJ1XAjuM/kDSjVZnZikJYeRBg==
+
+effector@^20.15.0:
+  version "20.15.0"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-20.15.0.tgz#5138ca72d2bc7f02cd68236831a7a5a325ddd5df"
+  integrity sha512-R1D4mtqL37Jjma+Sjw+QlBuP2nlMS2adROnvK3kmQMHs4MSHuwFYzdw9OVbaG0yL3a2aWsoh6LfdfhP2Ol1ftQ==
+  dependencies:
+    symbol-observable "^1.2.0"
+
 electron-to-chromium@^1.3.413:
   version "1.3.438"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.438.tgz#56051a9b148842fec813b113e8070ae892a85920"
