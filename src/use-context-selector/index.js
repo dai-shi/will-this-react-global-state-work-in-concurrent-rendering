@@ -1,5 +1,5 @@
 import React, { useCallback, unstable_useTransition as useTransition } from 'react';
-import { createContext, useContext } from 'use-context-selector';
+import { createContext, useContext, wrapCallbackWithPriority } from 'use-context-selector';
 
 import {
   syncBlock,
@@ -40,9 +40,9 @@ const Main = () => {
   };
   const [startTransition, isPending] = useTransition();
   const transitionIncrement = () => {
-    startTransition(() => {
+    startTransition(wrapCallbackWithPriority(() => {
       dispatch({ type: 'increment' });
-    });
+    }));
   };
   return (
     <div>
