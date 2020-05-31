@@ -1,5 +1,5 @@
 import React, { useCallback, unstable_useTransition as useTransition } from 'react';
-import { createContext, useContext as useContextSelector } from 'use-context-selector';
+import { createContext, useContext } from 'use-context-selector';
 
 import {
   syncBlock,
@@ -22,16 +22,16 @@ const Provider = ({ children }) => {
 };
 
 const Counter = React.memo(() => {
-  const count = useContextSelector(context, useCallback((v) => v[0].count, []));
+  const count = useContext(context, useCallback((v) => v[0].count, []));
   syncBlock();
   return <div className="count">{count}</div>;
 });
 
 const Main = () => {
-  const dispatch = useContextSelector(context, useCallback((v) => v[1], []));
-  const count = useContextSelector(context, useCallback((v) => v[0].count, []));
+  const dispatch = useContext(context, useCallback((v) => v[1], []));
+  const count = useContext(context, useCallback((v) => v[0].count, []));
   useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
+  useRegisterIncrementDispatcher(useCallback(() => {
     dispatch({ type: 'increment' });
   }, [dispatch]));
   const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);

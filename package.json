@@ -62,7 +62,7 @@
     "recoil": "^0.0.7",
     "redux": "^4.0.5",
     "storeon": "^2.0.2",
-    "use-context-selector": "^2.0.0-alpha.3",
+    "use-context-selector": "^2.0.0-alpha.4",
     "use-subscription": "^1.4.1",
     "zustand": "^2.2.3"
   },
