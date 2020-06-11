@@ -6852,6 +6852,11 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+re-rxjs@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/re-rxjs/-/re-rxjs-0.1.0.tgz#2bb74c717b4a036684047180c67f35af9465ea23"
+  integrity sha512-0cLFD5rhsbtPw302Usb57oxELzMeZQNDivDLs5ymPrEoFbXSHD/+S0M0e+sm4H+VE6zfz8Ca5y06YlF1zkCOmw==
+
 react-dom@experimental:
   version "0.0.0-experimental-33c3af284"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-33c3af284.tgz#d4acd21209a299832d9233ceafc25a6fe1b1d076"
@@ -7278,7 +7283,7 @@ rx@^4.1.0:
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
 
-rxjs@^6.5.3:
+rxjs@^6.5.3, rxjs@^6.5.5:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
   integrity sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==

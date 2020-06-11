@@ -34,6 +34,7 @@
     "build:react-apollo": "cross-env NAME=react-apollo webpack",
     "build:recoil": "cross-env NAME=recoil webpack",
     "build:effector": "cross-env NAME=effector webpack",
+    "build:re-rxjs": "cross-env NAME=re-rxjs webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -55,6 +56,7 @@
     "graphql": "^15.0.0",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.6",
+    "re-rxjs": "^0.1.0",
     "react": "experimental",
     "react-dom": "experimental",
     "react-hooks-global-state": "^1.0.0",
@@ -64,6 +66,7 @@
     "reactive-react-redux": "^4.9.0",
     "recoil": "^0.0.7",
     "redux": "^4.0.5",
+    "rxjs": "^6.5.5",
     "storeon": "^2.0.2",
     "use-context-selector": "^1.1.1",
     "use-subscription": "^1.4.1",

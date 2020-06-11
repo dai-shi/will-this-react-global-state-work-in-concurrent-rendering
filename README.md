@@ -304,6 +304,19 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (3055 ms)
       ✕ check 9: no tearing with auto increment (2 ms)
+  re-rxjs
+    check with events from outside
+      ✓ check 1: updated properly (8274 ms)
+      ✓ check 2: no tearing during update (1 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2359 ms)
+    check with useTransition
+      ✓ check 5: updated properly with transition (4509 ms)
+      ✓ check 6: no tearing with transition (3 ms)
+      ✓ check 7: proper branching with transition (2628 ms)
+    check with intensive auto increment
+      ✓ check 8: updated properly with auto increment (6106 ms)
+      ✓ check 9: no tearing with auto increment
 ```
 
 </details>
@@ -553,6 +566,19 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
     <td>:white_check_mark:</td>
     <td>:x:</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/re-rxjs/re-rxjs">re-rxjs</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 </table>
 
