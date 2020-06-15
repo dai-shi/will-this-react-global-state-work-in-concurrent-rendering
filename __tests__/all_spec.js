@@ -1,5 +1,10 @@
 /* global page, jestPuppeteer */
 
+import {
+  COUNT_PER_DUMMY,
+  NUM_CHILD_COMPONENTS,
+} from '../src/common';
+
 const port = process.env.PORT || '8080';
 
 const names = [
@@ -26,8 +31,7 @@ const names = [
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
 const REPEAT = 5;
-const DOUBLE = 2; // two clicks to increment one
-const NUM_COMPONENTS = 50 + 1; // defined in src/common.js plus count in <Main>
+const NUM_COMPONENTS = NUM_CHILD_COMPONENTS + 1; // plus one in <Main>
 
 names.forEach((name) => {
   describe(name, () => {
@@ -49,7 +53,7 @@ names.forEach((name) => {
 
       it('check 1: updated properly', async () => {
         delays = [];
-        for (let loop = 0; loop < REPEAT * DOUBLE; loop += 1) {
+        for (let loop = 0; loop < REPEAT * COUNT_PER_DUMMY; loop += 1) {
           const start = Date.now();
           // click buttons three times
           await Promise.all([
@@ -208,7 +212,7 @@ names.forEach((name) => {
         }));
         await page.evaluate((count) => {
           document.getElementById('autoIncrementCount').value = count;
-        }, REPEAT * DOUBLE);
+        }, REPEAT * COUNT_PER_DUMMY);
       });
 
       it('check 8: updated properly with auto increment', async () => {
