@@ -291,6 +291,19 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (2944 ms)
       ✕ check 9: no tearing with auto increment (1 ms)
+  effector
+    check with events from outside
+      ✓ check 1: updated properly (3249 ms)
+      ✕ check 2: no tearing during update (22 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1518 ms)
+    check with useTransition
+      ✓ check 5: updated properly with transition (3533 ms)
+      ✕ check 6: no tearing with transition (2 ms)
+      ✕ check 7: proper branching with transition (5423 ms)
+    check with intensive auto increment
+      ✓ check 8: updated properly with auto increment (3055 ms)
+      ✕ check 9: no tearing with auto increment (2 ms)
 ```
 
 </details>
@@ -438,7 +451,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
   </tr>
-  
+
   </tr>
     <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
     <td>:white_check_mark:</td>
@@ -518,6 +531,19 @@ in your browser, and click the button very quickly. (check the console log)
 
   <tr>
     <th><a href="https://github.com/facebookexperimental/Recoil">recoil</a></th>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/zerobias/effector">effector</a></th>
     <td>:white_check_mark:</td>
     <td>:x:</td>
     <td>:white_check_mark:</td>
