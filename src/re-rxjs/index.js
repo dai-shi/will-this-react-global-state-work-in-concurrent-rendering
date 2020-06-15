@@ -1,12 +1,15 @@
 import React, { unstable_useTransition as useTransition } from 'react';
-import { Subject, merge, asapScheduler } from 'rxjs';
+import { Subject, asapScheduler } from 'rxjs';
 import {
   map, scan, startWith, observeOn,
 } from 'rxjs/operators';
 import { connectObservable } from 're-rxjs';
+
 import {
   syncBlock,
   useRegisterIncrementDispatcher,
+  initialState,
+  reducer,
   ids,
   useCheckTearing,
 } from '../common';
@@ -14,16 +17,12 @@ import {
 const normalClicks$ = new Subject();
 const normalIncrement = () => normalClicks$.next();
 
-const externalClicks$ = new Subject();
-// This is only needed to prevent the tearing with auto increment (check #9)
-const externalClicksAsap$ = externalClicks$.pipe(observeOn(asapScheduler));
-const externalIncrement = () => externalClicks$.next();
-
 const [useCounter] = connectObservable(
-  merge(normalClicks$, externalClicksAsap$).pipe(
-    scan((x) => x + 0.5, 0),
-    map(Math.floor),
-    startWith(0),
+  normalClicks$.pipe(
+    observeOn(asapScheduler),
+    startWith(initialState),
+    scan((x) => reducer(x, { type: 'increment' })),
+    map((x) => x.count),
   ),
 );
 
@@ -36,7 +35,7 @@ const Counter = React.memo(() => {
 const Main = () => {
   const count = useCounter();
   useCheckTearing();
-  useRegisterIncrementDispatcher(externalIncrement);
+  useRegisterIncrementDispatcher(normalIncrement);
   const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
   const [startTransition, isPending] = useTransition();
   const transitionIncrement = () => {
@@ -50,7 +49,7 @@ const Main = () => {
       <button
         type="button"
         id="normalIncrement"
-        onClick={isPending ? transitionIncrement : normalIncrement}
+        onClick={normalIncrement}
       >
         Increment shared count normally (two clicks to increment one)
       </button>

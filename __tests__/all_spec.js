@@ -3,7 +3,6 @@
 const port = process.env.PORT || '8080';
 
 const names = [
-  're-rxjs',
   'react-redux',
   'redux-use-mutable-source',
   'reactive-react-redux',
@@ -23,6 +22,7 @@ const names = [
   'react-apollo',
   'recoil',
   'effector',
+  're-rxjs',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
