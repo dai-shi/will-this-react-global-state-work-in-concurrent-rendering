@@ -84,7 +84,6 @@ const useIncrement = () => {
   return increment;
 };
 
-
 const Root = ({ children }) => (
   <ApolloProvider client={client}>
     {children}
