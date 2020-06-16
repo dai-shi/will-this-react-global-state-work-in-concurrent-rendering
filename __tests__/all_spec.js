@@ -28,6 +28,7 @@ const names = [
   'recoil',
   'effector',
   're-rxjs',
+  'use-atom',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
