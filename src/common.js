@@ -1,6 +1,8 @@
 import React, {
+  useCallback,
   useEffect,
   useReducer,
+  useRef,
   unstable_useTransition as useTransition,
 } from 'react';
 
@@ -72,9 +74,28 @@ export const useCheckTearing = () => {
     counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
     if (!counts.every((c) => c === counts[0])) {
       console.error('count mismatch', counts);
-      document.title = 'failed';
+      document.title += ' TEARED';
     }
   });
+};
+
+export const useCheckBranching = () => {
+  const maxCountRef = useRef(0);
+  useEffect(() => {
+    const counts = ids.map((i) => Number(
+      document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
+    ));
+    // add count in <Main>
+    counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
+    if (counts.some((c) => c > maxCountRef.current)) {
+      console.error('count exceeds max', counts);
+      document.title += ' EXCEEDED';
+    }
+  });
+  const setMaxCount = useCallback((maxCount) => {
+    maxCountRef.current = maxCount;
+  }, []);
+  return setMaxCount;
 };
 
 export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
@@ -84,15 +105,32 @@ export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
     return <div className="count">{count}</div>;
   });
 
+  let state = initialState;
+  let stateInPending = initialState;
+
   const Main = () => {
     const count = useCount();
     useCheckTearing();
-    const increment = useIncrement();
+    const [startTransition, isPending] = useTransition();
+    const setMaxCount = useCheckBranching();
+    if (isPending) {
+      setMaxCount(selectCount(stateInPending));
+    } else {
+      setMaxCount(selectCount(state));
+    }
+    const incrementOrig = useIncrement();
+    const increment = useCallback(() => {
+      state = reducer(state, incrementAction);
+      incrementOrig();
+    }, [incrementOrig]);
     useRegisterIncrementDispatcher(increment);
     const [localCount, localIncrement] = useReducer((c) => c + 1, 0);
-    const [startTransition, isPending] = useTransition();
     const transitionIncrement = () => {
-      startTransition(increment);
+      startTransition(() => {
+        state = reducer(state, incrementAction);
+        stateInPending = reducer(stateInPending, incrementAction);
+        increment();
+      });
     };
     return (
       <div>
