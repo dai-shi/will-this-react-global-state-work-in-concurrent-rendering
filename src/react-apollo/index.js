@@ -1,14 +1,13 @@
-import React, { unstable_useTransition as useTransition } from 'react';
+import React from 'react';
 import ApolloClient, { gql, InMemoryCache } from 'apollo-boost';
 import { ApolloProvider, useQuery, useMutation } from '@apollo/react-hooks';
 
 import {
-  syncBlock,
-  useRegisterIncrementDispatcher,
   reducer,
-  ids,
-  useCheckTearing,
   initialState,
+  selectCount,
+  incrementAction,
+  createApp,
 } from '../common';
 
 const typeDefs = gql`
@@ -64,10 +63,9 @@ const client = new ApolloClient({
           const currentState = cache.readQuery({
             query: STATE_QUERY,
           });
-          console.log(currentState);
           cache.writeQuery({
             query: STATE_QUERY,
-            data: reducer(currentState, { type: 'increment' }),
+            data: reducer(currentState, incrementAction),
           });
           return true;
         },
@@ -76,50 +74,21 @@ const client = new ApolloClient({
   },
 });
 
-const Counter = React.memo(() => {
+const useCount = () => {
   const { loading, error, data } = useQuery(COUNT_QUERY, { fetchPolicy: 'cache-only' });
-  syncBlock();
-  return <div className="count">{(!loading && !error && data) ? data.count : 0}</div>;
-});
-
-const Main = () => {
-  const [increment] = useMutation(INCREMENT_MUTATION);
-  const { loading, data, error } = useQuery(COUNT_QUERY, { fetchPolicy: 'cache-only' });
-  useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    increment();
-  }, [increment]));
-  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
-  const normalIncrement = () => {
-    increment();
-  };
-  const [startTransition, isPending] = useTransition();
-  const transitionIncrement = () => {
-    startTransition(() => {
-      increment();
-    });
-  };
-  return (
-    <div>
-      <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally (two clicks to increment one)</button>
-      <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
-      <span id="pending">{isPending && 'Pending...'}</span>
-      <h1>Shared Count</h1>
-      {ids.map((id) => <Counter key={id} />)}
-      <div className="count">
-        {(!loading && !error && data) ? data.count : 0}
-      </div>
-      <h1>Local Count</h1>
-      {localCount}
-      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
-    </div>
-  );
+  return (!loading && !error && data) ? selectCount(data) : 0;
 };
 
-const App = () => (
+const useIncrement = () => {
+  const [increment] = useMutation(INCREMENT_MUTATION);
+  return increment;
+};
+
+
+const Root = ({ children }) => (
   <ApolloProvider client={client}>
-    <Main />
+    {children}
   </ApolloProvider>
 );
 
-export default App;
+export default createApp(useCount, useIncrement, Root);

@@ -1,61 +1,25 @@
-import React, { unstable_useTransition as useTransition } from 'react';
+import React, { useCallback } from 'react';
 import createUseContext from 'constate';
 
 import {
-  syncBlock,
-  useRegisterIncrementDispatcher,
-  initialState,
   reducer,
-  ids,
-  useCheckTearing,
+  initialState,
+  selectCount,
+  incrementAction,
+  createApp,
 } from '../common';
 
 const useValue = () => React.useReducer(reducer, initialState);
-const useValueContext = createUseContext(useValue);
+const [Root, useValueContext] = createUseContext(useValue);
 
-const Counter = React.memo(() => {
+const useCount = () => {
   const [state] = useValueContext();
-  const { count } = state;
-  syncBlock();
-  return <div className="count">{count}</div>;
-});
-
-const Main = () => {
-  const [state, dispatch] = useValueContext();
-  const { count } = state;
-  useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    dispatch({ type: 'increment' });
-  }, [dispatch]));
-  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
-  const normalIncrement = () => {
-    dispatch({ type: 'increment' });
-  };
-  const [startTransition, isPending] = useTransition();
-  const transitionIncrement = () => {
-    startTransition(() => {
-      dispatch({ type: 'increment' });
-    });
-  };
-  return (
-    <div>
-      <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally (two clicks to increment one)</button>
-      <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
-      <span id="pending">{isPending && 'Pending...'}</span>
-      <h1>Shared Count</h1>
-      {ids.map((id) => <Counter key={id} />)}
-      <div className="count">{count}</div>
-      <h1>Local Count</h1>
-      {localCount}
-      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
-    </div>
-  );
+  return selectCount(state);
 };
 
-const App = () => (
-  <useValueContext.Provider useValue={useValue}>
-    <Main />
-  </useValueContext.Provider>
-);
+const useIncrement = () => {
+  const [, dispatch] = useValueContext();
+  return useCallback(() => dispatch(incrementAction), [dispatch]);
+};
 
-export default App;
+export default createApp(useCount, useIncrement, Root);

@@ -1,12 +1,22 @@
-import React, { createContext, useContext, unstable_useTransition as useTransition } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useCallback,
+  unstable_useTransition as useTransition,
+} from 'react';
 import { useObserver, useLocalStore } from 'mobx-react-lite';
 
 import {
   syncBlock,
   useRegisterIncrementDispatcher,
+  reducer,
   initialState,
+  incrementAction,
+  selectCount,
   ids,
   useCheckTearing,
+  useCheckBranching,
+  COUNT_PER_DUMMY,
 } from '../common';
 
 const Ctx = createContext();
@@ -20,37 +30,43 @@ const Counter = React.memo(() => {
   });
 });
 
+let state = initialState;
+let stateInPending = initialState;
+
 const Main = () => {
   const store = useContext(Ctx);
   useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    store.dummy += 1;
-    if (store.dummy % 2 === 1) {
-      store.count += 1;
-    }
-  }, [store]));
-  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
-  const normalIncrement = () => {
-    store.dummy += 1;
-    if (store.dummy % 2 === 1) {
-      store.count += 1;
-    }
-  };
   const [startTransition, isPending] = useTransition();
+  const setMaxCount = useCheckBranching();
+  if (isPending) {
+    setMaxCount(selectCount(stateInPending));
+  } else {
+    setMaxCount(selectCount(state));
+  }
+  const increment = useCallback(() => {
+    state = reducer(state, incrementAction);
+    store.dummy += 1;
+    if (store.dummy % COUNT_PER_DUMMY === COUNT_PER_DUMMY - 1) {
+      store.count += 1;
+    }
+  }, [store]);
+  useRegisterIncrementDispatcher(React.useCallback(() => {
+    increment();
+  }, [increment]));
+  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
   const transitionIncrement = () => {
     startTransition(() => {
-      store.dummy += 1;
-      if (store.dummy % 2 === 1) {
-        store.count += 1;
-      }
+      state = reducer(state, incrementAction);
+      stateInPending = reducer(stateInPending, incrementAction);
+      increment();
     });
   };
   return useObserver(() => {
     const { count } = store;
     return (
       <div>
-        <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally (two clicks to increment one)</button>
-        <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
+        <button type="button" id="normalIncrement" onClick={increment}>Increment shared count normally</button>
+        <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition</button>
         <span id="pending">{isPending && 'Pending...'}</span>
         <h1>Shared Count</h1>
         {ids.map((id) => <Counter key={id} />)}

@@ -27,7 +27,6 @@
     "build:use-enhanced-reducer": "cross-env NAME=use-enhanced-reducer webpack",
     "build:mobx-react-lite": "cross-env NAME=mobx-react-lite webpack",
     "build:use-subscription": "cross-env NAME=use-subscription webpack",
-    "build:salvoravida-react-redux": "cross-env NAME=salvoravida-react-redux webpack",
     "build:react-state": "cross-env NAME=react-state webpack",
     "build:mobx-use-sub": "cross-env NAME=mobx-use-sub webpack",
     "build:simplux": "cross-env NAME=simplux webpack",
@@ -46,7 +45,6 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@rest-hooks/use-enhanced-reducer": "^1.0.3",
-    "@salvoravida/react-redux": "^7.2.3",
     "@simplux/core": "^0.13.0",
     "@simplux/react": "^0.13.0",
     "apollo-boost": "^0.4.9",
@@ -108,7 +106,9 @@
           "@babel/preset-react"
         ]
       },
-      "jest": {}
+      "jest": {
+        "plugins": ["@babel/plugin-transform-modules-commonjs", "@babel/plugin-transform-react-jsx"]
+      }
     }
   },
   "jest": {

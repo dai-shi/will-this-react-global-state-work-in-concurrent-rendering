@@ -1115,17 +1115,6 @@
   resolved "https://registry.yarnpkg.com/@rest-hooks/use-enhanced-reducer/-/use-enhanced-reducer-1.0.3.tgz#4a6d6dd706db7b6425c7c90eccb72fb624acfa3b"
   integrity sha512-XZwhfnkTsGffa/hCoUA01N2fVQGO3mZ4nrBY1rvwLbkHtJy69gUM/ruclTpGtNLdZyTnzqy3Nc3b5Yw6SBbEqQ==
 
-"@salvoravida/react-redux@^7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@salvoravida/react-redux/-/react-redux-7.2.3.tgz#5e24a977cc94e28f0a1e2d291668657498d48316"
-  integrity sha512-sKVYUR/cFY9aX9aNbfClfKXjBoTE14vAV4KKkmjvjbSNUNe4f7lTjgNLH0pQewNC6xHb1huENWFqfIb9ymJ+Cw==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    hoist-non-react-statics "^3.3.0"
-    loose-envify "^1.4.0"
-    prop-types "^15.7.2"
-    react-is "^16.9.0"
-
 "@simplux/core@0.13.0", "@simplux/core@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@simplux/core/-/core-0.13.0.tgz#3801afdf9ac4e6b88a33fbc6fd1bdf7656170fc0"
