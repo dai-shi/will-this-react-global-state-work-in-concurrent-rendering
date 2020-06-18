@@ -26,9 +26,9 @@ const names = [
   'simplux',
   'react-apollo',
   'recoil',
+  'use-atom',
   'effector',
   're-rxjs',
-  'use-atom',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

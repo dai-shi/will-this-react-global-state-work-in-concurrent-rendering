@@ -32,9 +32,9 @@
     "build:simplux": "cross-env NAME=simplux webpack",
     "build:react-apollo": "cross-env NAME=react-apollo webpack",
     "build:recoil": "cross-env NAME=recoil webpack",
+    "build:use-atom": "cross-env NAME=use-atom webpack",
     "build:effector": "cross-env NAME=effector webpack",
     "build:re-rxjs": "cross-env NAME=re-rxjs webpack",
-    "build:use-atom": "cross-env NAME=use-atom webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -67,7 +67,7 @@
     "redux": "^4.0.5",
     "rxjs": "^6.5.5",
     "storeon": "^3.0.2",
-    "use-atom": "^0.4.0",
+    "use-atom": "^0.5.1",
     "use-context-selector": "^1.1.1",
     "use-subscription": "^1.4.1",
     "zustand": "^2.2.3"
