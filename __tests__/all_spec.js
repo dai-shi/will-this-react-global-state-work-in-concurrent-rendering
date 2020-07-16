@@ -30,6 +30,7 @@ const names = [
   'effector',
   're-rxjs',
   'rxdeep',
+  'rxjs-hooks',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

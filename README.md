@@ -345,17 +345,30 @@ in your browser, and click the button very quickly. (check the console log)
       ✓ check 9: no tearing with auto increment (1 ms)
   rxdeep
     check with events from outside
-      ✓ check 1: updated properly (3193 ms)
-      ✓ check 2: no tearing during update (20 ms)
-      ✓ check 3: ability to interrupt render
-      ✕ check 4: proper update after interrupt (5177 ms)
+      ✓ check 1: updated properly (6286 ms)
+      ✓ check 2: no tearing during update (3 ms)
+      ✓ check 3: ability to interrupt render (1 ms)
+      ✓ check 4: proper update after interrupt (2449 ms)
     check with useTransition
-      ✓ check 5: updated properly with transition (7433 ms)
+      ✓ check 5: updated properly with transition (6292 ms)
       ✓ check 6: no tearing with transition (2 ms)
-      ✕ check 7: proper branching with transition (15007 ms)
+      ✕ check 7: proper branching with transition (3517 ms)
     check with intensive auto increment
-      ✕ check 8: updated properly with auto increment (10338 ms)
-      ✕ check 9: no tearing with auto increment (8 ms)
+      ✓ check 8: updated properly with auto increment (2222 ms)
+      ✕ check 9: no tearing with auto increment (22 ms)
+  rxjs-hooks
+    check with events from outside
+      ✓ check 1: updated properly (6344 ms)
+      ✓ check 2: no tearing during update (3 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1478 ms)
+    check with useTransition
+      ✓ check 5: updated properly with transition (7012 ms)
+      ✕ check 6: no tearing with transition (5 ms)
+      ✓ check 7: proper branching with transition (7600 ms)
+    check with intensive auto increment
+      ✓ check 8: updated properly with auto increment (6263 ms)
+      ✓ check 9: no tearing with auto increment (2 ms)
 ```
 
 </details>
@@ -626,12 +639,25 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/LeetCode-OpenSource/rxjs-hooks">rxjs-hooks</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
     <td>:x:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
+    <td>:white_check_mark:</td>
   </tr>
 </table>
 
