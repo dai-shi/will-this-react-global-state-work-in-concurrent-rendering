@@ -655,7 +655,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:x:</td>
-    <td>:white_check_mark:</td>
+    <td>:grey_question:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
   </tr>
