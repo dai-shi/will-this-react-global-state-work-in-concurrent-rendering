@@ -29,6 +29,7 @@ const names = [
   'use-atom',
   'effector',
   're-rxjs',
+  'rxdeep',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

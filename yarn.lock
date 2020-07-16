@@ -7379,6 +7379,21 @@ rx@^4.1.0:
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
 
+rxdeep@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/rxdeep/-/rxdeep-0.1.2.tgz#c0d532b369e33efbc466edf2c824271c949aa4ae"
+  integrity sha512-ncpP6mzDZkWXJlTmxP+LW4TzsTBmv64j7RxDDfdH6rRcqc8ydtT/nuVIqlVGrGsXhnf5RbdqpryAT069kY2XfA==
+  dependencies:
+    rxjs "^6.5.5"
+
+rxjs-hooks@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/rxjs-hooks/-/rxjs-hooks-0.6.2.tgz#08428ea10739a8da50a9b45724faf7f81156e4cf"
+  integrity sha512-oFyjJhhZ4D8bWVNT36J9iCr7p+qVCO7Y6T3XzypXqJf2qxCuURJaCAmARy0mAKbckNQv/0R78mhQxfTcGgECjQ==
+  dependencies:
+    tslib "^1.10.0"
+    use-constant "^1.0.0"
+
 rxjs@^6.5.3, rxjs@^6.5.5:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
@@ -8484,6 +8499,11 @@ use-atom@^0.5.1:
   integrity sha512-oGNzxyGV+vYrA/nrkYtLvJowA7yILty/rk08Lb/Zw3iGktzUfuJsdcPg89rjU89PFEpEg/YWgBPYWVG9MKDc3w==
   dependencies:
     use-context-selector "^1.1.1"
+
+use-constant@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/use-constant/-/use-constant-1.0.0.tgz#cfab998e6fc19ddc62b056875709f1420e339a10"
+  integrity sha512-HmVrMl3+1tEr64ace4UtP5WTdnLyrvYKwF54JVf7B7lSB76JSERDvvgWkaaxlOM3S0dSl1U3WH1l9PupNnzsvQ==
 
 use-context-selector@^1.1.1:
   version "1.1.1"
