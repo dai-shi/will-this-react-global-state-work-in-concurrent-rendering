@@ -9,7 +9,7 @@ import {
   createApp,
 } from '../common';
 
-const [useStore] = create((set) => ({
+const useStore = create((set) => ({
   ...initialState,
   dispatch: (action) => set((state) => reducer(state, action)),
 }));

@@ -3,8 +3,8 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-  createMutableSource,
-  useMutableSource,
+  unstable_createMutableSource as createMutableSource,
+  unstable_useMutableSource as useMutableSource,
 } from 'react';
 import { createStore } from 'redux';
 
