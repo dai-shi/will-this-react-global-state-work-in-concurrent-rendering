@@ -20,8 +20,8 @@ export const syncBlock = () => {
       return;
     }
   }
-  const start = Date.now();
-  while (Date.now() - start < 20) {
+  const start = performance.now();
+  while (performance.now() - start < 20) {
     // empty
   }
 };
