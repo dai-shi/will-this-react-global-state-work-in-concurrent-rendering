@@ -4,15 +4,18 @@ import React, { useCallback } from 'react';
 import { store, useStore, useSubscription } from '@rx-store/react';
 import {
   createApp,
+  reducer,
+  incrementAction,
+  initialState,
 } from '../common';
 
 const storeValue = {
   counterChange$: new Subject(),
-  count$: new BehaviorSubject(0),
+  count$: new BehaviorSubject({ count: 0 }),
 };
 
 const effect = ({ sources, sinks }) => sources.counterChange$().pipe(
-  scan((acc, value) => acc + value, 0),
+  scan(reducer, initialState),
   sinks.count$(),
 );
 
@@ -20,15 +23,14 @@ const { Manager, context } = store({ value: storeValue, effect });
 
 const useCount = () => {
   const { count$ } = useStore(context);
-  const [count] = useSubscription(count$);
-  return count;
+  const [state] = useSubscription(count$);
+  return state ? state.count : 0;
 };
 
 const useIncrement = () => {
   const { counterChange$ } = useStore(context);
   return useCallback(() => {
-    console.log('rx-store incrementing');
-    counterChange$.next(1);
+    counterChange$.next(incrementAction);
   }, [counterChange$]);
 };
 
