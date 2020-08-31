@@ -31,6 +31,7 @@ const names = [
   're-rxjs',
   'rxdeep',
   'rxjs-hooks',
+  'rx-store',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
