@@ -1,5 +1,5 @@
-import { BehaviorSubject, Subject } from 'rxjs';
-import { scan } from 'rxjs/operators';
+import { BehaviorSubject, Subject, asapScheduler } from 'rxjs';
+import { scan, map, observeOn } from 'rxjs/operators';
 import React, { useCallback } from 'react';
 import { store, useStore, useSubscription } from '@rx-store/react';
 import {
@@ -15,6 +15,7 @@ const storeValue = {
 };
 
 const effect = ({ sources, sinks }) => sources.counterChange$().pipe(
+  observeOn(asapScheduler),
   scan(reducer, initialState),
   sinks.count$(),
 );
