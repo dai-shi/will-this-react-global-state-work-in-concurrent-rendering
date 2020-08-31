@@ -1,5 +1,5 @@
 import { BehaviorSubject, Subject, asapScheduler } from 'rxjs';
-import { scan, map, observeOn } from 'rxjs/operators';
+import { scan, observeOn } from 'rxjs/operators';
 import React, { useCallback } from 'react';
 import { store, useStore, useSubscription } from '@rx-store/react';
 import {
