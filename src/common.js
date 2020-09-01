@@ -2,6 +2,7 @@ import React, {
   useLayoutEffect,
   useEffect,
   useReducer,
+  useRef,
   unstable_useTransition as useTransition,
 } from 'react';
 
@@ -78,7 +79,11 @@ export const useCheckTearing = () => {
 };
 
 export const useCheckBranching = () => {
+  const pendingMode = useRef(false);
   useLayoutEffect(() => {
+    const isPending = document.getElementById('pending').innerHTML === 'Pending...';
+    if (isPending) pendingMode.current = true;
+    if (!pendingMode.current) return;
     const counts = ids.map((i) => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
