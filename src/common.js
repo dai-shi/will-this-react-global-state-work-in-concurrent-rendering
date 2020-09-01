@@ -1,8 +1,7 @@
 import React, {
-  useCallback,
+  useLayoutEffect,
   useEffect,
   useReducer,
-  useRef,
   unstable_useTransition as useTransition,
 } from 'react';
 
@@ -66,12 +65,11 @@ export const ids = [...Array(NUM_CHILD_COMPONENTS).keys()];
 // check if all child components show the same count
 // and if not, change the title
 export const useCheckTearing = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const counts = ids.map((i) => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
-    // add count in <Main>
-    counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
+    counts.push(Number(document.getElementById('mainCount').innerHTML));
     if (!counts.every((c) => c === counts[0])) {
       console.error('count mismatch', counts);
       document.title += ' TEARED';
@@ -80,22 +78,17 @@ export const useCheckTearing = () => {
 };
 
 export const useCheckBranching = () => {
-  const maxCountRef = useRef(0);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const counts = ids.map((i) => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
-    // add count in <Main>
-    counts.push(Number(document.querySelector('.count:last-of-type').innerHTML));
-    if (counts.some((c) => c > maxCountRef.current)) {
-      console.error('count exceeds max', counts);
-      document.title += ' EXCEEDED';
+    counts.push(Number(document.getElementById('mainCount').innerHTML));
+    const localCount = Number(document.getElementById('localCount').innerHTML);
+    if (!counts.every((count) => count === localCount)) {
+      console.error('mismatch between local count and shared count', localCount, counts);
+      document.title += ' MISMATCH';
     }
   });
-  const setMaxCount = useCallback((maxCount) => {
-    maxCountRef.current = maxCount;
-  }, []);
-  return setMaxCount;
 };
 
 export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
@@ -105,36 +98,27 @@ export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
     return <div className="count">{count}</div>;
   });
 
-  let state = initialState;
-  let stateInPending = initialState;
-
   const Main = () => {
     const count = useCount();
     useCheckTearing();
     const [startTransition, isPending] = useTransition();
-    const setMaxCount = useCheckBranching();
-    if (isPending) {
-      setMaxCount(selectCount(stateInPending));
-    } else {
-      setMaxCount(selectCount(state));
-    }
-    const incrementOrig = useIncrement();
-    const increment = useCallback(() => {
-      state = reducer(state, incrementAction);
-      incrementOrig();
-    }, [incrementOrig]);
+    useCheckBranching();
+    const increment = useIncrement();
     useRegisterIncrementDispatcher(increment);
-    const [localCount, localIncrement] = useReducer((c) => c + 1, 0);
+    const [localState, localDispatch] = useReducer(reducer, initialState);
+    const normalIncrement = () => {
+      localDispatch(incrementAction);
+      increment();
+    };
     const transitionIncrement = () => {
       startTransition(() => {
-        state = reducer(state, incrementAction);
-        stateInPending = reducer(stateInPending, incrementAction);
+        localDispatch(incrementAction);
         increment();
       });
     };
     return (
       <div>
-        <button type="button" id="normalIncrement" onClick={increment}>
+        <button type="button" id="normalIncrement" onClick={normalIncrement}>
           Increment shared count normally (
           {COUNT_PER_DUMMY}
           clicks to increment one)
@@ -147,10 +131,13 @@ export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
         <span id="pending">{isPending && 'Pending...'}</span>
         <h1>Shared Count</h1>
         {ids.map((id) => <Counter key={id} />)}
-        <div className="count">{count}</div>
+        <div id="mainCount" className="count">{count}</div>
         <h1>Local Count</h1>
-        {localCount}
-        <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
+        <div id="localCount">{localState.count}</div>
+        <div id="localDummy">{localState.dummy}</div>
+        <button type="button" id="localIncrement" onClick={() => localDispatch(incrementAction)}>
+          Increment local count
+        </button>
       </div>
     );
   };

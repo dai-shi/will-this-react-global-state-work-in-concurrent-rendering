@@ -189,7 +189,7 @@ names.forEach((name) => {
         await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
         // check if the count is exceeded during pending state
         // see useCheckBranching() in src/common.js
-        await expect(page.title()).resolves.not.toMatch(/EXCEEDED/);
+        await expect(page.title()).resolves.not.toMatch(/MISMATCH/);
       });
 
       afterAll(async () => {
