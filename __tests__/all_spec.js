@@ -1,5 +1,10 @@
 /* global page, jestPuppeteer */
 
+import {
+  COUNT_PER_DUMMY,
+  NUM_CHILD_COMPONENTS,
+} from '../src/common';
+
 const port = process.env.PORT || '8080';
 
 const names = [
@@ -11,9 +16,9 @@ const names = [
   // 'zustand',
   // 'react-sweet-state',
   // 'storeon',
-  // 'react-hooks-global-state-1',
-  // 'react-hooks-global-state-2',
+  // 'react-hooks-global-state',
   'use-context-selector',
+  // 'use-enhanced-reducer',
   // 'mobx-react-lite',
   // 'use-subscription',
   // 'mobx-use-sub',
@@ -21,13 +26,21 @@ const names = [
   // 'simplux',
   // 'react-apollo',
   // 'recoil',
+  // 'use-atom',
+  // 'effector',
+  // 're-rxjs',
+  // 'rxdeep',
+  // 'rxjs-hooks',
+  // 'rx-store',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 jest.setTimeout(15 * 1000);
-const REPEAT = 5;
-const DOUBLE = 2; // two clicks to increment one
-const NUM_COMPONENTS = 50 + 1; // defined in src/common.js plus count in <Main>
+const REPEAT = 3;
+const NUM_COMPONENTS = NUM_CHILD_COMPONENTS + 1; // plus one in <Main>
+const TRANSITION_REPEAT_1 = 3;
+const TRANSITION_REPEAT_2 = 2;
+const TRANSITION_REPEAT_3 = 2;
 
 names.forEach((name) => {
   describe(name, () => {
@@ -36,8 +49,6 @@ names.forEach((name) => {
 
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
-        const title = await page.title();
-        if (title === 'failed') throw new Error('failed to reset title');
         // wait until all counts become zero
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -49,7 +60,7 @@ names.forEach((name) => {
 
       it('check 1: updated properly', async () => {
         delays = [];
-        for (let loop = 0; loop < REPEAT * DOUBLE; loop += 1) {
+        for (let loop = 0; loop < REPEAT * COUNT_PER_DUMMY; loop += 1) {
           const start = Date.now();
           // click buttons three times
           await Promise.all([
@@ -72,7 +83,7 @@ names.forEach((name) => {
       it('check 2: no tearing during update', async () => {
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
-        await expect(page.title()).resolves.not.toBe('failed');
+        await expect(page.title()).resolves.not.toMatch(/TEARED/);
       });
 
       it('check 3: ability to interrupt render', async () => {
@@ -86,11 +97,13 @@ names.forEach((name) => {
       it('check 4: proper update after interrupt', async () => {
         // click both buttons to update local count during updating shared count
         await Promise.all([
-          page.click('#remoteIncrement'),
-          page.click('#remoteIncrement'),
+          ...([...Array(COUNT_PER_DUMMY)].map(() => (
+            page.click('#remoteIncrement')
+          ))),
           page.click('#localIncrement'),
-          page.click('#remoteIncrement'),
-          page.click('#remoteIncrement'),
+          ...([...Array(COUNT_PER_DUMMY)].map(() => (
+            page.click('#remoteIncrement')
+          ))),
           page.click('#localIncrement'),
         ]);
         // check if all counts become REPEAT * 3 + 2
@@ -110,8 +123,6 @@ names.forEach((name) => {
     describe('check with useTransition', () => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
-        const title = await page.title();
-        if (title === 'failed') throw new Error('failed to reset title');
         // wait until all counts become zero
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -124,10 +135,10 @@ names.forEach((name) => {
 
       it('check 5: updated properly with transition', async () => {
         // click a button with transition
-        await page.click('#transitionIncrement');
-        await sleep(10).then(() => page.click('#transitionIncrement'));
-        await sleep(20).then(() => page.click('#transitionIncrement'));
-        await sleep(30).then(() => page.click('#transitionIncrement'));
+        for (let loop = 0; loop < TRANSITION_REPEAT_1 * COUNT_PER_DUMMY; loop += 1) {
+          await page.click('#transitionIncrement');
+          await sleep(100);
+        }
         // wait for pending
         await expect(page).toMatchElement('#pending', {
           text: 'Pending...',
@@ -136,8 +147,8 @@ names.forEach((name) => {
         // check if all counts become button clicks / 2
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-            text: '2',
-            timeout: 5 * 1000,
+            text: `${TRANSITION_REPEAT_1}`,
+            timeout: 10 * 1000,
           });
         }));
         // check if pending is clear
@@ -148,45 +159,37 @@ names.forEach((name) => {
       it('check 6: no tearing with transition', async () => {
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
-        await expect(page.title()).resolves.not.toBe('failed');
+        await expect(page.title()).resolves.not.toMatch(/TEARED/);
       });
 
       it('check 7: proper branching with transition', async () => {
         // click a button with transition
-        await Promise.all([
-          page.click('#transitionIncrement'),
-          page.click('#transitionIncrement'),
-          sleep(50).then(() => page.click('#transitionIncrement')), // a bit delayed
-          sleep(50).then(() => page.click('#transitionIncrement')), // a bit delayed
-        ]);
-        // click a button without transition
-        await Promise.all([
-          page.click('#normalIncrement'),
-          page.click('#normalIncrement'),
-        ]);
+        for (let loop = 0; loop < TRANSITION_REPEAT_2 * COUNT_PER_DUMMY; loop += 1) {
+          await page.click('#transitionIncrement');
+          await sleep(100);
+        }
         // wait for pending
         await expect(page).toMatchElement('#pending', {
           text: 'Pending...',
-          timeout: 5 * 1000,
+          timeout: 2 * 1000,
         });
-        // check if all counts become button +1 by normal increment
-        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-            text: '3',
-            timeout: 5 * 1000,
-          });
-        }));
-        // check if pending is still active
-        await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.toBe('Pending...');
+        // click a button without transition
+        for (let loop = 0; loop < TRANSITION_REPEAT_3 * COUNT_PER_DUMMY; loop += 1) {
+          await page.click('#normalIncrement');
+          await sleep(100);
+        }
         // check if all counts become button +2 by transition increment
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-            text: '5',
-            timeout: 5 * 1000,
+            text: `${TRANSITION_REPEAT_1 + TRANSITION_REPEAT_2 + TRANSITION_REPEAT_3}`,
+            timeout: 10 * 1000,
           });
         }));
         // check if pending is clear
         await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
+        // check if the count is exceeded during pending state
+        // see useCheckBranching() in src/common.js
+        await expect(page.title()).resolves.not.toMatch(/MISMATCH/);
       });
 
       afterAll(async () => {
@@ -197,8 +200,6 @@ names.forEach((name) => {
     describe('check with intensive auto increment', () => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
-        const title = await page.title();
-        if (title === 'failed') throw new Error('failed to reset title');
         // wait until all counts become zero
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -208,12 +209,13 @@ names.forEach((name) => {
         }));
         await page.evaluate((count) => {
           document.getElementById('autoIncrementCount').value = count;
-        }, REPEAT * DOUBLE);
+        }, REPEAT * COUNT_PER_DUMMY);
       });
 
       it('check 8: updated properly with auto increment', async () => {
-        await page.click('#remoteIncrement');
-        await page.click('#remoteIncrement');
+        for (let loop = 0; loop < COUNT_PER_DUMMY; loop += 1) {
+          await page.click('#remoteIncrement');
+        }
         // check if all counts become REPEAT + 1
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -226,7 +228,7 @@ names.forEach((name) => {
       it('check 9: no tearing with auto increment', async () => {
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
-        await expect(page.title()).resolves.not.toBe('failed');
+        await expect(page.title()).resolves.not.toMatch(/TEARED/);
       });
 
       afterAll(async () => {

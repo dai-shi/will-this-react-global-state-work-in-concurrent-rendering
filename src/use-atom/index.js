@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import {
-  RecoilRoot,
-  useRecoilState,
-  useSetRecoilState,
-  atom,
-  selector,
-} from 'recoil';
+  Provider,
+  useAtom,
+  useAtomUpdate,
+  createAtom,
+  deriveAtom,
+} from 'use-atom';
 
 import {
   reducer,
@@ -15,13 +15,11 @@ import {
   createApp,
 } from '../common';
 
-const globalState = atom({
-  key: 'globalState',
+const globalState = createAtom({
   default: initialState,
 });
 
-const countState = selector({
-  key: 'countState',
+const countState = deriveAtom({
   get: ({ get }) => selectCount(get(globalState)),
   set: ({ get, set }, action) => {
     set(globalState, reducer(get(globalState), action));
@@ -29,21 +27,21 @@ const countState = selector({
 });
 
 const useCount = () => {
-  const [count] = useRecoilState(countState);
+  const [count] = useAtom(countState);
   return count;
 };
 
 const useIncrement = () => {
-  const dispatch = useSetRecoilState(countState);
+  const dispatch = useAtomUpdate(countState);
   return useCallback(() => {
     dispatch(incrementAction);
   }, [dispatch]);
 };
 
 const Root = ({ children }) => (
-  <RecoilRoot>
+  <Provider>
     {children}
-  </RecoilRoot>
+  </Provider>
 );
 
 export default createApp(useCount, useIncrement, Root);

@@ -1,80 +1,47 @@
-import React, { createContext, useContext, unstable_useTransition as useTransition } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react';
 import { useLocalStore } from 'mobx-react-lite';
-
 import * as mobx from 'mobx';
 import { useSubscription } from 'use-subscription';
-import {
-  syncBlock,
-  useRegisterIncrementDispatcher,
-  initialState,
-  ids,
-  useCheckTearing,
-} from '../common';
 
-function useCount(store) {
-  return useSubscription(React.useMemo(() => ({
-    getCurrentValue: () => store.count,
-    subscribe: (cb) => mobx.autorun(cb),
-  }), [store]));
-}
+import {
+  initialState,
+  selectCount,
+  createApp,
+  COUNT_PER_DUMMY,
+} from '../common';
 
 const Ctx = createContext();
 
-const Counter = React.memo(() => {
+const useCount = () => {
   const store = useContext(Ctx);
-  const count = useCount(store);
-  syncBlock();
-  return <div className="count">{count}</div>;
-});
-
-const Main = () => {
-  const store = useContext(Ctx);
-  useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    store.dummy += 1;
-    if (store.dummy % 2 === 1) {
-      store.count += 1;
-    }
-  }, [store]));
-  const [localCount, localIncrement] = React.useReducer((c) => c + 1, 0);
-  const normalIncrement = () => {
-    store.dummy += 1;
-    if (store.dummy % 2 === 1) {
-      store.count += 1;
-    }
-  };
-  const [startTransition, isPending] = useTransition();
-  const transitionIncrement = () => {
-    startTransition(() => {
-      store.dummy += 1;
-      if (store.dummy % 2 === 1) {
-        store.count += 1;
-      }
-    });
-  };
-  const count = useCount(store);
-  return (
-    <div>
-      <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally (two clicks to increment one)</button>
-      <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition (two clicks to increment one)</button>
-      <span id="pending">{isPending && 'Pending...'}</span>
-      <h1>Shared Count</h1>
-      {ids.map((id) => <Counter key={id} />)}
-      <div className="count">{count}</div>
-      <h1>Local Count</h1>
-      {localCount}
-      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
-    </div>
-  );
+  return useSubscription(useMemo(() => ({
+    getCurrentValue: () => selectCount(store),
+    subscribe: (cb) => mobx.autorun(cb),
+  }), [store]));
 };
 
-const App = () => {
+const useIncrement = () => {
+  const store = useContext(Ctx);
+  return useCallback(() => {
+    store.dummy += 1;
+    if (store.dummy % COUNT_PER_DUMMY === COUNT_PER_DUMMY - 1) {
+      store.count += 1;
+    }
+  }, [store]);
+};
+
+const Root = ({ children }) => {
   const store = useLocalStore(() => initialState);
   return (
     <Ctx.Provider value={store}>
-      <Main />
+      {children}
     </Ctx.Provider>
   );
 };
 
-export default App;
+export default createApp(useCount, useIncrement, Root);
