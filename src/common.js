@@ -1,5 +1,4 @@
 import React, {
-  useLayoutEffect,
   useEffect,
   useReducer,
   useRef,
@@ -66,7 +65,7 @@ export const ids = [...Array(NUM_CHILD_COMPONENTS).keys()];
 // check if all child components show the same count
 // and if not, change the title
 export const useCheckTearing = () => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const counts = ids.map((i) => Number(
       document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
     ));
@@ -80,7 +79,7 @@ export const useCheckTearing = () => {
 
 export const useCheckBranching = () => {
   const pendingMode = useRef(false);
-  useLayoutEffect(() => {
+  useEffect(() => {
     const isPending = document.getElementById('pending').innerHTML === 'Pending...';
     if (isPending) pendingMode.current = true;
     if (!pendingMode.current) return;
