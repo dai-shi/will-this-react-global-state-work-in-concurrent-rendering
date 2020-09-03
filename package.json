@@ -50,7 +50,7 @@
     "@apollo/react-hooks": "^4.0.0",
     "@rest-hooks/use-enhanced-reducer": "^1.0.5",
     "@rx-store/core": "^1.1.0",
-    "@rx-store/react": "^1.1.0",
+    "@rx-store/react": "^1.1.2",
     "@simplux/core": "^0.13.0",
     "@simplux/react": "^0.13.0",
     "apollo-boost": "^0.4.9",
