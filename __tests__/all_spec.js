@@ -26,7 +26,7 @@ const names = [
   'simplux',
   'react-apollo',
   'recoil',
-  'use-atom',
+  'jotai',
   'effector',
   're-rxjs',
   'rxdeep',

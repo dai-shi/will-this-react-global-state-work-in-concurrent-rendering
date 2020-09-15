@@ -35,7 +35,7 @@
     "build:react-apollo": "cross-env NAME=react-apollo webpack",
     "build:recoil": "cross-env NAME=recoil webpack",
     "build:rx-store": "cross-env NAME=rx-store webpack",
-    "build:use-atom": "cross-env NAME=use-atom webpack",
+    "build:jotai": "cross-env NAME=jotai webpack",
     "build:effector": "cross-env NAME=effector webpack",
     "build:re-rxjs": "cross-env NAME=re-rxjs webpack",
     "build-all": "run-s build:*"
@@ -58,6 +58,7 @@
     "effector": "^21.3.0",
     "effector-react": "^21.0.6",
     "graphql": "^15.3.0",
+    "jotai": "^0.5.2",
     "mobx": "^5.15.6",
     "mobx-react-lite": "^2.2.2",
     "re-rxjs": "^0.1.0",
@@ -74,7 +75,6 @@
     "rxjs": "^6.6.3",
     "rxjs-hooks": "^0.6.2",
     "storeon": "^3.0.3",
-    "use-atom": "^0.5.7",
     "use-context-selector": "^1.1.2",
     "use-subscription": "^1.4.1",
     "zustand": "^3.1.2"
