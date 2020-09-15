@@ -1,11 +1,6 @@
 import React, { useCallback } from 'react';
-import {
-  Provider,
-  useAtom,
-  useAtomUpdate,
-  createAtom,
-  deriveAtom,
-} from 'use-atom';
+import { Provider, atom, useAtom } from 'jotai';
+import { useUpdateAtom } from 'jotai/utils';
 
 import {
   reducer,
@@ -15,16 +10,14 @@ import {
   createApp,
 } from '../common';
 
-const globalState = createAtom({
-  default: initialState,
-});
+const globalState = atom(initialState);
 
-const countState = deriveAtom({
-  get: ({ get }) => selectCount(get(globalState)),
-  set: ({ get, set }, action) => {
+const countState = atom(
+  (get) => selectCount(get(globalState)),
+  (get, set, action) => {
     set(globalState, reducer(get(globalState), action));
   },
-});
+);
 
 const useCount = () => {
   const [count] = useAtom(countState);
@@ -32,7 +25,7 @@ const useCount = () => {
 };
 
 const useIncrement = () => {
-  const dispatch = useAtomUpdate(countState);
+  const dispatch = useUpdateAtom(countState);
   return useCallback(() => {
     dispatch(incrementAction);
   }, [dispatch]);
