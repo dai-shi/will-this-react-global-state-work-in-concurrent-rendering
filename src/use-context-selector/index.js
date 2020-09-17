@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { createContext, useContext, wrapCallbackWithPriority } from 'use-context-selector';
+import { createContext, useContext, useContextUpdate } from 'use-context-selector';
 
 import {
   reducer,
@@ -13,11 +13,13 @@ const context = createContext(null);
 const useCount = () => useContext(context, useCallback((v) => v[0].count, []));
 
 const useIncrement = () => {
+  const update = useContextUpdate(context);
   const dispatch = useContext(context, useCallback((v) => v[1], []));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  return useCallback(wrapCallbackWithPriority(() => {
-    dispatch(incrementAction);
-  }), [dispatch]);
+  return useCallback(() => {
+    update(() => {
+      dispatch(incrementAction);
+    });
+  }, [update, dispatch]);
 };
 
 const Root = ({ children }) => {
