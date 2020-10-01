@@ -8552,6 +8552,11 @@ use-context-selector@^1.1.2:
   resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-1.1.2.tgz#63bf6e3502fd383f1257c49df2495e05564d262e"
   integrity sha512-uwtrMKEHjZQ8JXMZLUljVDY4CqpAC3MgMcmtpZACG+pJeJ7GNDzBW0thC2RbJX2wKYMvLtYRXgQEqaOnmlF/KQ==
 
+use-context-selector@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-1.2.0.tgz#186e312cac56a3e1001d2f1bd7696ca8ed8a91fc"
+  integrity sha512-tqYegNbp3rJ7Uq5bvknGiTL0iyPISyobQtbxvK06VMBbyhnJo0aUYdUUPbDgQQMpbLxKH6Hbk8jiX7fkFPYc4A==
+
 use-subscription@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.4.1.tgz#edcbcc220f1adb2dd4fa0b2f61b6cc308e620069"

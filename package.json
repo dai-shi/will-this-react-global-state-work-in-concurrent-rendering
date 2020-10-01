@@ -75,7 +75,7 @@
     "rxjs": "^6.6.3",
     "rxjs-hooks": "^0.6.2",
     "storeon": "^3.0.3",
-    "use-context-selector": "^1.1.2",
+    "use-context-selector": "^1.2.0",
     "use-subscription": "^1.4.1",
     "zustand": "^3.1.2"
   },

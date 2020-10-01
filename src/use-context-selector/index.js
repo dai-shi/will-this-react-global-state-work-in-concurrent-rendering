@@ -1,5 +1,9 @@
 import React, { useCallback } from 'react';
-import { createContext, useContextSelector } from 'use-context-selector';
+import {
+  createContext,
+  useContextSelector,
+  useContextUpdate,
+} from 'use-context-selector';
 
 import {
   reducer,
@@ -15,13 +19,21 @@ const context = createContext(null);
 const useCount = () => useContextSelector(context, (v) => selectCount(v[0]));
 
 const useIncrement = () => {
+  const update = useContextUpdate(context);
   const dispatch = useContextSelector(context, (v) => v[1]);
-  return useCallback(() => dispatch(incrementAction), [dispatch]);
+  return useCallback(
+    () => update(() => dispatch(incrementAction)),
+    [update, dispatch],
+  );
 };
 
 const useDouble = () => {
+  const update = useContextUpdate(context);
   const dispatch = useContextSelector(context, (v) => v[1]);
-  return useCallback(() => dispatch(doubleAction), [dispatch]);
+  return useCallback(
+    () => update(() => dispatch(doubleAction)),
+    [update, dispatch],
+  );
 };
 
 const Root = ({ children }) => {
