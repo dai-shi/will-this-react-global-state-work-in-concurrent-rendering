@@ -40,7 +40,6 @@ const REPEAT = 3;
 const NUM_COMPONENTS = NUM_CHILD_COMPONENTS + 1; // plus one in <Main>
 const TRANSITION_REPEAT_1 = 3;
 const TRANSITION_REPEAT_2 = 2;
-const TRANSITION_REPEAT_3 = 2;
 
 names.forEach((name) => {
   describe(name, () => {
@@ -173,23 +172,22 @@ names.forEach((name) => {
           text: 'Pending...',
           timeout: 2 * 1000,
         });
-        // click a button without transition
-        for (let loop = 0; loop < TRANSITION_REPEAT_3 * COUNT_PER_DUMMY; loop += 1) {
-          await page.click('#normalIncrement');
-          await sleep(100);
-        }
-        // check if all counts become button +2 by transition increment
+        // click normal double button
+        await page.click('#normalDouble');
+        // check if all counts become doubled before increment
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-            text: `${TRANSITION_REPEAT_1 + TRANSITION_REPEAT_2 + TRANSITION_REPEAT_3}`,
-            timeout: 10 * 1000,
+            text: `${TRANSITION_REPEAT_1 * 2}`,
+            timeout: 5 * 1000,
           });
         }));
-        // check if pending is clear
-        await expect(page.evaluate(() => document.getElementById('pending').innerHTML)).resolves.not.toBe('Pending...');
-        // check if the count is exceeded during pending state
-        // see useCheckBranching() in src/common.js
-        await expect(page.title()).resolves.not.toMatch(/MISMATCH/);
+        // check if all counts become doubled after increment
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${(TRANSITION_REPEAT_1 + TRANSITION_REPEAT_2) * 2}`,
+            timeout: 5 * 1000,
+          });
+        }));
       });
 
       afterAll(async () => {

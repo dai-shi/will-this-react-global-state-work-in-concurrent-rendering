@@ -35,6 +35,13 @@ const useIncrement = () => {
   }, [store]);
 };
 
+const useDouble = () => {
+  const store = useContext(Ctx);
+  return useCallback(() => {
+    store.count *= 2;
+  }, [store]);
+};
+
 const Root = ({ children }) => {
   const store = useLocalStore(() => initialState);
   return (
@@ -44,4 +51,4 @@ const Root = ({ children }) => {
   );
 };
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

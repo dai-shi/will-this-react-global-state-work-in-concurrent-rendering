@@ -4,6 +4,7 @@ import {
   reducer,
   initialState,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -16,4 +17,6 @@ const useCount = () => {
 
 const useIncrement = () => () => dispatch(incrementAction);
 
-export default createApp(useCount, useIncrement);
+const useDouble = () => () => dispatch(doubleAction);
+
+export default createApp(useCount, useIncrement, useDouble);

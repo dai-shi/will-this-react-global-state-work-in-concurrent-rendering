@@ -7,6 +7,7 @@ import {
   initialState,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -17,6 +18,7 @@ const typeDefs = gql`
   }
   type Mutation {
     increment: Bool!
+    double: Bool!
   }
 `;
 
@@ -36,6 +38,12 @@ const COUNT_QUERY = gql`
 const INCREMENT_MUTATION = gql`
   mutation IncrementMutation {
     increment @client
+  }
+`;
+
+const DOUBLE_MUTATION = gql`
+  mutation DoubleMutation {
+    double @client
   }
 `;
 
@@ -69,6 +77,16 @@ const client = new ApolloClient({
           });
           return true;
         },
+        double(root, args, { cache }) {
+          const currentState = cache.readQuery({
+            query: STATE_QUERY,
+          });
+          cache.writeQuery({
+            query: STATE_QUERY,
+            data: reducer(currentState, doubleAction),
+          });
+          return true;
+        },
       },
     },
   },
@@ -84,10 +102,15 @@ const useIncrement = () => {
   return increment;
 };
 
+const useDouble = () => {
+  const [doDouble] = useMutation(DOUBLE_MUTATION);
+  return doDouble;
+};
+
 const Root = ({ children }) => (
   <ApolloProvider client={client}>
     {children}
   </ApolloProvider>
 );
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

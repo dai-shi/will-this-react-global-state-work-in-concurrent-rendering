@@ -6,6 +6,7 @@ import {
   reducer,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -21,4 +22,6 @@ const useCount = () => {
 
 const useIncrement = () => () => store.dispatch(incrementAction);
 
-export default createApp(useCount, useIncrement);
+const useDouble = () => () => store.dispatch(doubleAction);
+
+export default createApp(useCount, useIncrement, useDouble);
