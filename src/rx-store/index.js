@@ -6,6 +6,7 @@ import {
   createApp,
   reducer,
   incrementAction,
+  doubleAction,
   initialState,
 } from '../common';
 
@@ -35,10 +36,17 @@ const useIncrement = () => {
   }, [counterChange$]);
 };
 
+const useDouble = () => {
+  const { counterChange$ } = useStore(context);
+  return useCallback(() => {
+    counterChange$.next(doubleAction);
+  }, [counterChange$]);
+};
+
 const Root = ({ children }) => (
   <Manager>
     {children}
   </Manager>
 );
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

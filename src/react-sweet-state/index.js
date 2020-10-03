@@ -6,6 +6,7 @@ import {
   initialState,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -30,4 +31,9 @@ const useIncrement = () => {
   return useCallback(() => actions.dispatch(incrementAction), [actions]);
 };
 
-export default createApp(useCount, useIncrement);
+const useDouble = () => {
+  const [, actions] = useCounter();
+  return useCallback(() => actions.dispatch(doubleAction), [actions]);
+};
+
+export default createApp(useCount, useIncrement, useDouble);

@@ -6,6 +6,7 @@ import {
   initialState,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -19,6 +20,11 @@ const useIncrement = () => {
   return useCallback(() => dispatch(incrementAction), [dispatch]);
 };
 
+const useDouble = () => {
+  const dispatch = useContext(dispatchContext);
+  return useCallback(() => dispatch(doubleAction), [dispatch]);
+};
+
 const Root = ({ children }) => {
   const [state, dispatch] = useEnhancedReducer(reducer, initialState, []);
   return (
@@ -30,4 +36,4 @@ const Root = ({ children }) => {
   );
 };
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

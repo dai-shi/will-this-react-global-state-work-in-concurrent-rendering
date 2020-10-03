@@ -15,7 +15,6 @@ import {
   incrementAction,
   ids,
   useCheckTearing,
-  useCheckBranching,
   COUNT_PER_DUMMY,
 } from '../common';
 
@@ -34,7 +33,6 @@ const Main = () => {
   const store = useContext(Ctx);
   useCheckTearing();
   const [startTransition, isPending] = useTransition();
-  useCheckBranching();
   const increment = useCallback(() => {
     store.dummy += 1;
     if (store.dummy % COUNT_PER_DUMMY === COUNT_PER_DUMMY - 1) {
@@ -44,14 +42,15 @@ const Main = () => {
   useRegisterIncrementDispatcher(React.useCallback(() => {
     increment();
   }, [increment]));
+  const doDouble = React.useCallback(() => {
+    store.count *= 2;
+  }, [store]);
   const [localState, localDispatch] = useReducer(reducer, initialState);
-  const normalIncrement = () => {
-    localDispatch(incrementAction);
-    increment();
+  const normalDouble = () => {
+    doDouble();
   };
   const transitionIncrement = () => {
     startTransition(() => {
-      localDispatch(incrementAction);
       increment();
     });
   };
@@ -59,8 +58,14 @@ const Main = () => {
     const { count } = store;
     return (
       <div>
-        <button type="button" id="normalIncrement" onClick={normalIncrement}>Increment shared count normally</button>
-        <button type="button" id="transitionIncrement" onClick={transitionIncrement}>Increment shared count in transition</button>
+        <button type="button" id="normalDouble" onClick={normalDouble}>
+          Double shared count normally
+        </button>
+        <button type="button" id="transitionIncrement" onClick={transitionIncrement}>
+          Increment shared count in transition (
+          {COUNT_PER_DUMMY}
+          clicks to increment one)
+        </button>
         <span id="pending">{isPending && 'Pending...'}</span>
         <h1>Shared Count</h1>
         {ids.map((id) => <Counter key={id} />)}

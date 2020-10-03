@@ -5,6 +5,7 @@ import {
   reducer,
   initialState,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -15,11 +16,19 @@ const useCount = () => useContext(context, useCallback((v) => v[0].count, []));
 const useIncrement = () => {
   const update = useContextUpdate(context);
   const dispatch = useContext(context, useCallback((v) => v[1], []));
-  return useCallback(() => {
-    update(() => {
-      dispatch(incrementAction);
-    });
-  }, [update, dispatch]);
+  return useCallback(
+    () => update(() => dispatch(incrementAction)),
+    [update, dispatch],
+  );
+};
+
+const useDouble = () => {
+  const update = useContextUpdate(context);
+  const dispatch = useContext(context, useCallback((v) => v[1], []));
+  return useCallback(
+    () => update(() => dispatch(doubleAction)),
+    [update, dispatch],
+  );
 };
 
 const Root = ({ children }) => {
@@ -31,4 +40,4 @@ const Root = ({ children }) => {
   );
 };
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

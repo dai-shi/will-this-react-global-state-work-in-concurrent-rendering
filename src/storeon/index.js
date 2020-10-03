@@ -7,6 +7,7 @@ import {
   initialState,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -24,10 +25,15 @@ const useIncrement = () => {
   return useCallback(() => dispatch('dispatch', incrementAction), [dispatch]);
 };
 
+const useDouble = () => {
+  const { dispatch } = useStoreon('count');
+  return useCallback(() => dispatch('dispatch', doubleAction), [dispatch]);
+};
+
 const Root = ({ children }) => (
   <StoreContext.Provider value={store}>
     {children}
   </StoreContext.Provider>
 );
 
-export default createApp(useCount, useIncrement, Root);
+export default createApp(useCount, useIncrement, useDouble, Root);

@@ -1,7 +1,6 @@
 import React, {
   useEffect,
   useReducer,
-  useRef,
   unstable_useTransition as useTransition,
 } from 'react';
 
@@ -51,6 +50,11 @@ export const reducer = (state = initialState, action) => {
         count: state.dummy % COUNT_PER_DUMMY === COUNT_PER_DUMMY - 1
           ? state.count + 1 : state.count,
       };
+    case 'double':
+      return {
+        ...state,
+        count: state.count * 2,
+      };
     default:
       return state;
   }
@@ -58,6 +62,7 @@ export const reducer = (state = initialState, action) => {
 
 export const selectCount = (state) => state.count;
 export const incrementAction = { type: 'increment' };
+export const doubleAction = { type: 'double' };
 
 export const NUM_CHILD_COMPONENTS = 50;
 export const ids = [...Array(NUM_CHILD_COMPONENTS).keys()];
@@ -77,25 +82,7 @@ export const useCheckTearing = () => {
   });
 };
 
-export const useCheckBranching = () => {
-  const pendingMode = useRef(false);
-  useEffect(() => {
-    const isPending = document.getElementById('pending').innerHTML === 'Pending...';
-    if (isPending) pendingMode.current = true;
-    if (!pendingMode.current) return;
-    const counts = ids.map((i) => Number(
-      document.querySelector(`.count:nth-of-type(${i + 1})`).innerHTML,
-    ));
-    counts.push(Number(document.getElementById('mainCount').innerHTML));
-    const localCount = Number(document.getElementById('localCount').innerHTML);
-    if (!counts.every((count) => count === localCount)) {
-      console.error('mismatch between local count and shared count', localCount, counts);
-      document.title += ' MISMATCH';
-    }
-  });
-};
-
-export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
+export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment) => {
   const Counter = React.memo(() => {
     const count = useCount();
     syncBlock();
@@ -106,26 +93,22 @@ export const createApp = (useCount, useIncrement, Root = React.Fragment) => {
     const count = useCount();
     useCheckTearing();
     const [startTransition, isPending] = useTransition();
-    useCheckBranching();
     const increment = useIncrement();
     useRegisterIncrementDispatcher(increment);
+    const doDouble = useDouble();
     const [localState, localDispatch] = useReducer(reducer, initialState);
-    const normalIncrement = () => {
-      localDispatch(incrementAction);
-      increment();
+    const normalDouble = () => {
+      doDouble();
     };
     const transitionIncrement = () => {
       startTransition(() => {
-        localDispatch(incrementAction);
         increment();
       });
     };
     return (
       <div>
-        <button type="button" id="normalIncrement" onClick={normalIncrement}>
-          Increment shared count normally (
-          {COUNT_PER_DUMMY}
-          clicks to increment one)
+        <button type="button" id="normalDouble" onClick={normalDouble}>
+          Double shared count normally
         </button>
         <button type="button" id="transitionIncrement" onClick={transitionIncrement}>
           Increment shared count in transition (

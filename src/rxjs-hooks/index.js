@@ -12,6 +12,7 @@ import {
   initialState,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -20,10 +21,12 @@ const normalClicks$ = new Subject();
 const useCount = () => useObservable(() => normalClicks$.pipe(
   observeOn(asapScheduler),
   startWith(initialState),
-  scan((x) => reducer(x, incrementAction)),
+  scan((x, action) => reducer(x, action)),
   map((x) => selectCount(x)),
 ));
 
-const useIncrement = () => () => normalClicks$.next();
+const useIncrement = () => () => normalClicks$.next(incrementAction);
 
-export default createApp(useCount, useIncrement);
+const useDouble = () => () => normalClicks$.next(doubleAction);
+
+export default createApp(useCount, useIncrement, useDouble);

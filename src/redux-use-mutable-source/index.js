@@ -12,6 +12,7 @@ import {
   reducer,
   selectCount,
   incrementAction,
+  doubleAction,
   createApp,
 } from '../common';
 
@@ -44,4 +45,9 @@ const useIncrement = () => {
   return useCallback(() => dispatch(incrementAction), [dispatch]);
 };
 
-export default createApp(useCount, useIncrement, Root);
+const useDouble = () => {
+  const { dispatch } = useContext(StoreContext);
+  return useCallback(() => dispatch(doubleAction), [dispatch]);
+};
+
+export default createApp(useCount, useIncrement, useDouble, Root);
