@@ -8551,15 +8551,15 @@ use-constant@^1.0.0:
   resolved "https://registry.yarnpkg.com/use-constant/-/use-constant-1.0.0.tgz#cfab998e6fc19ddc62b056875709f1420e339a10"
   integrity sha512-HmVrMl3+1tEr64ace4UtP5WTdnLyrvYKwF54JVf7B7lSB76JSERDvvgWkaaxlOM3S0dSl1U3WH1l9PupNnzsvQ==
 
-use-context-selector@1.2.5, use-context-selector@^1.2.5:
+use-context-selector@1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-1.2.5.tgz#40f84a9625508e89e4bb819aae2a9f04769ecfab"
   integrity sha512-Xh1wpqbtzQEBTLblWQjvvBHW2BPKDrexBDh0WsIWtJRqgM/5uBfmRnmt2nMQUYWlTQdMMsLeAwjrQ+zL8ZWabg==
 
-use-context-selector@^2.0.0-alpha.7:
-  version "2.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-2.0.0-alpha.7.tgz#4c2c1462a631b0f5ed47caeb175721c714e4decd"
-  integrity sha512-dxsLHR2QG7pyPx1Yx66ddZ5jrc7mQTd5/3+u9yWRLyNVU4LB6e6De8ZtLObZyBM+/QYUCE1KiQe2CH5IbaGCNw==
+use-context-selector@^2.0.0-alpha.9:
+  version "2.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-2.0.0-alpha.9.tgz#bc932267ee5ac19e12f0845a7bcd1cf2b243d43f"
+  integrity sha512-fpkGKvjtdIB599NFCHKrk2wb+1FhuY8OWimBCvGU8GrvTErGPwrcAM1wHXsc8MNkUlsgNPjVHC/x+egtddWeNQ==
 
 use-subscription@^1.4.1:
   version "1.4.1"
