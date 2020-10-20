@@ -1233,6 +1233,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@react-rxjs/core@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@react-rxjs/core/-/core-0.5.0.tgz#32010702539438ef564e89f53dcacd1760f22492"
+  integrity sha512-J/Xm/NXNQFMGcTp9ykObXGlCq5N+B1kwyxxWXrTyKs5CNKpT++9BdTWchslhU7vUmMhBVJc0RMZ7J1fGmYcLGg==
+
 "@rest-hooks/use-enhanced-reducer@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@rest-hooks/use-enhanced-reducer/-/use-enhanced-reducer-1.0.5.tgz#2e641e4962d98e5b161bcc5d8f5a4989df8d8911"
@@ -7000,11 +7005,6 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
-
-re-rxjs@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/re-rxjs/-/re-rxjs-0.1.0.tgz#2bb74c717b4a036684047180c67f35af9465ea23"
-  integrity sha512-0cLFD5rhsbtPw302Usb57oxELzMeZQNDivDLs5ymPrEoFbXSHD/+S0M0e+sm4H+VE6zfz8Ca5y06YlF1zkCOmw==
 
 react-dom@experimental:
   version "0.0.0-experimental-94c0244ba"

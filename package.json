@@ -37,7 +37,7 @@
     "build:rx-store": "cross-env NAME=rx-store webpack",
     "build:jotai": "cross-env NAME=jotai webpack",
     "build:effector": "cross-env NAME=effector webpack",
-    "build:re-rxjs": "cross-env NAME=re-rxjs webpack",
+    "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -48,6 +48,7 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@react-rxjs/core": "^0.5.0",
     "@rest-hooks/use-enhanced-reducer": "^1.0.5",
     "@rx-store/core": "^1.1.0",
     "@rx-store/react": "^1.1.2",
@@ -61,7 +62,6 @@
     "jotai": "^0.8.1",
     "mobx": "^6.0.0",
     "mobx-react-lite": "^3.0.0",
-    "re-rxjs": "^0.1.0",
     "react": "experimental",
     "react-dom": "experimental",
     "react-hooks-global-state": "^1.0.1",

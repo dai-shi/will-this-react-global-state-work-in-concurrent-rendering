@@ -28,7 +28,7 @@ const names = [
   'recoil',
   'jotai',
   'effector',
-  're-rxjs',
+  'react-rxjs',
   'rxdeep',
   'rxjs-hooks',
   'rx-store',
