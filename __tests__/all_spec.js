@@ -27,6 +27,7 @@ const names = [
   'react-apollo',
   'recoil',
   'jotai',
+  'klyva',
   'effector',
   'react-rxjs',
   'rxdeep',
