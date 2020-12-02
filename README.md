@@ -65,7 +65,7 @@ in your browser, and click the button very quickly. (check the console log)
   - check 7: proper branching with transition
 - Tearing with intentional update in render
   - check 8: updated properly with auto increment
-  - check 9: no tearing with auto increment
+  - check 9: no tearing with auto increment (currently, it's not really what is intended to test)
 
 ## Results
 
