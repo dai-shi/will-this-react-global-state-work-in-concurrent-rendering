@@ -33,6 +33,7 @@ const names = [
   'rxdeep',
   'rxjs-hooks',
   'rx-store',
+  'valtio',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

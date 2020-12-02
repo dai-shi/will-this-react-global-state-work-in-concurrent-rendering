@@ -398,6 +398,19 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (3092 ms)
       ✕ check 9: no tearing with auto increment (4 ms)
+  valtio
+    check with events from outside
+      ✓ check 1: updated properly (2235 ms)
+      ✓ check 2: no tearing during update (2 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (2217 ms)
+    check with useTransition
+      ✓ check 5: updated properly with transition (5256 ms)
+      ✓ check 6: no tearing with transition (1 ms)
+      ✕ check 7: proper branching with transition (6127 ms)
+    check with intensive auto increment
+      ✓ check 8: updated properly with auto increment (3141 ms)
+      ✓ check 9: no tearing with auto increment (2 ms)
 ```
 
 </details>
@@ -713,6 +726,18 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
     <td>:white_check_mark:</td>
     <td>:x:</td>
+
+  <tr>
+    <th><a href="https://github.com/pmndrs/valtio">valtio</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
   </tr>
 </table>
 
