@@ -144,6 +144,16 @@ names.forEach((name) => {
           text: 'Pending...',
           timeout: 5 * 1000,
         });
+        // wait the first one changes
+        await expect(page).not.toMatchElement('.count:first-of-type', {
+          text: '0',
+          timeout: 5 * 1000,
+        });
+        // and we should still see pending
+        await expect(page).toMatchElement('#pending', {
+          text: 'Pending...',
+          timeout: 5 * 1000,
+        });
         // check if all counts become button clicks / 2
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
