@@ -153,6 +153,9 @@ names.forEach((name) => {
         });
         // the first one should be changed
         await expect(page.evaluate(() => document.querySelector('.count:first-of-type').innerHTML)).resolves.not.toBe('0');
+      });
+
+      it('check 6: no tearing with transition', async () => {
         // check if all counts become button clicks / 2
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -160,9 +163,6 @@ names.forEach((name) => {
             timeout: 5 * 1000,
           });
         }));
-      });
-
-      it('check 6: no tearing with transition', async () => {
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
         await expect(page.title()).resolves.not.toMatch(/TEARED/);
