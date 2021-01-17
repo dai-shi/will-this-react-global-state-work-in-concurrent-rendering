@@ -34,6 +34,7 @@ const names = [
   'rx-store',
   'klyva',
   'valtio',
+  'redux-recoil-toolkit',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

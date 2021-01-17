@@ -40,6 +40,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:redux-recoil-toolkit": "cross-env NAME=redux-recoil-toolkit webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -73,6 +74,7 @@
     "react-tracked": "^1.5.1",
     "reactive-react-redux": "^5.0.0-alpha.6",
     "recoil": "^0.1.2",
+    "recoil-toolkit": "^0.0.5",
     "redux": "^4.0.5",
     "rxdeep": "^0.2.1",
     "rxjs": "^6.6.3",
