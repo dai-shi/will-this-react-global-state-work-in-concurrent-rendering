@@ -1,19 +1,42 @@
-import React from 'react';
-import { createContext, useContextSelector } from 'use-context-selector';
+import React, { useCallback } from 'react';
+import {
+  createContext,
+  useContextSelector,
+  useContextUpdate,
+} from 'use-context-selector';
 
 import {
-  syncBlock,
-  useRegisterIncrementDispatcher,
-  initialState,
   reducer,
-  ids,
-  useCheckTearing,
-  shallowEqual,
+  initialState,
+  selectCount,
+  incrementAction,
+  doubleAction,
+  createApp,
 } from '../common';
 
 const context = createContext(null);
 
-const Provider = ({ children }) => {
+const useCount = () => useContextSelector(context, (v) => selectCount(v[0]));
+
+const useIncrement = () => {
+  const update = useContextUpdate(context);
+  const dispatch = useContextSelector(context, (v) => v[1]);
+  return useCallback(
+    () => update(() => dispatch(incrementAction)),
+    [update, dispatch],
+  );
+};
+
+const useDouble = () => {
+  const update = useContextUpdate(context);
+  const dispatch = useContextSelector(context, (v) => v[1]);
+  return useCallback(
+    () => update(() => dispatch(doubleAction)),
+    [update, dispatch],
+  );
+};
+
+const Root = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <context.Provider value={[state, dispatch]}>
@@ -22,37 +45,4 @@ const Provider = ({ children }) => {
   );
 };
 
-const Counter = React.memo(() => {
-  const count = useContextSelector(context, v => v[0].count);
-  syncBlock();
-  return <div className="count">{count}</div>;
-}, shallowEqual);
-
-const Main = () => {
-  const dispatch = useContextSelector(context, v => v[1]);
-  const count = useContextSelector(context, v => v[0].count);
-  useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    dispatch({ type: 'increment' });
-  }, [dispatch]));
-
-  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
-  return (
-    <div>
-      <h1>Remote Count</h1>
-      {ids.map(id => <Counter key={id} />)}
-      <div className="count">{count}</div>
-      <h1>Local Count</h1>
-      {localCount}
-      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
-    </div>
-  );
-};
-
-const App = () => (
-  <Provider>
-    <Main />
-  </Provider>
-);
-
-export default App;
+export default createApp(useCount, useIncrement, useDouble, Root);

@@ -1,47 +1,22 @@
-import React from 'react';
 import { createStore } from 'react-hooks-global-state';
 
 import {
-  syncBlock,
-  useRegisterIncrementDispatcher,
-  initialState,
   reducer,
-  ids,
-  useCheckTearing,
-  shallowEqual,
+  initialState,
+  incrementAction,
+  doubleAction,
+  createApp,
 } from '../common';
 
-const { GlobalStateProvider, dispatch, useGlobalState } = createStore(reducer, initialState);
+const { dispatch, useGlobalState } = createStore(reducer, initialState);
 
-const Counter = React.memo(() => {
+const useCount = () => {
   const [count] = useGlobalState('count');
-  syncBlock();
-  return <div className="count">{count}</div>;
-}, shallowEqual);
-
-const Main = () => {
-  const [count] = useGlobalState('count');
-  useCheckTearing();
-  useRegisterIncrementDispatcher(React.useCallback(() => {
-    dispatch({ type: 'increment' });
-  }, []));
-  const [localCount, localIncrement] = React.useReducer(c => c + 1, 0);
-  return (
-    <div>
-      <h1>Remote Count</h1>
-      {ids.map(id => <Counter key={id} />)}
-      <div className="count">{count}</div>
-      <h1>Local Count</h1>
-      {localCount}
-      <button type="button" id="localIncrement" onClick={localIncrement}>Increment local count</button>
-    </div>
-  );
+  return count;
 };
 
-const App = () => (
-  <GlobalStateProvider>
-    <Main />
-  </GlobalStateProvider>
-);
+const useIncrement = () => () => dispatch(incrementAction);
 
-export default App;
+const useDouble = () => () => dispatch(doubleAction);
+
+export default createApp(useCount, useIncrement, useDouble);

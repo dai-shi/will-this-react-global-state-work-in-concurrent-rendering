@@ -17,12 +17,13 @@ module.exports = {
   ],
   module: {
     rules: [{
-      test: /\.jsx?/,
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
       use: [{
         loader: 'babel-loader',
         options: {
           presets: [
-            '@babel/preset-env',
+            ['@babel/preset-env', { modules: false }],
             '@babel/preset-react',
           ],
         },

@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const name = process.env.NAME || window.location.pathname.slice(1) || 'react-redux';
+let name;
+let App;
+
+if (process.env.NAME) {
+  name = process.env.NAME;
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  App = require(`./${process.env.NAME}`).default;
+} else {
+  name = window.location.pathname.slice(1) || 'react-redux';
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  App = require(`./${name}`).default;
+}
+
 document.title = name;
 
-// eslint-disable-next-line import/no-dynamic-require
-const App = require(`./${name}`).default;
-
 // concurrent mode
-const root = ReactDOM.createRoot(document.getElementById('app'));
+const root = ReactDOM.unstable_createRoot(document.getElementById('app'));
 root.render(<App />);
 
 // sync mode
