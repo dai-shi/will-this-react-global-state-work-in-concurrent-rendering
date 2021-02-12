@@ -18,7 +18,6 @@ const names = [
   'storeon',
   'react-hooks-global-state',
   'use-context-selector',
-  'use-enhanced-reducer',
   'mobx-react-lite',
   'use-subscription',
   'mobx-use-sub',

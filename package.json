@@ -27,7 +27,6 @@
     "build:storeon": "cross-env NAME=storeon webpack",
     "build:react-hooks-global-state": "cross-env NAME=react-hooks-global-state webpack",
     "build:use-context-selector": "cross-env NAME=use-context-selector webpack",
-    "build:use-enhanced-reducer": "cross-env NAME=use-enhanced-reducer webpack",
     "build:mobx-react-lite": "cross-env NAME=mobx-react-lite webpack",
     "build:use-subscription": "cross-env NAME=use-subscription webpack",
     "build:react-state": "cross-env NAME=react-state webpack",
@@ -51,7 +50,6 @@
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@react-rxjs/core": "^0.6.4",
-    "@rest-hooks/use-enhanced-reducer": "^1.0.5",
     "@rx-store/core": "^1.1.0",
     "@rx-store/react": "^1.1.2",
     "@simplux/core": "^0.17.0",

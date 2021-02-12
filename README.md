@@ -203,19 +203,6 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (4385 ms)
       ✓ check 9: no tearing with auto increment (1 ms)
-  use-enhanced-reducer
-    check with events from outside
-      ✓ check 1: updated properly (2266 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1185 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2462 ms)
-      ✓ check 6: no tearing with transition (80 ms)
-      ✓ check 7: proper branching with transition (3220 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3100 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
   mobx-react-lite
     check with events from outside
       ✓ check 1: updated properly (2197 ms)
@@ -540,19 +527,6 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/coinbase/rest-hooks/tree/master/packages/use-enhanced-reducer">@rest-hooks/use-enhanced-reducer</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
