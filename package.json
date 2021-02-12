@@ -12,7 +12,7 @@
     "test": "run-s eslint",
     "eslint": "eslint --ignore-pattern dist .",
     "jest": "cross-env PORT=8080 BABEL_ENV=jest jest",
-    "dev-server": "cross-env PORT=8080 webpack-dev-server --mode=development",
+    "dev-server": "cross-env PORT=8080 webpack serve --mode=development",
     "http-server": "cross-env PORT=8080 http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
     "build:redux-use-mutable-source": "cross-env NAME=redux-use-mutable-source webpack",
@@ -101,8 +101,7 @@
     "npm-run-all": "^4.1.5",
     "puppeteer": "^7.0.4",
     "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-cli": "^4.5.0"
   },
   "babel": {
     "env": {
