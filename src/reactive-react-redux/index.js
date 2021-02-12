@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { createStore } from 'redux';
-import { Provider, useSelector, useDispatch } from 'reactive-react-redux';
+import { patchStore, useSelector } from 'reactive-react-redux';
 
 import {
   reducer,
@@ -10,20 +10,18 @@ import {
   createApp,
 } from '../common';
 
-const store = createStore(reducer);
+const store = patchStore(createStore(reducer));
 
-const useCount = () => useSelector(selectCount);
+const useCount = () => useSelector(store, selectCount);
 
 const useIncrement = () => {
-  const dispatch = useDispatch();
+  const { dispatch } = store;
   return useCallback(() => dispatch(incrementAction), [dispatch]);
 };
 
 const useDouble = () => {
-  const dispatch = useDispatch();
+  const { dispatch } = store;
   return useCallback(() => dispatch(doubleAction), [dispatch]);
 };
 
-const Root = ({ children }) => <Provider store={store}>{children}</Provider>;
-
-export default createApp(useCount, useIncrement, useDouble, Root);
+export default createApp(useCount, useIncrement, useDouble);

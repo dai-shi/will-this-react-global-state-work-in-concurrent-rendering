@@ -101,17 +101,17 @@ in your browser, and click the button very quickly. (check the console log)
       ✕ check 9: no tearing with auto increment (4 ms)
   reactive-react-redux
     check with events from outside
-      ✕ check 1: updated properly (10400 ms)
-      ✕ check 2: no tearing during update (18 ms)
-      ✕ check 3: ability to interrupt render
-      ✕ check 4: proper update after interrupt (38 ms)
+      ✓ check 1: updated properly (3604 ms)
+      ✓ check 2: no tearing during update (2 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1233 ms)
     check with useTransition
-      ✕ check 5: updated properly with transition (4 ms)
-      ✕ check 6: no tearing with transition (5022 ms)
-      ✕ check 7: proper branching with transition (2 ms)
+      ✓ check 5: updated properly with transition (2408 ms)
+      ✓ check 6: no tearing with transition (125 ms)
+      ✕ check 7: proper branching with transition (6238 ms)
     check with intensive auto increment
-      ✕ check 8: updated properly with auto increment (10059 ms)
-      ✕ check 9: no tearing with auto increment (4 ms)
+      ✓ check 8: updated properly with auto increment (3255 ms)
+      ✕ check 9: no tearing with auto increment (2 ms)
   react-tracked
     check with events from outside
       ✓ check 1: updated properly (4439 ms)
@@ -431,14 +431,14 @@ in your browser, and click the button very quickly. (check the console log)
 
   <tr>
     <th><a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
     <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:x:</td>
+    <td>:white_check_mark:</td>
     <td>:x:</td>
   </tr>
 
