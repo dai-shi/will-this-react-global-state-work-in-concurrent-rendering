@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { proxy, useProxy } from 'valtio';
+import { proxy, useSnapshot } from 'valtio';
 
 import {
   reducer,
@@ -12,7 +12,7 @@ import {
 
 const state = proxy(initialState);
 
-const useCount = () => selectCount(useProxy(state));
+const useCount = () => selectCount(useSnapshot(state));
 
 const useIncrement = () => useCallback(() => {
   const newState = reducer(state, incrementAction);
