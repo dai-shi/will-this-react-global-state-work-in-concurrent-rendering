@@ -2705,6 +2705,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
+concent@^2.14.19:
+  version "2.14.19"
+  resolved "https://registry.npmjs.org/concent/-/concent-2.14.19.tgz#9dd3e8354c9bbc2dd3d53fb4d9c0b43b50b1251d"
+  integrity sha512-BfHg9mZmKYz6dFtisBt3SxV/+W6OJhjKmdNZBUNTG2xSzkN5EnT94EOptC4XdvvRktVuqRn4QstiNRosov5dXg==
+
 confusing-browser-globals@^1.0.10:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.10.tgz#30d1e7f3d1b882b25ec4933d1d1adac353d20a59"
