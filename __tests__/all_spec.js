@@ -13,6 +13,7 @@ const names = [
   'reactive-react-redux',
   'react-tracked',
   'constate',
+  'concent',
   'zustand',
   'react-sweet-state',
   'storeon',
