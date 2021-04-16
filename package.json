@@ -39,6 +39,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:react-tagged-state": "cross-env NAME=react-tagged-state webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -68,6 +69,7 @@
     "react-hooks-global-state": "^1.0.1",
     "react-redux": "^7.2.3",
     "react-sweet-state": "^2.5.2",
+    "react-tagged-state": "^0.1.40",
     "react-tracked": "^1.6.5",
     "reactive-react-redux": "^5.0.0-alpha.7",
     "recoil": "^0.2.0",

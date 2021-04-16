@@ -398,6 +398,20 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (3419 ms)
       ✕ check 9: no tearing with auto increment (2 ms)
+  react-tagged-state
+    check with events from outside
+      ✓ check 1: updated properly (3160 ms)
+      ✓ check 2: no tearing during update (2 ms)
+      ✓ check 3: ability to interrupt render
+      ✓ check 4: proper update after interrupt (1083 ms)
+    check with useTransition
+      ✓ check 5: updated properly with transition (2361 ms)
+      ✓ check 6: no tearing with transition (62 ms)
+      ✕ check 7: proper branching with transition (5982 ms)
+    check with intensive auto increment
+      ✓ check 8: updated properly with auto increment (3075 ms)
+      ✓ check 9: no tearing with auto increment (11 ms)
+
 ```
 
 </details>
@@ -442,7 +456,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://react-tracked.js.org">react-tracked</a></th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
@@ -455,7 +469,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/diegohaz/constate">constate</a></th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
@@ -468,7 +482,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/react-spring/zustand">zustand</a></th>
     <td>:white_check_mark:</td>
     <td>:x:</td>
@@ -481,7 +495,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/atlassian/react-sweet-state">react-sweet-state</a></th>
     <td>:white_check_mark:</td>
     <td>:x:</td>
@@ -494,7 +508,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/storeon/storeon">storeon</a></th>
     <td>:white_check_mark:</td>
     <td>:x:</td>
@@ -507,7 +521,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a></th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
@@ -520,7 +534,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)</th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
@@ -533,7 +547,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:white_check_mark:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
     <td>:white_check_mark:</td>
     <td>:x:</td>
@@ -546,7 +560,7 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
   </tr>
 
-  </tr>
+  <tr>
     <th><a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)</th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
@@ -703,6 +717,19 @@ in your browser, and click the button very quickly. (check the console log)
 
   <tr>
     <th><a href="https://github.com/pmndrs/valtio">valtio</a></th>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/oleggrishechkin/react-tagged-state">react-tagged-state</a></th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
