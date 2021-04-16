@@ -6660,6 +6660,11 @@ react-sweet-state@^2.5.2:
   resolved "https://registry.yarnpkg.com/react-sweet-state/-/react-sweet-state-2.5.2.tgz#ec220bfe08acc5eb8d957454dcb4a00e9e179107"
   integrity sha512-iMEhwhJSAOpfdgpHfWX/W4JcLyc7fvfaeACsCiDpn+xXrVGrncHTLeKiNHqPHhEpRZHJLmKIleFal6KrL8ZpMw==
 
+react-tagged-state@^0.1.40:
+  version "0.1.40"
+  resolved "https://registry.yarnpkg.com/react-tagged-state/-/react-tagged-state-0.1.40.tgz#ea5b7c100bc66801b921a5d37fdba510de5417b1"
+  integrity sha512-IXvpMwrDYYmhz4CvnAxoMj2QLExNc0PE9IHWwZdsJRXSr3+WidIFKmarHNH6pZPLeeV/bl3MRarwBkwCW3nA1Q==
+
 react-tracked@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/react-tracked/-/react-tracked-1.6.5.tgz#3ff6e8cf36b0acd9e7170d820e6632c1855e32ca"
