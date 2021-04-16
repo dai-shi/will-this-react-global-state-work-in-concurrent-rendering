@@ -64,7 +64,7 @@
     "klyva": "^0.8.3",
     "mobx": "^6.1.8",
     "mobx-react-lite": "^3.2.0",
-    "react": "0.0.0-experimental-483358c38",
+    "react": "0.14.0",
     "react-dom": "0.0.0-experimental-483358c38",
     "react-hooks-global-state": "^1.0.1",
     "react-redux": "^7.2.3",
