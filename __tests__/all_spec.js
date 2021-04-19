@@ -34,6 +34,7 @@ const names = [
   'rx-store',
   'klyva',
   'valtio',
+  'react-tagged-state',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
