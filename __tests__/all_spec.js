@@ -1,6 +1,9 @@
 /* global page, jestPuppeteer */
 
-import { COUNT_PER_DUMMY, NUM_CHILD_COMPONENTS } from '../src/common';
+import {
+  COUNT_PER_DUMMY,
+  NUM_CHILD_COMPONENTS,
+} from '../src/common';
 
 const port = process.env.PORT || '8080';
 
@@ -49,14 +52,12 @@ names.forEach((name) => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         // wait until all counts become zero
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: '0',
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: '0',
+            timeout: 5 * 1000,
+          });
+        }));
       });
 
       it('check 1: updated properly', async () => {
@@ -73,14 +74,12 @@ names.forEach((name) => {
         }
         console.log(name, delays);
         // check if all counts become REPEAT * 3
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${REPEAT * 3}`,
-              timeout: 10 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${REPEAT * 3}`,
+            timeout: 10 * 1000,
+          });
+        }));
       });
 
       it('check 2: no tearing during update', async () => {
@@ -100,20 +99,22 @@ names.forEach((name) => {
       it('check 4: proper update after interrupt', async () => {
         // click both buttons to update local count during updating shared count
         await Promise.all([
-          ...[...Array(COUNT_PER_DUMMY)].map(() => page.click('#remoteIncrement')),
+          ...([...Array(COUNT_PER_DUMMY)].map(() => (
+            page.click('#remoteIncrement')
+          ))),
           page.click('#localIncrement'),
-          ...[...Array(COUNT_PER_DUMMY)].map(() => page.click('#remoteIncrement')),
+          ...([...Array(COUNT_PER_DUMMY)].map(() => (
+            page.click('#remoteIncrement')
+          ))),
           page.click('#localIncrement'),
         ]);
         // check if all counts become REPEAT * 3 + 2
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${REPEAT * 3 + 2}`,
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${REPEAT * 3 + 2}`,
+            timeout: 5 * 1000,
+          });
+        }));
       });
 
       afterAll(async () => {
@@ -125,24 +126,18 @@ names.forEach((name) => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         // wait until all counts become zero
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: '0',
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: '0',
+            timeout: 5 * 1000,
+          });
+        }));
         await sleep(2000); // to make it stable
       });
 
       it('check 5: updated properly with transition', async () => {
         // click a button with transition
-        for (
-          let loop = 0;
-          loop < TRANSITION_REPEAT_1 * COUNT_PER_DUMMY;
-          loop += 1
-        ) {
+        for (let loop = 0; loop < TRANSITION_REPEAT_1 * COUNT_PER_DUMMY; loop += 1) {
           await page.click('#transitionIncrement');
           await sleep(100);
         }
@@ -158,23 +153,17 @@ names.forEach((name) => {
           timeout: 10 * 1000,
         });
         // the first one should be changed
-        await expect(
-          page.evaluate(
-            () => document.querySelector('.count:first-of-type').innerHTML,
-          ),
-        ).resolves.not.toBe('0');
+        await expect(page.evaluate(() => document.querySelector('.count:first-of-type').innerHTML)).resolves.not.toBe('0');
       });
 
       it('check 6: no tearing with transition', async () => {
         // check if all counts become button clicks / 2
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${TRANSITION_REPEAT_1}`,
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${TRANSITION_REPEAT_1}`,
+            timeout: 5 * 1000,
+          });
+        }));
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
         await expect(page.title()).resolves.not.toMatch(/TEARED/);
@@ -182,11 +171,7 @@ names.forEach((name) => {
 
       it('check 7: proper branching with transition', async () => {
         // click a button with transition
-        for (
-          let loop = 0;
-          loop < TRANSITION_REPEAT_2 * COUNT_PER_DUMMY;
-          loop += 1
-        ) {
+        for (let loop = 0; loop < TRANSITION_REPEAT_2 * COUNT_PER_DUMMY; loop += 1) {
           await page.click('#transitionIncrement');
           await sleep(100);
         }
@@ -198,23 +183,19 @@ names.forEach((name) => {
         // click normal double button
         await page.click('#normalDouble');
         // check if all counts become doubled before increment
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${TRANSITION_REPEAT_1 * 2}`,
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${TRANSITION_REPEAT_1 * 2}`,
+            timeout: 5 * 1000,
+          });
+        }));
         // check if all counts become doubled after increment
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${(TRANSITION_REPEAT_1 + TRANSITION_REPEAT_2) * 2}`,
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${(TRANSITION_REPEAT_1 + TRANSITION_REPEAT_2) * 2}`,
+            timeout: 5 * 1000,
+          });
+        }));
       });
 
       afterAll(async () => {
@@ -226,14 +207,12 @@ names.forEach((name) => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         // wait until all counts become zero
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: '0',
-              timeout: 5 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: '0',
+            timeout: 5 * 1000,
+          });
+        }));
         await page.evaluate((count) => {
           document.getElementById('autoIncrementCount').value = count;
         }, REPEAT * COUNT_PER_DUMMY);
@@ -244,14 +223,12 @@ names.forEach((name) => {
           await page.click('#remoteIncrement');
         }
         // check if all counts become REPEAT + 1
-        await Promise.all(
-          [...Array(NUM_COMPONENTS).keys()].map(async (i) => {
-            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-              text: `${REPEAT + 1}`,
-              timeout: 10 * 1000,
-            });
-          }),
-        );
+        await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
+          await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+            text: `${REPEAT + 1}`,
+            timeout: 10 * 1000,
+          });
+        }));
       });
 
       it('check 9: no tearing with auto increment', async () => {

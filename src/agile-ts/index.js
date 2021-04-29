@@ -1,14 +1,17 @@
 import React from 'react';
-import { Agile, Logger } from '@agile-ts/core';
+import { Agile } from '@agile-ts/core';
 import reactIntegration, { useAgile } from '@agile-ts/react';
 
 import {
   initialState,
-  createApp, reducer, doubleAction, incrementAction,
+  createApp,
+  reducer,
+  doubleAction,
+  incrementAction,
 } from '../common';
 
 const AgileApp = new Agile({
-  logConfig: { level: Logger.level.DEBUG, active: true },
+  logConfig: { active: false },
 }).integrate(reactIntegration);
 
 const MY_COUNT = AgileApp.createState(initialState, { key: 'counter' });
@@ -16,15 +19,13 @@ const MY_COUNT = AgileApp.createState(initialState, { key: 'counter' });
 const useCount = () => useAgile(MY_COUNT).count;
 
 const useDouble = () => () => {
-  const currentStateValue = MY_COUNT.copy();
-  const nextValue = reducer(currentStateValue, doubleAction);
-  MY_COUNT.patch(nextValue);
+  // Used the inbuilt reducer for simplicity. However, AgileTs normally doesn't need any reducers!
+  MY_COUNT.patch(reducer(MY_COUNT.copy(), doubleAction));
 };
 
 const useIncrement = () => () => {
-  const currentStateValue = MY_COUNT.copy();
-  const nextValue = reducer(currentStateValue, incrementAction);
-  MY_COUNT.patch(nextValue);
+  // Used the inbuilt reducer for simplicity. However, AgileTs normally doesn't need any reducers!
+  MY_COUNT.patch(reducer(MY_COUNT.copy(), incrementAction));
 };
 
 export default createApp(useCount, useIncrement, useDouble);
