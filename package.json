@@ -40,6 +40,7 @@
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
     "build:react-tagged-state": "cross-env NAME=react-tagged-state webpack",
+    "build:agile-ts": "cross-env NAME=agile-ts webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -49,6 +50,8 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@agile-ts/core": "^0.0.14",
+    "@agile-ts/react": "^0.0.15",
     "@apollo/react-hooks": "^4.0.0",
     "@react-rxjs/core": "^0.7.0",
     "@rx-store/core": "^1.1.0",

@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@agile-ts/core@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@agile-ts/core/-/core-0.0.14.tgz#eee622b43f42c89245564f62273d643bb0c591dd"
+  integrity sha512-oBc0fDSRt7GrsJfsQSuz9aszeUZEm0WcxDgHppvyvcv3qZ+CCvVI/03Qz83Megqcj3/RV3ZEFQO8EuLILKfsCQ==
+
+"@agile-ts/react@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@agile-ts/react/-/react-0.0.15.tgz#1327869ce2d0ebcb0c109b594333ac2264ee3f30"
+  integrity sha512-nZGQJ3stDqfuooSxQmZhY2KQddfEVl4nrk0XVTBa2sSgQj0bS33EtaFIfvqi3/DZlZp+UNmJIGX58Bpu9KdS9Q==
+
 "@apollo/client@latest":
   version "3.3.13"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.13.tgz#0aadde13b80ce129d1261161413a9de2b0dec70e"
