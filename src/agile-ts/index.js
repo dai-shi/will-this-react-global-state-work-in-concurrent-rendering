@@ -10,7 +10,7 @@ const App = new Agile({
 
 const MY_COUNT = App.createState(initialState, { key: 'counter' });
 
-const useCount = () => useAgile(MY_COUNT);
+const useCount = () => useAgile(MY_COUNT).count;
 
 const useIncrement = () => () => {
   const currentStateValue = MY_COUNT.copy();
