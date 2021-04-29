@@ -411,7 +411,19 @@ in your browser, and click the button very quickly. (check the console log)
     check with intensive auto increment
       ✓ check 8: updated properly with auto increment (3075 ms)
       ✓ check 9: no tearing with auto increment (11 ms)
-
+  agile-ts
+    check with events from outside
+      √ check 1: updated properly (3215 ms)
+      × check 2: no tearing during update (4 ms)
+      √ check 3: ability to interrupt render
+      √ check 4: proper update after interrupt (1264 ms)
+    check with useTransition
+      √ check 5: updated properly with transition (2524 ms)
+      × check 6: no tearing with transition (131 ms)
+      × check 7: proper branching with transition (6216 ms)
+    check with intensive auto increment
+      √ check 8: updated properly with auto increment (3089 ms)
+      × check 9: no tearing with auto increment (1 ms)
 ```
 
 </details>
@@ -739,6 +751,19 @@ in your browser, and click the button very quickly. (check the console log)
     <td>:x:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
+  </tr>
+
+  <tr>
+    <th><a href="https://github.com/agile-ts/agile">agile-ts</a></th>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
+    <td>:x:</td>
+    <td>:white_check_mark:</td>
+    <td>:x:</td>
   </tr>
 </table>
 
