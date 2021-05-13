@@ -757,3 +757,20 @@ The reason why I created this is to promote my projects!
 
 The feature of these libraries is not only concurrent mode friendly,
 but also state usage tracking.
+
+## Contributing
+
+This repository is a tool for us to test some of global state libraries.
+While it is totally fine to use the tool for other libraries under the license,
+we don't generally accept adding a new library to the repository.
+
+However, we are interested in various approaches.
+If you have any suggestions feel free to open issues or pull requests.
+We may consider adding (and removing) libraries.
+Questions and discussions are also welcome in issues.
+
+For listing global state libraries, we have another repository
+https://github.com/dai-shi/lets-compare-global-state-with-react-hooks
+in which we accept contributions. It's recommended to run this tool
+and we put the result there, possibly a reference link to a PR
+in this repository or a fork of this repository.
