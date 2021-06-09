@@ -1,7 +1,7 @@
 import React, {
   useEffect,
   useReducer,
-  unstable_useTransition as useTransition,
+  useTransition,
 } from 'react';
 
 let skipCount = 0;
@@ -92,7 +92,7 @@ export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragme
   const Main = () => {
     const count = useCount();
     useCheckTearing();
-    const [startTransition, isPending] = useTransition();
+    const [isPending, startTransition] = useTransition();
     const increment = useIncrement();
     useRegisterIncrementDispatcher(increment);
     const doDouble = useDouble();

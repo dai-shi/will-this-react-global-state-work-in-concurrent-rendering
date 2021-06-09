@@ -1,13 +1,14 @@
-# Will this React global state work in Concurrent Mode?
+# Will this global state work in Concurrent React?
 
-Checking tearing in React concurrent mode
+Test tearing in React Concurrent React
 
 ## Introduction
 
-In react-redux, there's a theoretical issue called "tearing"
-that might occur in React concurrent mode.
+React 18 is coming with a new feature called "concurrent rendering".
+With global state, there's a theoretical issue called "tearing"
+that might occur in React concurrent rendering.
 
-Let's try to check it!
+Let's test the behavior!
 
 ## What is tearing?
 
@@ -41,12 +42,8 @@ git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concur
 cd will-this-react-global-state-work-in-concurrent-mode
 yarn install
 yarn run build-all
-PORT=8080 yarn run http-server &
-PORT=8080 yarn run jest
+yarn run jest
 ```
-
-You can also test it by opening `http://localhost:8080/react-redux`
-in your browser, and click the button very quickly. (check the console log)
 
 ## Screencast
 
@@ -750,13 +747,11 @@ The results might contain unexpected errors.
 
 ## If you are interested
 
-The reason why I created this is to promote my projects!
+The reason why I created this is to test my projects.
 
 - [react-tracked](https://github.com/dai-shi/react-tracked)
 - [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux)
-
-The feature of these libraries is not only concurrent mode friendly,
-but also state usage tracking.
+- and so on
 
 ## Contributing
 

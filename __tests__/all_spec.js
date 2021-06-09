@@ -36,6 +36,7 @@ const TRANSITION_REPEAT_2 = 2;
 
 names.forEach((name) => {
   describe(name, () => {
+    /*
     describe('check with events from outside', () => {
       let delays;
 
@@ -111,8 +112,11 @@ names.forEach((name) => {
         await jestPuppeteer.resetBrowser();
       });
     });
+    */
 
-    describe('check with useTransition', () => {
+    describe('with useTransition', () => {
+      let delays;
+
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         // wait until all counts become zero
@@ -125,12 +129,16 @@ names.forEach((name) => {
         await sleep(2000); // to make it stable
       });
 
-      it('check 5: updated properly with transition', async () => {
+      it('test 1: updated properly with transition', async () => {
+        delays = [];
         // click a button with transition
         for (let loop = 0; loop < TRANSITION_REPEAT_1 * COUNT_PER_DUMMY; loop += 1) {
+          const start = Date.now();
           await page.click('#transitionIncrement');
+          delays.push(Date.now() - start);
           await sleep(100);
         }
+        console.log(name, delays);
         // wait for pending
         await expect(page).toMatchElement('#pending', {
           text: 'Pending...',
@@ -146,7 +154,7 @@ names.forEach((name) => {
         await expect(page.evaluate(() => document.querySelector('.count:first-of-type').innerHTML)).resolves.not.toBe('0');
       });
 
-      it('check 6: no tearing with transition', async () => {
+      it('test 2: no tearing with transition', async () => {
         // check if all counts become button clicks / 2
         await Promise.all([...Array(NUM_COMPONENTS).keys()].map(async (i) => {
           await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -159,7 +167,15 @@ names.forEach((name) => {
         await expect(page.title()).resolves.not.toMatch(/TEARED/);
       });
 
-      it('check 7: proper branching with transition', async () => {
+      it('test 3: ability to interrupt render', async () => {
+        // check delays taken by clicking buttons in check1
+        // each render takes at least 20ms and there are 50 components,
+        // it triggers triple clicks, so 300ms on average.
+        const avg = delays.reduce((a, b) => a + b) / delays.length;
+        expect(avg).toBeLessThan(300);
+      });
+
+      it('test 4: proper branching with transition', async () => {
         // click a button with transition
         for (let loop = 0; loop < TRANSITION_REPEAT_2 * COUNT_PER_DUMMY; loop += 1) {
           await page.click('#transitionIncrement');
@@ -193,7 +209,7 @@ names.forEach((name) => {
       });
     });
 
-    describe('check with intensive auto increment', () => {
+    describe('with intensive auto increment', () => {
       beforeAll(async () => {
         await page.goto(`http://localhost:${port}/${name}/index.html`);
         // wait until all counts become zero
@@ -208,7 +224,7 @@ names.forEach((name) => {
         }, REPEAT * COUNT_PER_DUMMY);
       });
 
-      it('check 8: updated properly with auto increment', async () => {
+      it('test 5: updated properly with auto increment', async () => {
         for (let loop = 0; loop < COUNT_PER_DUMMY; loop += 1) {
           await page.click('#remoteIncrement');
         }
@@ -221,7 +237,7 @@ names.forEach((name) => {
         }));
       });
 
-      it('check 9: no tearing with auto increment', async () => {
+      it('test 6: no tearing with auto increment', async () => {
         // check if there's inconsistency during update
         // see useCheckTearing() in src/common.js
         await expect(page.title()).resolves.not.toMatch(/TEARED/);

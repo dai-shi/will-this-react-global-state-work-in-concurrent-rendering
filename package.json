@@ -1,8 +1,8 @@
 {
-  "name": "will-this-react-global-state-work-in-concurrent-mode",
-  "description": "Checking tearing in React concurrent mode",
+  "name": "will-this-global-state-work-in-concurrent-react",
+  "description": "Test tearing in Concurrent React",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",
@@ -11,9 +11,9 @@
   "scripts": {
     "test": "run-s eslint",
     "eslint": "eslint --ignore-pattern dist .",
-    "jest": "cross-env PORT=8080 BABEL_ENV=jest jest",
-    "dev-server": "cross-env PORT=8080 webpack serve --mode=development",
-    "http-server": "cross-env PORT=8080 http-server dist",
+    "jest": "cross-env BABEL_ENV=jest jest",
+    "dev-server": "webpack serve --mode=development",
+    "http-server": "http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
     "build:redux-use-mutable-source": "cross-env NAME=redux-use-mutable-source webpack",
     "build:reactive-react-redux": "cross-env NAME=reactive-react-redux webpack",
@@ -62,7 +62,7 @@
     "use-context-selector": "^1.3.7",
     "use-subscription": "^1.5.1",
     "valtio": "^1.0.6",
-    "zustand": "^v4.0.0-alpha.0"
+    "zustand": "^4.0.0-alpha.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
