@@ -14,13 +14,9 @@ const names = [
   'react-tracked',
   'constate',
   'zustand',
-  'react-sweet-state',
-  'storeon',
   'react-hooks-global-state',
   'use-context-selector',
-  'mobx-react-lite',
   'use-subscription',
-  'mobx-use-sub',
   'react-state',
   'simplux',
   'react-apollo',
@@ -28,12 +24,7 @@ const names = [
   'jotai',
   'effector',
   'react-rxjs',
-  'rxdeep',
-  'rxjs-hooks',
-  'rx-store',
-  'klyva',
   'valtio',
-  'react-tagged-state',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
