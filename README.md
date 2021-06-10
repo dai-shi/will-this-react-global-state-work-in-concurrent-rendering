@@ -245,7 +245,7 @@ yarn run jest
   </tr>
 
   <tr>
-    <th><a href="https://redux.js.org">redux</a> with useMutableSource</th>
+    <th><a href="https://redux.js.org">redux</a> (w/ useMutableSource)</th>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
     <td>:white_check_mark:</td>
