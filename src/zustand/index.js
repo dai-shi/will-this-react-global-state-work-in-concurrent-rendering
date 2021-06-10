@@ -17,13 +17,15 @@ const useStore = create((set) => ({
 
 const useCount = () => useStore(selectCount);
 
+const selectDispatch = (state) => state.dispatch;
+
 const useIncrement = () => {
-  const dispatch = useStore((state) => state.dispatch);
+  const dispatch = useStore(selectDispatch);
   return useCallback(() => dispatch(incrementAction), [dispatch]);
 };
 
 const useDouble = () => {
-  const dispatch = useStore((state) => state.dispatch);
+  const dispatch = useStore(selectDispatch);
   return useCallback(() => dispatch(doubleAction), [dispatch]);
 };
 
