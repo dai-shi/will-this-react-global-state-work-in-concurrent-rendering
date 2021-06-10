@@ -1,6 +1,6 @@
-# Will this global state work in Concurrent React?
+# Will this React global state work in concurrent rendering?
 
-Test tearing in React Concurrent React
+Test tearing in React concurrent rendering
 
 ## Introduction
 
