@@ -38,8 +38,8 @@ If it finds the inconsistency, the test will fail.
 ## How to run
 
 ```bash
-git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode.git
-cd will-this-react-global-state-work-in-concurrent-mode
+git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-rendering.git
+cd will-this-react-global-state-work-in-concurrent-rendering
 yarn install
 yarn run build-all
 yarn run jest

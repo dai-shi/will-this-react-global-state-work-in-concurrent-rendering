@@ -6,7 +6,7 @@
   "author": "Daishi Kato",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode.git"
+    "url": "https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-rendering.git"
   },
   "scripts": {
     "test": "run-s eslint",
