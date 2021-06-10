@@ -1,6 +1,6 @@
 {
   "name": "will-this-react-global-state-work-in-concurrent-rendering",
-  "description": "Test tearing in React concurrent rendering",
+  "description": "Test tearing and branching in React concurrent rendering",
   "private": true,
   "version": "0.2.0",
   "author": "Daishi Kato",

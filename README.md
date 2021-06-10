@@ -1,6 +1,6 @@
 # Will this React global state work in concurrent rendering?
 
-Test tearing in React concurrent rendering
+Test tearing and branching in React concurrent rendering
 
 ## Introduction
 
@@ -18,6 +18,11 @@ Let's test the behavior!
 - Some other resources
   - https://github.com/reactjs/rfcs/pull/147
   - https://gist.github.com/bvaughn/054b82781bec875345bd85a5b1344698
+
+## What is branching?
+
+- Old resources
+  - https://reactjs.org/docs/concurrent-mode-intro.html
 
 ## How does it work?
 
