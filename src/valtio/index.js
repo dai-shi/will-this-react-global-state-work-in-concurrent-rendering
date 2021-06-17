@@ -12,7 +12,7 @@ import {
 
 const state = proxy(initialState);
 
-const useCount = () => selectCount(useSnapshot(state));
+const useCount = () => selectCount(useSnapshot(state, { sync: true }));
 
 const useIncrement = () => useCallback(() => {
   const newState = reducer(state, incrementAction);

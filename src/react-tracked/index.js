@@ -16,7 +16,7 @@ const {
   Provider: Root,
   useSelector,
   useUpdate: useDispatch,
-} = createContainer(useValue);
+} = createContainer(useValue, true);
 
 const useCount = () => useSelector(selectCount);
 
