@@ -31,6 +31,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:agile-ts": "cross-env NAME=agile-ts webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -40,6 +41,8 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@agile-ts/core": "^0.0.17",
+    "@agile-ts/react": "^0.0.18",
     "@apollo/react-hooks": "^4.0.0",
     "@react-rxjs/core": "^0.8.2",
     "@simplux/core": "^0.17.0",
