@@ -19,7 +19,7 @@ const names = [
   'use-subscription',
   'react-state',
   'simplux',
-  'react-apollo',
+  'apollo-client',
   'recoil',
   'jotai',
   'effector',
