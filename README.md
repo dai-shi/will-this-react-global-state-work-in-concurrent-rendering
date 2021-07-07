@@ -12,6 +12,7 @@ Let's test the behavior!
 
 ## What is tearing?
 
+- [What is tearing in React 18 WG](https://github.com/reactwg/react-18/discussions/69)
 - [Stack Overflow](https://stackoverflow.com/questions/54891675/what-is-tearing-in-the-context-of-the-react-redux)
 - [Talk by Mark Erikson](https://www.youtube.com/watch?v=yOZ4Ml9LlWE&t=933s)
 - [Talk by Flarnie Marchan](https://www.youtube.com/watch?v=V1Ly-8Z1wQA&t=1079s)
