@@ -9,6 +9,7 @@ const port = process.env.PORT || '8080';
 
 const names = [
   'react-redux',
+  'react-router',
   'redux-use-mutable-source',
   'reactive-react-redux',
   'react-tracked',
