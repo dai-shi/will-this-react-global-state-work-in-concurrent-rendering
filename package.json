@@ -32,6 +32,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:hash": "cross-env NAME=hash webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
