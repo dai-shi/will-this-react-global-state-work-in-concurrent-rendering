@@ -32,11 +32,11 @@ const client = new ApolloClient({
         fields: {
           count() {
             return currentState().count;
-          }
-        }
-      }
-    }
-  })
+          },
+        },
+      },
+    },
+  }),
 });
 
 const useCount = () => {
@@ -45,15 +45,13 @@ const useCount = () => {
 };
 
 const useIncrement = () => {
-  return () => {
-    return currentState(reducer(currentState(), incrementAction));
-  };
+  const increment = () => currentState(reducer(currentState(), incrementAction));
+  return increment;
 };
 
 const useDouble = () => {
-  return () => {
-    return currentState(reducer(currentState(), doubleAction));
-  };
+  const doDouble = () => currentState(reducer(currentState(), doubleAction));
+  return doDouble;
 };
 
 const Root = ({ children }) => (
