@@ -6072,6 +6072,11 @@ prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+proxily@^0.9.32-alpha:
+  version "0.9.32-alpha"
+  resolved "https://registry.yarnpkg.com/proxily/-/proxily-0.9.32-alpha.tgz#6e7ffd6fcb2a8f8d1f52888f6b6638b286999427"
+  integrity sha512-jgNqhTFYZ1IgIAI3S6zxpD1OKCORUYHq3g3dWkqi+VETu7AT2SjV7rGHwmstcK0j04kuS9Ayu/IkJY4J1lZP6w==
+
 proxy-addr@~2.0.5:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.7.tgz#f19fe69ceab311eeb94b42e70e8c2070f9ba1025"
