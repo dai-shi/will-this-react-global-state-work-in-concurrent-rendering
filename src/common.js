@@ -82,8 +82,10 @@ export const useCheckTearing = () => {
   });
 };
 
-export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment) => {
-  const Counter = React.memo(() => {
+export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment,
+  doUseTransition = useTransition, componentWrapper = React.memo) => {
+  const Counter = componentWrapper(() => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const count = useCount();
     syncBlock();
     return <div className="count">{count}</div>;
@@ -92,7 +94,7 @@ export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragme
   const Main = () => {
     const count = useCount();
     useCheckTearing();
-    const [isPending, startTransition] = useTransition();
+    const [isPending, startTransition] = doUseTransition();
     const increment = useIncrement();
     useRegisterIncrementDispatcher(increment);
     const doDouble = useDouble();
