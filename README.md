@@ -432,3 +432,9 @@ https://github.com/dai-shi/lets-compare-global-state-with-react-hooks
 in which we accept contributions. It's recommended to run this tool
 and we put the result there, possibly a reference link to a PR
 in this repository or a fork of this repository.
+
+To automatically run tests and update the README.md on OSX:
+```
+yarn jest:json
+yarn jest:update
+```

@@ -12,6 +12,8 @@
     "test": "run-s eslint",
     "eslint": "eslint --ignore-pattern dist .",
     "jest": "cross-env BABEL_ENV=jest jest",
+    "jest:json" : "cross-env BABEL_ENV=jest jest --json --outputFile=./outfile.json --no-color 2>./outfile_raw.txt" ,
+    "jest:update": "node update_readme.js",
     "dev-server": "webpack serve --mode=development",
     "http-server": "http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
