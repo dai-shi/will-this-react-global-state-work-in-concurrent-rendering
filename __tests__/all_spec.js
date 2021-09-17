@@ -145,7 +145,7 @@ names.forEach((name) => {
           timeout: 2 * 1000,
         });
         // Make sure that while isPending true, previous state displayed
-        await expect(page.evaluate(() => document.querySelector('#maincount').innerHTML)).resolves.toBe('0');
+        await expect(page.evaluate(() => document.querySelector('#mainCount').innerHTML)).resolves.toBe('0');
         await expect(page.evaluate(() => document.querySelector('.count:first-of-type').innerHTML)).resolves.toBe('0');
         await sleep(1000); // this is a magic number (better way?)
         // wait until pending disappers
@@ -154,7 +154,7 @@ names.forEach((name) => {
           timeout: 10 * 1000,
         });
         // Main state should be changed
-        await expect(page.evaluate(() => document.querySelector('#maincount').innerHTML)).resolves.not.toBe('0');
+        await expect(page.evaluate(() => document.querySelector('#mainCount').innerHTML)).resolves.not.toBe('0');
         // the first one should be changed
         await expect(page.evaluate(() => document.querySelector('.count:first-of-type').innerHTML)).resolves.not.toBe('0');
       });
