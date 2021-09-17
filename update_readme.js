@@ -34,6 +34,10 @@ results.testResults[0].assertionResults.forEach((result, ix) => {
 // Format table for substitution in outfile
 let sub = '';
 testResults.forEach((result) => {
+  if (!libraries[result[0].title]) {
+    console.info('no library entry for', result[0].title);
+    return;
+  }
   const th = wrap(libraries[result[0].title], 'th');
   const tds = result.map((test) => `\t\t${wrap(check(test.status), 'td')}\n`).join('');
   sub += `\t<tr>\n\t\t${th}\n${tds}\t</tr>\n`;
@@ -64,5 +68,4 @@ readme = readme.replace(/<table>([\s\S]*?)<\/table>/,
 readme = readme.replace(/<details>([\s\S]*?)<\/details>/,
   `<details>\n<summary>Raw Output</summary>\n\n\`\`\`\n${lines.join('\n')}\n\n\`\`\`\n</details>`);
 
-console.log(readme);
 fs.writeFileSync('./README.md', readme);
