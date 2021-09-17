@@ -6085,11 +6085,6 @@ proxy-compare@2.0.2:
   resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-2.0.2.tgz#343e624d0ec399dfbe575f1d365d4fa042c9fc69"
   integrity sha512-3qUXJBariEj3eO90M3Rgqq3+/P5Efl0t/dl9g/1uVzIQmO3M+ql4hvNH3mYdu8H+1zcKv07YvL55tsY74jmH1A==
 
-proxy-compare@^1.1.3:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.1.6.tgz#dd7737be611a9d7142fae10dbc6d0ceb74ad6da0"
-  integrity sha512-V65euKrKgKjVyEh5+4nVlAf4dHJ6Q0cF77MCeZiJaOldAl9lndy/u270SJneHiz3UkVcSIhxfOKY7aFkrMyo5g==
-
 proxy-from-env@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
@@ -6231,13 +6226,6 @@ react@^18.0.0-alpha-1314299c7-20210901:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-
-reactive-react-redux@^5.0.0-alpha.7:
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/reactive-react-redux/-/reactive-react-redux-5.0.0-alpha.7.tgz#4a063afcc5c99b0ad769524b65e9bfdb32cd993b"
-  integrity sha512-xybwvOIvCVZVBeLmf/gxkIR12fHfrTigkGIbARNWkVLYtiGh2zKgcmaE+VylUnBGazTt5oejGP8bopyrLImd6Q==
-  dependencies:
-    proxy-compare "^1.1.3"
 
 read-pkg-up@^3.0.0:
   version "3.0.0"

@@ -2,8 +2,6 @@ const fs = require('fs');
 
 const libraries = {
   'react-redux': '<a href="https://react-redux.js.org">react-redux</a>',
-  'redux-use-mutable-source': '<a href="https://redux.js.org">redux</a> (w/ useMutableSource)',
-  'reactive-react-redux': '<a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a>',
   'react-tracked': '<a href="https://react-tracked.js.org">react-tracked</a>',
   constate: '<a href="https://github.com/diegohaz/constate">constate</a>',
   zustand: '<a href="https://github.com/pmndrs/zustand">zustand</a>',
