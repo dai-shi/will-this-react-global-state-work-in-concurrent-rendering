@@ -74,157 +74,139 @@ yarn run jest
 ```
  react-redux
    with useTransition
-     ✓ test 1: updated properly with transition (2677 ms)
-     ✕ test 2: no tearing with transition (34 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7437 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2210 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
- redux-use-mutable-source
-   with useTransition
-     ✓ test 1: updated properly with transition (2753 ms)
-     ✓ test 2: no tearing with transition (123 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7536 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2219 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
- reactive-react-redux
-   with useTransition
-     ✓ test 1: updated properly with transition (2713 ms)
-     ✓ test 2: no tearing with transition (123 ms)
+     ✓ test 1: updated properly with transition (2662 ms)
+     ✕ test 2: no tearing with transition (29 ms)
      ✓ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (7540 ms)
+     ✕ test 4: proper branching with transition (7177 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2211 ms)
-     ✕ test 6: no tearing with auto increment (2 ms)
+     ✓ test 5: updated properly with auto increment (2214 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
  react-tracked
    with useTransition
-     ✓ test 1: updated properly with transition (3591 ms)
-     ✓ test 2: no tearing with transition (26 ms)
+     ✓ test 1: updated properly with transition (3605 ms)
+     ✓ test 2: no tearing with transition (30 ms)
      ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (5440 ms)
+     ✓ test 4: proper branching with transition (5429 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (6140 ms)
+     ✓ test 5: updated properly with auto increment (6257 ms)
      ✓ test 6: no tearing with auto increment
  constate
    with useTransition
-     ✓ test 1: updated properly with transition (2822 ms)
-     ✓ test 2: no tearing with transition (27 ms)
+     ✓ test 1: updated properly with transition (2839 ms)
+     ✓ test 2: no tearing with transition (25 ms)
      ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (3404 ms)
+     ✓ test 4: proper branching with transition (3422 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4026 ms)
+     ✓ test 5: updated properly with auto increment (4020 ms)
      ✓ test 6: no tearing with auto increment (1 ms)
  zustand
    with useTransition
-     ✓ test 1: updated properly with transition (2634 ms)
-     ✕ test 2: no tearing with transition (27 ms)
+     ✓ test 1: updated properly with transition (2632 ms)
+     ✕ test 2: no tearing with transition (25 ms)
      ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7552 ms)
+     ✕ test 4: proper branching with transition (7185 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2209 ms)
+     ✓ test 5: updated properly with auto increment (2221 ms)
      ✕ test 6: no tearing with auto increment (1 ms)
  react-hooks-global-state
    with useTransition
-     ✓ test 1: updated properly with transition (3438 ms)
-     ✓ test 2: no tearing with transition (27 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7190 ms)
+     ✓ test 1: updated properly with transition (3454 ms)
+     ✓ test 2: no tearing with transition (25 ms)
+     ✓ test 3: ability to interrupt render (1 ms)
+     ✕ test 4: proper branching with transition (7191 ms)
    with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13195 ms)
-     ✕ test 6: no tearing with auto increment (5 ms)
+     ✕ test 5: updated properly with auto increment (13187 ms)
+     ✕ test 6: no tearing with auto increment (3 ms)
  use-context-selector
    with useTransition
-     ✓ test 1: updated properly with transition (3614 ms)
-     ✓ test 2: no tearing with transition (28 ms)
-     ✓ test 3: ability to interrupt render (1 ms)
-     ✓ test 4: proper branching with transition (5396 ms)
+     ✓ test 1: updated properly with transition (3834 ms)
+     ✓ test 2: no tearing with transition (30 ms)
+     ✓ test 3: ability to interrupt render
+     ✓ test 4: proper branching with transition (5421 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (6131 ms)
+     ✓ test 5: updated properly with auto increment (6140 ms)
      ✓ test 6: no tearing with auto increment (1 ms)
  use-subscription
    with useTransition
-     ✓ test 1: updated properly with transition (3545 ms)
-     ✓ test 2: no tearing with transition (122 ms)
+     ✓ test 1: updated properly with transition (3525 ms)
+     ✓ test 2: no tearing with transition (123 ms)
      ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7536 ms)
+     ✕ test 4: proper branching with transition (7538 ms)
    with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13190 ms)
-     ✕ test 6: no tearing with auto increment (4 ms)
+     ✕ test 5: updated properly with auto increment (13188 ms)
+     ✕ test 6: no tearing with auto increment (3 ms)
  react-state
    with useTransition
-     ✓ test 1: updated properly with transition (2815 ms)
-     ✓ test 2: no tearing with transition (27 ms)
+     ✓ test 1: updated properly with transition (2831 ms)
+     ✓ test 2: no tearing with transition (28 ms)
      ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (3408 ms)
+     ✓ test 4: proper branching with transition (3404 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4011 ms)
-     ✓ test 6: no tearing with auto increment
+     ✓ test 5: updated properly with auto increment (4015 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
  simplux
    with useTransition
      ✓ test 1: updated properly with transition (2811 ms)
      ✓ test 2: no tearing with transition (27 ms)
      ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7369 ms)
+     ✕ test 4: proper branching with transition (7368 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4094 ms)
+     ✓ test 5: updated properly with auto increment (4335 ms)
      ✓ test 6: no tearing with auto increment (1 ms)
  apollo-client
    with useTransition
-     ✕ test 1: updated properly with transition (4670 ms)
+     ✕ test 1: updated properly with transition (4666 ms)
      ✕ test 2: no tearing with transition (31 ms)
-     ✕ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (3516 ms)
+     ✕ test 3: ability to interrupt render (3 ms)
+     ✕ test 4: proper branching with transition (3620 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2247 ms)
+     ✓ test 5: updated properly with auto increment (2248 ms)
      ✕ test 6: no tearing with auto increment (1 ms)
  recoil
    with useTransition
-     ✕ test 1: updated properly with transition (5666 ms)
+     ✕ test 1: updated properly with transition (5628 ms)
      ✓ test 2: no tearing with transition (31 ms)
      ✕ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (4431 ms)
+     ✕ test 4: proper branching with transition (4435 ms)
    with intensive auto increment
      ✓ test 5: updated properly with auto increment (3038 ms)
      ✓ test 6: no tearing with auto increment (1 ms)
  jotai
    with useTransition
-     ✓ test 1: updated properly with transition (3520 ms)
+     ✓ test 1: updated properly with transition (3519 ms)
      ✓ test 2: no tearing with transition (121 ms)
-     ✓ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (7547 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (8528 ms)
    with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13210 ms)
-     ✕ test 6: no tearing with auto increment (4 ms)
+     ✓ test 5: updated properly with auto increment (3226 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
  effector
    with useTransition
-     ✓ test 1: updated properly with transition (2629 ms)
-     ✕ test 2: no tearing with transition (28 ms)
+     ✓ test 1: updated properly with transition (2616 ms)
+     ✕ test 2: no tearing with transition (27 ms)
      ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7212 ms)
+     ✕ test 4: proper branching with transition (7205 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2230 ms)
-     ✕ test 6: no tearing with auto increment (3 ms)
+     ✓ test 5: updated properly with auto increment (2594 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
  react-rxjs
    with useTransition
-     ✕ test 1: updated properly with transition (5839 ms)
-     ✓ test 2: no tearing with transition (42 ms)
+     ✕ test 1: updated properly with transition (5829 ms)
+     ✓ test 2: no tearing with transition (32 ms)
      ✕ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (4522 ms)
+     ✕ test 4: proper branching with transition (4508 ms)
    with intensive auto increment
-     ✓ test 5: updated properly with auto increment (3025 ms)
+     ✓ test 5: updated properly with auto increment (3007 ms)
      ✓ test 6: no tearing with auto increment (1 ms)
  valtio
    with useTransition
-     ✓ test 1: updated properly with transition (3439 ms)
+     ✓ test 1: updated properly with transition (3456 ms)
      ✓ test 2: no tearing with transition (28 ms)
-     ✓ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (7196 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7215 ms)
    with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13214 ms)
-     ✕ test 6: no tearing with auto increment (8 ms)
+     ✕ test 5: updated properly with auto increment (13208 ms)
+     ✕ test 6: no tearing with auto increment (3 ms)
 
 ```
 </details>
@@ -234,24 +216,6 @@ yarn run jest
 		<th><a href="https://react-redux.js.org">react-redux</a></th>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-	</tr>
-	<tr>
-		<th><a href="https://redux.js.org">redux</a> (w/ useMutableSource)</th>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-	</tr>
-	<tr>
-		<th><a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a></th>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
 		<td>:white_check_mark:</td>
@@ -344,7 +308,7 @@ yarn run jest
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:x:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>

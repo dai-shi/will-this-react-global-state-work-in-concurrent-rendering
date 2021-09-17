@@ -17,7 +17,6 @@
     "dev-server": "webpack serve --mode=development",
     "http-server": "http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
-    "build:redux-use-mutable-source": "cross-env NAME=redux-use-mutable-source webpack",
     "build:react-tracked": "cross-env NAME=react-tracked webpack",
     "build:constate": "cross-env NAME=constate webpack",
     "build:zustand": "cross-env NAME=zustand webpack",
