@@ -212,7 +212,8 @@ yarn run jest
 </details>
 
 <table>
-<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>	<tr>
+<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+	<tr>
 		<th><a href="https://react-redux.js.org">react-redux</a></th>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>

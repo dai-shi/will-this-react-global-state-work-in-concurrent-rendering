@@ -82,8 +82,9 @@ export const useCheckTearing = () => {
   });
 };
 
-export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment) => {
-  const Counter = React.memo(() => {
+export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment,
+  componentWrapper = React.memo) => {
+  const Counter = componentWrapper(() => {
     const count = useCount();
     syncBlock();
     return <div className="count">{count}</div>;
