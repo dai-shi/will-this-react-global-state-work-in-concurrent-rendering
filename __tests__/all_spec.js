@@ -25,7 +25,6 @@ const names = [
   'effector',
   'react-rxjs',
   'valtio',
-  'proxily',
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

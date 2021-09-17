@@ -12,8 +12,6 @@
     "test": "run-s eslint",
     "eslint": "eslint --ignore-pattern dist .",
     "jest": "cross-env BABEL_ENV=jest jest",
-    "jest:json" : "cross-env BABEL_ENV=jest jest --json --outputFile=./outfile.json --no-color 2>./outfile_raw.txt" ,
-    "jest:update": "node update_readme.js",
     "dev-server": "webpack serve --mode=development",
     "http-server": "http-server dist",
     "build:react-redux": "cross-env NAME=react-redux webpack",
@@ -33,7 +31,6 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
-    "build:proxily": "cross-env NAME=proxily webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -52,7 +49,6 @@
     "effector-react": "^22.0.4",
     "graphql": "^15.5.2",
     "jotai": "^1.3.2",
-    "proxily": "^0.9.32-alpha",
     "react": "^18.0.0-alpha-1314299c7-20210901",
     "react-dom": "^18.0.0-alpha-1314299c7-20210901",
     "react-hooks-global-state": "^1.0.2",
