@@ -2,8 +2,6 @@ const fs = require('fs');
 
 const libraries = {
   'react-redux': '<a href="https://react-redux.js.org">react-redux</a>',
-  'redux-use-mutable-source': '<a href="https://redux.js.org">redux</a> (w/ useMutableSource)',
-  'reactive-react-redux': '<a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a>',
   'react-tracked': '<a href="https://react-tracked.js.org">react-tracked</a>',
   constate: '<a href="https://github.com/diegohaz/constate">constate</a>',
   zustand: '<a href="https://github.com/pmndrs/zustand">zustand</a>',
@@ -34,6 +32,10 @@ results.testResults[0].assertionResults.forEach((result, ix) => {
 // Format table for substitution in outfile
 let sub = '';
 testResults.forEach((result) => {
+  if (!libraries[result[0].title]) {
+    console.info('no library entry for', result[0].title);
+    return;
+  }
   const th = wrap(libraries[result[0].title], 'th');
   const tds = result.map((test) => `\t\t${wrap(check(test.status), 'td')}\n`).join('');
   sub += `\t<tr>\n\t\t${th}\n${tds}\t</tr>\n`;
@@ -64,5 +66,4 @@ readme = readme.replace(/<table>([\s\S]*?)<\/table>/,
 readme = readme.replace(/<details>([\s\S]*?)<\/details>/,
   `<details>\n<summary>Raw Output</summary>\n\n\`\`\`\n${lines.join('\n')}\n\n\`\`\`\n</details>`);
 
-console.log(readme);
 fs.writeFileSync('./README.md', readme);
