@@ -57,7 +57,7 @@
     "@simplux/core": "^0.17.0",
     "@simplux/react": "^0.17.0",
     "apollo-boost": "^0.4.9",
-    "concent": "^2.14.19",
+    "concent": "^2.16.1",
     "constate": "^3.2.0",
     "effector": "^21.8.11",
     "effector-react": "^21.3.1",
