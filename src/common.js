@@ -1,7 +1,7 @@
 import React, {
   useEffect,
   useReducer,
-  unstable_useTransition as useTransition,
+  useTransition,
 } from 'react';
 
 let skipCount = 0;
@@ -82,8 +82,9 @@ export const useCheckTearing = () => {
   });
 };
 
-export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment) => {
-  const Counter = React.memo(() => {
+export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment,
+  componentWrapper = React.memo) => {
+  const Counter = componentWrapper(() => {
     const count = useCount();
     syncBlock();
     return <div className="count">{count}</div>;
@@ -92,7 +93,7 @@ export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragme
   const Main = () => {
     const count = useCount();
     useCheckTearing();
-    const [startTransition, isPending] = useTransition();
+    const [isPending, startTransition] = useTransition();
     const increment = useIncrement();
     useRegisterIncrementDispatcher(increment);
     const doDouble = useDouble();

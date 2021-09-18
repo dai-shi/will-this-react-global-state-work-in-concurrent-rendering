@@ -17,7 +17,7 @@ if (process.env.NAME) {
 document.title = name;
 
 // concurrent mode
-const root = ReactDOM.unstable_createRoot(document.getElementById('app'));
+const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(<App />);
 
 // sync mode

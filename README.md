@@ -1,22 +1,29 @@
-# Will this React global state work in Concurrent Mode?
+# Will this React global state work in concurrent rendering?
 
-Checking tearing in React concurrent mode
+Test tearing and branching in React concurrent rendering
 
 ## Introduction
 
-In react-redux, there's a theoretical issue called "tearing"
-that might occur in React concurrent mode.
+React 18 is coming with a new feature called "concurrent rendering".
+With global state, there's a theoretical issue called "tearing"
+that might occur in React concurrent rendering.
 
-Let's try to check it!
+Let's test the behavior!
 
 ## What is tearing?
 
+- [What is tearing in React 18 WG](https://github.com/reactwg/react-18/discussions/69)
 - [Stack Overflow](https://stackoverflow.com/questions/54891675/what-is-tearing-in-the-context-of-the-react-redux)
 - [Talk by Mark Erikson](https://www.youtube.com/watch?v=yOZ4Ml9LlWE&t=933s)
 - [Talk by Flarnie Marchan](https://www.youtube.com/watch?v=V1Ly-8Z1wQA&t=1079s)
 - Some other resources
   - https://github.com/reactjs/rfcs/pull/147
   - https://gist.github.com/bvaughn/054b82781bec875345bd85a5b1344698
+
+## What is branching?
+
+- Old resources
+  - https://reactjs.org/docs/concurrent-mode-intro.html
 
 ## How does it work?
 
@@ -37,35 +44,33 @@ If it finds the inconsistency, the test will fail.
 ## How to run
 
 ```bash
-git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode.git
-cd will-this-react-global-state-work-in-concurrent-mode
+git clone https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-rendering.git
+cd will-this-react-global-state-work-in-concurrent-rendering
 yarn install
 yarn run build-all
-PORT=8080 yarn run http-server &
-PORT=8080 yarn run jest
+yarn run jest
 ```
 
-You can also test it by opening `http://localhost:8080/react-redux`
-in your browser, and click the button very quickly. (check the console log)
+To automatically run tests and update the README.md on OSX:
+```
+yarn jest:json
+yarn jest:update
+```
 
-## Screencast
+## Screencast (old)
 
 <img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
 
-## Check scenario
+## Test scenario
 
-- Normal tearing in Concurrent Mode
-  - check 1: updated properly
-  - check 2: no tearing during update
-  - check 3: ability to interrupt render
-  - check 4: proper update after interrupt
-- Tearing and state branching with useTransition
-  - check 5: updated properly with transition
-  - check 6: no tearing with transition
-  - check 7: proper branching with transition
-- Tearing with intentional update in render
-  - check 8: updated properly with auto increment
-  - check 9: no tearing with auto increment (currently, it's not really what is intended to test)
+- with useTransition
+  - test 1: updated properly with transition
+  - test 2: no tearing with transition
+  - test 3: ability to interrupt render
+  - test 4: proper branching with transition
+- with intensive auto increment (EXPERIMENTAL)
+  - test 5: updated properly with auto increment
+  - test 6: no tearing with auto increment
 
 ## Results
 
@@ -73,690 +78,291 @@ in your browser, and click the button very quickly. (check the console log)
 <summary>Raw Output</summary>
 
 ```
-  react-redux
-    check with events from outside
-      ✓ check 1: updated properly (3249 ms)
-      ✕ check 2: no tearing during update (5 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1162 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2313 ms)
-      ✕ check 6: no tearing with transition (58 ms)
-      ✕ check 7: proper branching with transition (5944 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3241 ms)
-      ✕ check 9: no tearing with auto increment (5 ms)
-  redux-use-mutable-source
-    check with events from outside
-      ✓ check 1: updated properly (3303 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render (1 ms)
-      ✓ check 4: proper update after interrupt (1185 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2440 ms)
-      ✓ check 6: no tearing with transition (191 ms)
-      ✕ check 7: proper branching with transition (6247 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3290 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  reactive-react-redux
-    check with events from outside
-      ✓ check 1: updated properly (3427 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1238 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2411 ms)
-      ✓ check 6: no tearing with transition (155 ms)
-      ✕ check 7: proper branching with transition (6207 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3306 ms)
-      ✕ check 9: no tearing with auto increment (1 ms)
-  react-tracked
-    check with events from outside
-      ✓ check 1: updated properly (4340 ms)
-      ✓ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2298 ms)
-    check with useTransition
-      ✕ check 5: updated properly with transition (2511 ms)
-      ✓ check 6: no tearing with transition (810 ms)
-      ✓ check 7: proper branching with transition (5425 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (4627 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  constate
-    check with events from outside
-      ✓ check 1: updated properly (2354 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1304 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2396 ms)
-      ✓ check 6: no tearing with transition (87 ms)
-      ✓ check 7: proper branching with transition (3221 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3106 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  zustand
-    check with events from outside
-      ✓ check 1: updated properly (3332 ms)
-      ✕ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1290 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2309 ms)
-      ✕ check 6: no tearing with transition (75 ms)
-      ✕ check 7: proper branching with transition (5994 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3297 ms)
-      ✕ check 9: no tearing with auto increment (1 ms)
-  react-sweet-state
-    check with events from outside
-      ✓ check 1: updated properly (3296 ms)
-      ✕ check 2: no tearing during update (1 ms)
-      ✕ check 3: ability to interrupt render (1 ms)
-      ✓ check 4: proper update after interrupt (1240 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (3251 ms)
-      ✓ check 6: no tearing with transition (81 ms)
-      ✕ check 7: proper branching with transition (6097 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3234 ms)
-      ✕ check 9: no tearing with auto increment (19 ms)
-  storeon
-    check with events from outside
-      ✓ check 1: updated properly (2313 ms)
-      ✕ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1237 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2452 ms)
-      ✓ check 6: no tearing with transition (84 ms)
-      ✕ check 7: proper branching with transition (6140 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3282 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  react-hooks-global-state
-    check with events from outside
-      ✓ check 1: updated properly (2319 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1133 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2391 ms)
-      ✓ check 6: no tearing with transition (139 ms)
-      ✕ check 7: proper branching with transition (6264 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3380 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  use-context-selector
-    check with events from outside
-      ✓ check 1: updated properly (4411 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2303 ms)
-    check with useTransition
-      ✕ check 5: updated properly with transition (2611 ms)
-      ✓ check 6: no tearing with transition (781 ms)
-      ✓ check 7: proper branching with transition (5468 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (4601 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  mobx-react-lite
-    check with events from outside
-      ✓ check 1: updated properly (2452 ms)
-      ✕ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1423 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2473 ms)
-      ✕ check 6: no tearing with transition (92 ms)
-      ✕ check 7: proper branching with transition (6127 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2134 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  use-subscription
-    check with events from outside
-      ✓ check 1: updated properly (2356 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1210 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2369 ms)
-      ✓ check 6: no tearing with transition (127 ms)
-      ✕ check 7: proper branching with transition (6210 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3567 ms)
-      ✕ check 9: no tearing with auto increment (1 ms)
-  mobx-use-sub
-    check with events from outside
-      ✓ check 1: updated properly (2350 ms)
-      ✓ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2255 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2545 ms)
-      ✓ check 6: no tearing with transition (125 ms)
-      ✕ check 7: proper branching with transition (6203 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2337 ms)
-      ✕ check 9: no tearing with auto increment (1 ms)
-  react-state
-    check with events from outside
-      ✓ check 1: updated properly (2338 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2217 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2364 ms)
-      ✓ check 6: no tearing with transition (48 ms)
-      ✓ check 7: proper branching with transition (3202 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3220 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  simplux
-    check with events from outside
-      ✓ check 1: updated properly (2353 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1190 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2454 ms)
-      ✓ check 6: no tearing with transition (91 ms)
-      ✕ check 7: proper branching with transition (6127 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (2231 ms)
-      ✓ check 9: no tearing with auto increment (2 ms)
-  react-apollo
-    check with events from outside
-      ✓ check 1: updated properly (3322 ms)
-      ✕ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1218 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2345 ms)
-      ✓ check 6: no tearing with transition (53 ms)
-      ✕ check 7: proper branching with transition (6021 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3175 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  recoil
-    check with events from outside
-      ✓ check 1: updated properly (2232 ms)
-      ✓ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2313 ms)
-    check with useTransition
-      ✕ check 5: updated properly with transition (2550 ms)
-      ✓ check 6: no tearing with transition (886 ms)
-      ✕ check 7: proper branching with transition (6079 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3219 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  jotai
-    check with events from outside
-      ✓ check 1: updated properly (2304 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2237 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2409 ms)
-      ✓ check 6: no tearing with transition (192 ms)
-      ✕ check 7: proper branching with transition (6238 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3393 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  effector
-    check with events from outside
-      ✓ check 1: updated properly (3298 ms)
-      ✕ check 2: no tearing during update (2 ms)
-      ✕ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1171 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (3110 ms)
-      ✕ check 6: no tearing with transition (48 ms)
-      ✕ check 7: proper branching with transition (5977 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3165 ms)
-      ✕ check 9: no tearing with auto increment (16 ms)
-  react-rxjs
-    check with events from outside
-      ✓ check 1: updated properly (2350 ms)
-      ✓ check 2: no tearing during update
-      ✓ check 3: ability to interrupt render (1 ms)
-      ✓ check 4: proper update after interrupt (1188 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2269 ms)
-      ✓ check 6: no tearing with transition (46 ms)
-      ✕ check 7: proper branching with transition (5957 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3259 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  rxdeep
-    check with events from outside
-      ✓ check 1: updated properly (2241 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1296 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2289 ms)
-      ✓ check 6: no tearing with transition (87 ms)
-      ✕ check 7: proper branching with transition (5997 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3223 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  rxjs-hooks
-    check with events from outside
-      ✓ check 1: updated properly (3343 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (2299 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2496 ms)
-      ✓ check 6: no tearing with transition (51 ms)
-      ✕ check 7: proper branching with transition (5964 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3383 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  rx-store
-    check with events from outside
-      ✓ check 1: updated properly (3354 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1194 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2475 ms)
-      ✓ check 6: no tearing with transition (65 ms)
-      ✕ check 7: proper branching with transition (6073 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3145 ms)
-      ✓ check 9: no tearing with auto increment (1 ms)
-  klyva
-    check with events from outside
-      ✓ check 1: updated properly (2294 ms)
-      ✓ check 2: no tearing during update (1 ms)
-      ✓ check 3: ability to interrupt render (1 ms)
-      ✓ check 4: proper update after interrupt (1181 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2407 ms)
-      ✓ check 6: no tearing with transition (163 ms)
-      ✕ check 7: proper branching with transition (6252 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3580 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  valtio
-    check with events from outside
-      ✓ check 1: updated properly (2265 ms)
-      ✓ check 2: no tearing during update
-      ✓ check 3: ability to interrupt render (1 ms)
-      ✓ check 4: proper update after interrupt (2335 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2339 ms)
-      ✓ check 6: no tearing with transition (92 ms)
-      ✕ check 7: proper branching with transition (5980 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3419 ms)
-      ✕ check 9: no tearing with auto increment (2 ms)
-  react-tagged-state
-    check with events from outside
-      ✓ check 1: updated properly (3160 ms)
-      ✓ check 2: no tearing during update (2 ms)
-      ✓ check 3: ability to interrupt render
-      ✓ check 4: proper update after interrupt (1083 ms)
-    check with useTransition
-      ✓ check 5: updated properly with transition (2361 ms)
-      ✓ check 6: no tearing with transition (62 ms)
-      ✕ check 7: proper branching with transition (5982 ms)
-    check with intensive auto increment
-      ✓ check 8: updated properly with auto increment (3075 ms)
-      ✓ check 9: no tearing with auto increment (11 ms)
+ react-redux
+   with useTransition
+     ✕ test 1: updated properly with transition (1681 ms)
+     ✕ test 2: no tearing with transition (802 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7180 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (2220 ms)
+     ✕ test 6: no tearing with auto increment (2 ms)
+ react-tracked
+   with useTransition
+     ✓ test 1: updated properly with transition (3597 ms)
+     ✓ test 2: no tearing with transition (29 ms)
+     ✓ test 3: ability to interrupt render
+     ✓ test 4: proper branching with transition (5426 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (6136 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
+ constate
+   with useTransition
+     ✓ test 1: updated properly with transition (2845 ms)
+     ✓ test 2: no tearing with transition (25 ms)
+     ✓ test 3: ability to interrupt render
+     ✓ test 4: proper branching with transition (3410 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (3993 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
+ zustand
+   with useTransition
+     ✕ test 1: updated properly with transition (2435 ms)
+     ✕ test 2: no tearing with transition (838 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7192 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (2216 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
+ react-hooks-global-state
+   with useTransition
+     ✓ test 1: updated properly with transition (3421 ms)
+     ✓ test 2: no tearing with transition (27 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7186 ms)
+   with intensive auto increment
+     ✕ test 5: updated properly with auto increment (13184 ms)
+     ✕ test 6: no tearing with auto increment (4 ms)
+ use-context-selector
+   with useTransition
+     ✓ test 1: updated properly with transition (3600 ms)
+     ✓ test 2: no tearing with transition (29 ms)
+     ✓ test 3: ability to interrupt render
+     ✓ test 4: proper branching with transition (5434 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (6130 ms)
+     ✓ test 6: no tearing with auto increment
+ use-subscription
+   with useTransition
+     ✓ test 1: updated properly with transition (3566 ms)
+     ✓ test 2: no tearing with transition (122 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7540 ms)
+   with intensive auto increment
+     ✕ test 5: updated properly with auto increment (13192 ms)
+     ✕ test 6: no tearing with auto increment (2 ms)
+ react-state
+   with useTransition
+     ✓ test 1: updated properly with transition (2881 ms)
+     ✓ test 2: no tearing with transition (31 ms)
+     ✓ test 3: ability to interrupt render (1 ms)
+     ✓ test 4: proper branching with transition (3410 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (4012 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
+ simplux
+   with useTransition
+     ✓ test 1: updated properly with transition (2859 ms)
+     ✓ test 2: no tearing with transition (29 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7377 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (4087 ms)
+     ✓ test 6: no tearing with auto increment
+ apollo-client
+   with useTransition
+     ✕ test 1: updated properly with transition (4649 ms)
+     ✕ test 2: no tearing with transition (32 ms)
+     ✕ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (3525 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (2251 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
+ recoil
+   with useTransition
+     ✕ test 1: updated properly with transition (5670 ms)
+     ✓ test 2: no tearing with transition (37 ms)
+     ✕ test 3: ability to interrupt render (1 ms)
+     ✕ test 4: proper branching with transition (4441 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (3048 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
+ jotai
+   with useTransition
+     ✓ test 1: updated properly with transition (3541 ms)
+     ✓ test 2: no tearing with transition (123 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (8527 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (3230 ms)
+     ✕ test 6: no tearing with auto increment (1 ms)
+ effector
+   with useTransition
+     ✕ test 1: updated properly with transition (1605 ms)
+     ✕ test 2: no tearing with transition (842 ms)
+     ✓ test 3: ability to interrupt render (1 ms)
+     ✕ test 4: proper branching with transition (7179 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (2224 ms)
+     ✕ test 6: no tearing with auto increment (2 ms)
+ react-rxjs
+   with useTransition
+     ✕ test 1: updated properly with transition (5837 ms)
+     ✓ test 2: no tearing with transition (33 ms)
+     ✕ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (4535 ms)
+   with intensive auto increment
+     ✓ test 5: updated properly with auto increment (3015 ms)
+     ✓ test 6: no tearing with auto increment (1 ms)
+ valtio
+   with useTransition
+     ✓ test 1: updated properly with transition (3438 ms)
+     ✓ test 2: no tearing with transition (25 ms)
+     ✓ test 3: ability to interrupt render
+     ✕ test 4: proper branching with transition (7187 ms)
+   with intensive auto increment
+     ✕ test 5: updated properly with auto increment (13199 ms)
+     ✕ test 6: no tearing with auto increment (5 ms)
 
 ```
-
 </details>
 
 <table>
-  <tr>
-    <th>Check</th>
-    <th>1</th>
-    <th>2</th>
-    <th>3</th>
-    <th>4</th>
-    <th>5</th>
-    <th>6</th>
-    <th>7</th>
-    <th>8</th>
-    <th>9</th>
-  </tr>
+<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+	<tr>
+		<th><a href="https://react-redux.js.org">react-redux</a></th>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://react-tracked.js.org">react-tracked</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/diegohaz/constate">constate</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/pmndrs/zustand">zustand</a></th>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)</th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)</th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/MrWolfZ/simplux">simplux</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/apollographql/apollo-client">apollo-client</a></th>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://recoiljs.org">recoil</a></th>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/pmndrs/jotai">jotai</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/zerobias/effector">effector</a></th>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+	</tr>
+	<tr>
+		<th><a href="https://react-rxjs.org">react-rxjs</a></th>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/pmndrs/valtio">valtio</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
+	</tr>
 
-  <tr>
-    <th><a href="https://react-redux.js.org">react-redux</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/dai-shi/reactive-react-redux">reactive-react-redux</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://react-tracked.js.org">react-tracked</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/diegohaz/constate">constate</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/react-spring/zustand">zustand</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/atlassian/react-sweet-state">react-sweet-state</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:question:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/storeon/storeon">storeon</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)</th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)</th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://mobx.js.org/">Mobx</a> (w/ use-subscription)</th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/MrWolfZ/simplux">simplux</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/apollographql/react-apollo">react-apollo</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/facebookexperimental/Recoil">recoil</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/react-spring/jotai">jotai</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/zerobias/effector">effector</a></th>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:question:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://react-rxjs.org">react-rxjs</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://loreanvictor.github.io/rxdeep">RxDeep</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/LeetCode-OpenSource/rxjs-hooks">rxjs-hooks</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/rx-store/rx-store">rx-store</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/merisbahti/klyva">klyva</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-
-  <tr>
-    <th><a href="https://github.com/pmndrs/valtio">valtio</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
-
-  <tr>
-    <th><a href="https://github.com/oleggrishechkin/react-tagged-state">react-tagged-state</a></th>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-    <td>:x:</td>
-    <td>:white_check_mark:</td>
-    <td>:white_check_mark:</td>
-  </tr>
 </table>
 
-## Caution
+## Caveats
 
-Tearing may not be an issue depending on app requirements.
-The test is done in a very limited way.
-The results might contain unexpected errors.
+- Tearing and state branching may not be an issue depending on app requirements.
+- The test is done in a very limited way.
+  - Passing tests don't guarantee anything.
+- The results may not be accurate.
+  - Do not fully trust the results.
 
 ## If you are interested
 
-The reason why I created this is to promote my projects!
+The reason why I created this is to test my projects.
 
 - [react-tracked](https://github.com/dai-shi/react-tracked)
-- [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux)
-
-The feature of these libraries is not only concurrent mode friendly,
-but also state usage tracking.
+- [use-context-selector](https://github.com/dai-shi/use-context-selector)
+- and so on
 
 ## Contributing
 
