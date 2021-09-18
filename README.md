@@ -51,6 +51,12 @@ yarn run build-all
 yarn run jest
 ```
 
+To automatically run tests and update the README.md on OSX:
+```
+yarn jest:json
+yarn jest:update
+```
+
 ## Screencast (old)
 
 <img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
@@ -344,16 +350,18 @@ yarn run jest
 
 ## Caveats
 
-- Tearing may not be an issue depending on app requirements.
+- Tearing and state branching may not be an issue depending on app requirements.
 - The test is done in a very limited way.
+  - Passing tests don't guarantee anything.
 - The results may not be accurate.
+  - Do not fully trust the results.
 
 ## If you are interested
 
 The reason why I created this is to test my projects.
 
 - [react-tracked](https://github.com/dai-shi/react-tracked)
-- [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux)
+- [use-context-selector](https://github.com/dai-shi/use-context-selector)
 - and so on
 
 ## Contributing
@@ -372,9 +380,3 @@ https://github.com/dai-shi/lets-compare-global-state-with-react-hooks
 in which we accept contributions. It's recommended to run this tool
 and we put the result there, possibly a reference link to a PR
 in this repository or a fork of this repository.
-
-To automatically run tests and update the README.md on OSX:
-```
-yarn jest:json
-yarn jest:update
-```
