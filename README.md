@@ -63,14 +63,15 @@ yarn jest:update
 
 ## Test scenario
 
-- with useTransition
+- Level 1
   - test 1: updated properly with transition
+- Level 2
   - test 2: no tearing with transition
+  - test 5: updated properly with auto increment (EXPERIMENTAL)
+  - test 6: no tearing with auto increment (EXPERIMENTAL)
+- Level 3
   - test 3: ability to interrupt render
   - test 4: proper branching with transition
-- with intensive auto increment (EXPERIMENTAL)
-  - test 5: updated properly with auto increment
-  - test 6: no tearing with auto increment
 
 ## Results
 
