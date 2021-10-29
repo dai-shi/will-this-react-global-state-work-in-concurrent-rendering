@@ -2,6 +2,8 @@
 
 Test tearing and branching in React concurrent rendering
 
+Caveat: These tests are originally designed for obsolete concurrent mode. We should revisit them for new concurrent rendering feature.
+
 ## Introduction
 
 React 18 is coming with a new feature called "concurrent rendering".
