@@ -61,9 +61,13 @@ lines = lines.filter((line, ix) => ix % 3 === 0);
 
 // Update readme
 let readme = fs.readFileSync('./README.md', 'utf8');
-readme = readme.replace(/<table>([\s\S]*?)<\/table>/,
-  `<table>\n<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>\n${sub}\n</table>`);
-readme = readme.replace(/<details>([\s\S]*?)<\/details>/,
-  `<details>\n<summary>Raw Output</summary>\n\n\`\`\`\n${lines.join('\n')}\n\n\`\`\`\n</details>`);
+readme = readme.replace(
+  /<table>([\s\S]*?)<\/table>/,
+  `<table>\n<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>\n${sub}\n</table>`,
+);
+readme = readme.replace(
+  /<details>([\s\S]*?)<\/details>/,
+  `<details>\n<summary>Raw Output</summary>\n\n\`\`\`\n${lines.join('\n')}\n\n\`\`\`\n</details>`,
+);
 
 fs.writeFileSync('./README.md', readme);

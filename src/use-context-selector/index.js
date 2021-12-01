@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useReducer } from 'react';
 import {
   createContext,
   useContextSelector,
@@ -36,13 +36,10 @@ const useDouble = () => {
   );
 };
 
-const Root = ({ children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  return (
-    <context.Provider value={[state, dispatch]}>
-      {children}
-    </context.Provider>
-  );
-};
+const Root = ({ children }) => (
+  <context.Provider value={useReducer(reducer, initialState)}>
+    {children}
+  </context.Provider>
+);
 
 export default createApp(useCount, useIncrement, useDouble, Root);

@@ -25,7 +25,9 @@ const names = [
   'valtio',
 ];
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => {
+  setTimeout(r, ms);
+});
 jest.setTimeout(15 * 1000);
 const REPEAT = 3;
 const NUM_COMPONENTS = NUM_CHILD_COMPONENTS + 1; // plus one in <Main>

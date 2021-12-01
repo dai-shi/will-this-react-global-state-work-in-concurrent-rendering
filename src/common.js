@@ -41,7 +41,7 @@ export const initialState = {
   dummy: 0,
 };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'increment':
       return {
@@ -82,8 +82,13 @@ export const useCheckTearing = () => {
   });
 };
 
-export const createApp = (useCount, useIncrement, useDouble, Root = React.Fragment,
-  componentWrapper = React.memo) => {
+export const createApp = (
+  useCount,
+  useIncrement,
+  useDouble,
+  Root = React.Fragment,
+  componentWrapper = React.memo,
+) => {
   const Counter = componentWrapper(() => {
     const count = useCount();
     syncBlock();

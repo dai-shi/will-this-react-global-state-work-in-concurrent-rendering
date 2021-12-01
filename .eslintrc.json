@@ -15,7 +15,8 @@
     "react/prop-types": "off",
     "no-param-reassign": "off",
     "no-console": "off",
-    "no-await-in-loop": "off"
+    "no-await-in-loop": "off",
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }]
   },
   "overrides": [{
     "files": ["__tests__/**/*"],
