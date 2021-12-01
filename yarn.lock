@@ -4742,10 +4742,9 @@ joi@^17.4.0:
     "@sideway/formula" "^3.0.0"
     "@sideway/pinpoint" "^2.0.0"
 
-jotai@^1.4.6:
+"jotai@https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai":
   version "1.4.6"
-  resolved "https://registry.yarnpkg.com/jotai/-/jotai-1.4.6.tgz#ab2d271610a3d55f17eb61d01f3bff4a0c0f8784"
-  integrity sha512-7czbkpovyzeD51BFbidDRH/Dmx2bXfz7ygd4RRwx8jxsvAJHrRjxZ1bNw1yloIhljEFkrLZd3b232kQc7HTI+A==
+  resolved "https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai#e0315ab4a2c865cf53132a947e371013be8a213f"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -6890,6 +6889,11 @@ use-subscription@^1.5.1:
   dependencies:
     object-assign "^4.1.1"
 
+use-sync-external-store@1.0.0-beta-149b420f6-20211119:
+  version "1.0.0-beta-149b420f6-20211119"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.0.0-beta-149b420f6-20211119.tgz#6380d2384fb473eb8c13e6df103d15232bfb65a0"
+  integrity sha512-28V1mR2DecHmaRU28G4lFpvQFxLBe0UrLUGKiwrJqdD7Tr3EvlTXtztCsSMJN9LLb1KCki7fYW1u+buLI+gtjg==
+
 use-sync-external-store@1.0.0-beta-96ca8d915-20211115:
   version "1.0.0-beta-96ca8d915-20211115"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.0.0-beta-96ca8d915-20211115.tgz#80777c497f60b57ca23f52de760ff22080814a3c"
@@ -6942,12 +6946,12 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-valtio@^1.2.6:
+"valtio@https://pkg.csb.dev/pmndrs/valtio/commit/253d8bc8/valtio":
   version "1.2.6"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.6.tgz#f80d38df0cd967374035c722bb9b12699bdf5ef0"
-  integrity sha512-TnGAdGAnbzj+K3WA8tKql6O6+7qXSDSYVoaWHFQp27twoNVyfJPPtHObZ79WLZ7I6N+aeWEO0bdO3yjq+GOWew==
+  resolved "https://pkg.csb.dev/pmndrs/valtio/commit/253d8bc8/valtio#3c01fcc05230d21f40f3a5155245cea91aaf3788"
   dependencies:
     proxy-compare "2.0.2"
+    use-sync-external-store "1.0.0-beta-149b420f6-20211119"
 
 vary@~1.1.2:
   version "1.1.2"

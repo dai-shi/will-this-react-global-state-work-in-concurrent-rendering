@@ -48,7 +48,7 @@
     "effector": "^22.1.2",
     "effector-react": "^22.0.5",
     "graphql": "^16.0.1",
-    "jotai": "^1.4.6",
+    "jotai": "https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai",
     "react": "^18.0.0-beta-a65ceef37-20211130",
     "react-dom": "^18.0.0-beta-a65ceef37-20211130",
     "react-hooks-global-state": "^1.0.2",
@@ -59,7 +59,7 @@
     "rxjs": "^7.4.0",
     "use-context-selector": "^1.3.9",
     "use-subscription": "^1.5.1",
-    "valtio": "^1.2.6",
+    "valtio": "https://pkg.csb.dev/pmndrs/valtio/commit/253d8bc8/valtio",
     "zustand": "^4.0.0-beta.0"
   },
   "devDependencies": {
