@@ -21,7 +21,10 @@ module.exports = {
   module: {
     rules: [{
       test: /\.jsx?$/,
-      exclude: /node_modules/,
+      resolve: {
+        fullySpecified: false,
+      },
+      exclude: /node_modules\/(?!(@apollo)\/).*/,
       use: [{
         loader: 'babel-loader',
         options: {
