@@ -40,7 +40,7 @@ const useDouble = () => {
 };
 
 const Root = ({ children }) => (
-  <Provider>
+  <Provider unstable_enableVersionedWrite>
     {children}
   </Provider>
 );

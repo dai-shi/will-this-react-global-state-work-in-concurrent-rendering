@@ -4742,9 +4742,9 @@ joi@^17.4.0:
     "@sideway/formula" "^3.0.0"
     "@sideway/pinpoint" "^2.0.0"
 
-"jotai@https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai":
+"jotai@https://pkg.csb.dev/pmndrs/jotai/commit/0364d7fb/jotai":
   version "1.4.6"
-  resolved "https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai#e0315ab4a2c865cf53132a947e371013be8a213f"
+  resolved "https://pkg.csb.dev/pmndrs/jotai/commit/0364d7fb/jotai#abd686cd2672132532abd797e102f1b91f18be63"
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"

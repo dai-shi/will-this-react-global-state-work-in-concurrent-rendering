@@ -48,7 +48,7 @@
     "effector": "^22.1.2",
     "effector-react": "^22.0.5",
     "graphql": "^16.0.1",
-    "jotai": "https://pkg.csb.dev/pmndrs/jotai/commit/4931b13c/jotai",
+    "jotai": "https://pkg.csb.dev/pmndrs/jotai/commit/0364d7fb/jotai",
     "react": "^18.0.0-beta-a65ceef37-20211130",
     "react-dom": "^18.0.0-beta-a65ceef37-20211130",
     "react-hooks-global-state": "^1.0.2",
