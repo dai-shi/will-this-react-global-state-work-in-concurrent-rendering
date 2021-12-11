@@ -12,6 +12,7 @@ const libraries = {
   'apollo-client': '<a href="https://github.com/apollographql/apollo-client">apollo-client</a>',
   recoil: '<a href="https://recoiljs.org">recoil</a>',
   jotai: '<a href="https://github.com/pmndrs/jotai">jotai</a>',
+  'jotai-versioned-write': '<a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a>',
   effector: '<a href="https://github.com/zerobias/effector">effector</a>',
   'react-rxjs': '<a href="https://react-rxjs.org">react-rxjs</a>',
   valtio: '<a href="https://github.com/pmndrs/valtio">valtio</a>',

@@ -20,6 +20,7 @@ const names = [
   'apollo-client',
   'recoil',
   'jotai',
+  'jotai-versioned-write',
   'effector',
   'react-rxjs',
   'valtio',
