@@ -1,4 +1,5 @@
 import React, {
+  useDeferredValue,
   useEffect,
   useState,
   useTransition,
@@ -73,16 +74,26 @@ export const createApp = (
     return <div className="count">{count}</div>;
   });
 
+  const DeferredCounter = componentWrapper(() => {
+    const count = useDeferredValue(useCount());
+    syncBlock();
+    return <div className="count">{count}</div>;
+  });
+
   const Main = () => {
     const [isPending, startTransition] = useTransition();
-    const [show, setShow] = useState(true);
-    const transitionShow = () => {
-      startTransition(() => setShow(true));
-    };
+    const [mode, setMode] = useState(null);
     const transitionHide = () => {
-      startTransition(() => setShow(false));
+      startTransition(() => setMode(null));
+    };
+    const transitionShowCounter = () => {
+      startTransition(() => setMode('counter'));
+    };
+    const transitionShowDeferred = () => {
+      startTransition(() => setMode('deferred'));
     };
     const count = useCount();
+    const deferredCount = useDeferredValue(count);
     useCheckTearing();
     const increment = useIncrement();
     const doDouble = useDouble();
@@ -102,8 +113,11 @@ export const createApp = (
         <button type="button" id="transitionHide" onClick={transitionHide}>
           Hide in transition
         </button>
-        <button type="button" id="transitionShow" onClick={transitionShow}>
-          Show in transition
+        <button type="button" id="transitionShowCounter" onClick={transitionShowCounter}>
+          Show counter in transition
+        </button>
+        <button type="button" id="transitionShowDeferred" onClick={transitionShowDeferred}>
+          Show deferred counter in transition
         </button>
         <button type="button" id="normalIncrement" onClick={increment}>
           Increment count normally
@@ -122,9 +136,10 @@ export const createApp = (
         </button>
         <span id="pending">{isPending && 'Pending...'}</span>
         <h1>Counters</h1>
-        {show && ids.map((id) => <Counter key={id} />)}
+        {mode === 'counter' && ids.map((id) => <Counter key={id} />)}
+        {mode === 'deferred' && ids.map((id) => <DeferredCounter key={id} />)}
         <h1>Main</h1>
-        <div id="mainCount" className="count">{count}</div>
+        <div id="mainCount" className="count">{mode === 'deferred' ? deferredCount : count}</div>
       </div>
     );
   };
