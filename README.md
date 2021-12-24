@@ -70,11 +70,11 @@ yarn jest:update
     - 1: No tearing finally on update
     - 2: No tearing finally on mount
   - Level 2
-    - 3: No tearing temporarily on update (13119 ms)
-    - 4: No tearing temporarily on mount (6879 ms)
+    - 3: No tearing temporarily on update
+    - 4: No tearing temporarily on mount
   - Level 3
-    - 5: Can interrupt render (time slicing) (8089 ms)
-    - 6: Can branch state (wip state) (7719 ms)
+    - 5: Can interrupt render (time slicing)
+    - 6: Can branch state (wip state)
 
 ## Results
 
@@ -158,17 +158,6 @@ yarn jest:update
      Level 3
        ✓ Can interrupt render (time slicing) (4035 ms)
        ✕ Can branch state (wip state) (11268 ms)
- react-state
-   With useTransition
-     Level 1
-       ✓ No tearing finally on update (4681 ms)
-       ✓ No tearing finally on mount (11680 ms)
-     Level 2
-       ✓ No tearing temporarily on update (8782 ms)
-       ✓ No tearing temporarily on mount (11686 ms)
-     Level 3
-       ✓ Can interrupt render (time slicing) (3751 ms)
-       ✓ Can branch state (wip state) (6198 ms)
  simplux
    With useTransition
      Level 1
