@@ -19,6 +19,8 @@ const libraries = {
   simplux: '<a href="https://github.com/MrWolfZ/simplux">simplux</a>',
 };
 
+const numTests = 10;
+
 function wrap(content, tag) { return `<${tag}>${content}</${tag}>`; }
 function check(status) { return status === 'failed' ? ':x:' : ':white_check_mark:'; }
 
@@ -26,9 +28,12 @@ function check(status) { return status === 'failed' ? ':x:' : ':white_check_mark
 const results = JSON.parse(fs.readFileSync('./outfile.json', 'utf8'));
 const testResults = [];
 results.testResults[0].assertionResults.forEach((result, ix) => {
-  const testNumber = Math.floor(ix / 6);
+  const testNumber = Math.floor(ix / numTests);
   testResults[testNumber] = testResults[testNumber] || [];
-  testResults[testNumber][ix % 6] = { status: result.status, title: result.ancestorTitles[0] };
+  testResults[testNumber][ix % numTests] = {
+    status: result.status,
+    title: result.ancestorTitles[0],
+  };
 });
 
 // Format table for substitution in outfile
@@ -65,7 +70,7 @@ lines = lines.filter((line, ix) => ix % 3 === 0);
 let readme = fs.readFileSync('./README.md', 'utf8');
 readme = readme.replace(
   /<table>([\s\S]*?)<\/table>/,
-  `<table>\n<tr><th>Test</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>\n${sub}\n</table>`,
+  `<table>\n<tr><th>Test</th>${Array.from(Array(numTests).keys()).map((i) => `<th>${i + 1}</th>`).join('')}</tr>\n${sub}\n</table>`,
 );
 readme = readme.replace(
   /<details>([\s\S]*?)<\/details>/,

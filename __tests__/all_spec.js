@@ -37,13 +37,6 @@ names.forEach((name) => {
   describe(name, () => {
     beforeEach(async () => {
       await page.goto(`http://localhost:${port}/${name}/index.html`);
-      // wait until all counts become zero
-      await Promise.all(ids.map(async (i) => {
-        await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
-          text: '0',
-          timeout: 5 * 1000,
-        });
-      }));
       await sleep(1000); // to make it stable
     });
 
@@ -54,6 +47,14 @@ names.forEach((name) => {
     describe('With useTransition', () => {
       describe('Level 1', () => {
         it('No tearing finally on update', async () => {
+          await page.click('#transitionShowCounter');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
           for (let loop = 0; loop < REPEAT; loop += 1) {
             await page.click('#transitionIncrement');
             await sleep(100);
@@ -68,11 +69,9 @@ names.forEach((name) => {
         });
 
         it('No tearing finally on mount', async () => {
-          await page.click('#transitionHide');
-          await sleep(1000);
           await page.click('#startAutoIncrement');
           await sleep(100);
-          await page.click('#transitionShow');
+          await page.click('#transitionShowCounter');
           await sleep(1000);
           await page.click('#stopAutoIncrement');
           await sleep(2000);
@@ -88,6 +87,14 @@ names.forEach((name) => {
 
       describe('Level 2', () => {
         it('No tearing temporarily on update', async () => {
+          await page.click('#transitionShowCounter');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
           for (let loop = 0; loop < REPEAT; loop += 1) {
             await page.click('#transitionIncrement');
             await sleep(100);
@@ -99,11 +106,9 @@ names.forEach((name) => {
         });
 
         it('No tearing temporarily on mount', async () => {
-          await page.click('#transitionHide');
-          await sleep(1000);
           await page.click('#startAutoIncrement');
           await sleep(100);
-          await page.click('#transitionShow');
+          await page.click('#transitionShowCounter');
           await sleep(1000);
           await page.click('#stopAutoIncrement');
           await sleep(2000);
@@ -115,6 +120,14 @@ names.forEach((name) => {
 
       describe('Level 3', () => {
         it('Can interrupt render (time slicing)', async () => {
+          await page.click('#transitionShowCounter');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
           const delays = [];
           for (let loop = 0; loop < REPEAT; loop += 1) {
             const start = Date.now();
@@ -131,6 +144,7 @@ names.forEach((name) => {
         });
 
         it('Can branch state (wip state)', async () => {
+          await page.click('#transitionShowCounter');
           await page.click('#transitionIncrement');
           await Promise.all(ids.map(async (i) => {
             await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
@@ -165,6 +179,81 @@ names.forEach((name) => {
               timeout: 5 * 1000,
             });
           }));
+        });
+      });
+    });
+
+    describe('With useDeferredValue', () => {
+      describe('Level 1', () => {
+        it('No tearing finally on update', async () => {
+          await page.click('#transitionShowDeferred');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
+          for (let loop = 0; loop < REPEAT; loop += 1) {
+            await page.click('#normalIncrement');
+            await sleep(100);
+          }
+          // check if all counts become REPEAT
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: `${REPEAT}`,
+              timeout: 10 * 1000,
+            });
+          }));
+        });
+
+        it('No tearing finally on mount', async () => {
+          await page.click('#startAutoIncrement');
+          await sleep(100);
+          await page.click('#transitionShowDeferred');
+          await sleep(1000);
+          await page.click('#stopAutoIncrement');
+          await sleep(2000);
+          const count = page.evaluate(() => document.querySelector('.count:first-of-type'));
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: count,
+              timeout: 10 * 1000,
+            });
+          }));
+        });
+      });
+
+      describe('Level 2', () => {
+        it('No tearing temporarily on update', async () => {
+          await page.click('#transitionShowDeferred');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
+          for (let loop = 0; loop < REPEAT; loop += 1) {
+            await page.click('#normalIncrement');
+            await sleep(100);
+          }
+          await sleep(5000);
+          // check if there's inconsistency during update
+          // see useCheckTearing() in src/common.js
+          await expect(page.title()).resolves.not.toMatch(/TEARED/);
+        });
+
+        it('No tearing temporarily on mount', async () => {
+          await page.click('#startAutoIncrement');
+          await sleep(100);
+          await page.click('#transitionShowDeferred');
+          await sleep(1000);
+          await page.click('#stopAutoIncrement');
+          await sleep(2000);
+          // check if there's inconsistency during update
+          // see useCheckTearing() in src/common.js
+          await expect(page.title()).resolves.not.toMatch(/TEARED/);
         });
       });
     });
