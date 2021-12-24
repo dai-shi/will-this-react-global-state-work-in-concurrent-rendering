@@ -30,7 +30,10 @@ const testResults = [];
 results.testResults[0].assertionResults.forEach((result, ix) => {
   const testNumber = Math.floor(ix / numTests);
   testResults[testNumber] = testResults[testNumber] || [];
-  testResults[testNumber][ix % numTests] = { status: result.status, title: result.ancestorTitles[0] };
+  testResults[testNumber][ix % numTests] = {
+    status: result.status,
+    title: result.ancestorTitles[0],
+  };
 });
 
 // Format table for substitution in outfile
