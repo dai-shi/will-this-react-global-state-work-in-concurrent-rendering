@@ -6,7 +6,6 @@ import {
   initialState,
   selectCount,
   createApp,
-  COUNT_PER_DUMMY,
 } from '../common';
 
 const counterModule = createSimpluxModule({
@@ -18,8 +17,7 @@ const counter = {
   ...counterModule,
   ...createMutations(counterModule, {
     increment(state) {
-      state.dummy += 1;
-      state.count += state.dummy % COUNT_PER_DUMMY === COUNT_PER_DUMMY - 1 ? 1 : 0;
+      state.count += 1;
     },
     double(state) {
       state.count *= 2;
