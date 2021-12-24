@@ -84,179 +84,190 @@ yarn jest:update
 ```
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8222 ms)
-       ✓ No tearing finally on mount (6948 ms)
+       ✓ No tearing finally on update (8195 ms)
+       ✓ No tearing finally on mount (6968 ms)
      Level 2
-       ✓ No tearing temporarily on update (13119 ms)
-       ✓ No tearing temporarily on mount (6879 ms)
+       ✓ No tearing temporarily on update (13162 ms)
+       ✓ No tearing temporarily on mount (6952 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8089 ms)
-       ✕ Can branch state (wip state) (7719 ms)
+       ✕ Can interrupt render (time slicing) (20481 ms)
+       ✕ Can branch state (wip state) (7769 ms)
  react-tracked
    With useTransition
      Level 1
-       ✓ No tearing finally on update (6728 ms)
-       ✓ No tearing finally on mount (18772 ms)
+       ✓ No tearing finally on update (6764 ms)
+       ✓ No tearing finally on mount (18788 ms)
      Level 2
-       ✓ No tearing temporarily on update (9825 ms)
-       ✓ No tearing temporarily on mount (18754 ms)
+       ✓ No tearing temporarily on update (9827 ms)
+       ✓ No tearing temporarily on mount (18656 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4772 ms)
-       ✓ Can branch state (wip state) (10300 ms)
+       ✓ Can interrupt render (time slicing) (4731 ms)
+       ✓ Can branch state (wip state) (10194 ms)
  constate
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4811 ms)
-       ✓ No tearing finally on mount (11766 ms)
+       ✓ No tearing finally on update (4613 ms)
+       ✓ No tearing finally on mount (11727 ms)
      Level 2
-       ✓ No tearing temporarily on update (8783 ms)
-       ✓ No tearing temporarily on mount (11750 ms)
+       ✓ No tearing temporarily on update (8781 ms)
+       ✓ No tearing temporarily on mount (11641 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3787 ms)
-       ✓ Can branch state (wip state) (6305 ms)
+       ✓ Can interrupt render (time slicing) (3724 ms)
+       ✓ Can branch state (wip state) (6215 ms)
  zustand
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8158 ms)
-       ✓ No tearing finally on mount (6866 ms)
+       ✓ No tearing finally on update (8066 ms)
+       ✓ No tearing finally on mount (6845 ms)
      Level 2
-       ✓ No tearing temporarily on update (13114 ms)
-       ✓ No tearing temporarily on mount (6874 ms)
+       ✓ No tearing temporarily on update (13085 ms)
+       ✓ No tearing temporarily on mount (6795 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8109 ms)
-       ✕ Can branch state (wip state) (7679 ms)
+       ✕ Can interrupt render (time slicing) (8058 ms)
+       ✕ Can branch state (wip state) (7639 ms)
  react-hooks-global-state
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5777 ms)
-       ✓ No tearing finally on mount (11908 ms)
+       ✓ No tearing finally on update (5674 ms)
+       ✓ No tearing finally on mount (11662 ms)
      Level 2
-       ✓ No tearing temporarily on update (8856 ms)
-       ✕ No tearing temporarily on mount (11735 ms)
+       ✓ No tearing temporarily on update (8791 ms)
+       ✕ No tearing temporarily on mount (11658 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3799 ms)
-       ✕ Can branch state (wip state) (11261 ms)
+       ✓ Can interrupt render (time slicing) (3800 ms)
+       ✕ Can branch state (wip state) (22418 ms)
  use-context-selector
    With useTransition
      Level 1
-       ✓ No tearing finally on update (6756 ms)
-       ✓ No tearing finally on mount (18733 ms)
+       ✓ No tearing finally on update (6724 ms)
+       ✓ No tearing finally on mount (16747 ms)
      Level 2
-       ✓ No tearing temporarily on update (9866 ms)
-       ✓ No tearing temporarily on mount (18764 ms)
+       ✓ No tearing temporarily on update (9803 ms)
+       ✓ No tearing temporarily on mount (18665 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4816 ms)
-       ✓ Can branch state (wip state) (10268 ms)
+       ✓ Can interrupt render (time slicing) (5063 ms)
+       ✓ Can branch state (wip state) (10614 ms)
  use-subscription
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5798 ms)
-       ✓ No tearing finally on mount (11732 ms)
+       ✓ No tearing finally on update (5750 ms)
+       ✓ No tearing finally on mount (9777 ms)
      Level 2
-       ✓ No tearing temporarily on update (8789 ms)
-       ✕ No tearing temporarily on mount (11686 ms)
+       ✓ No tearing temporarily on update (8830 ms)
+       ✕ No tearing temporarily on mount (11722 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3781 ms)
-       ✕ Can branch state (wip state) (11229 ms)
+       ✓ Can interrupt render (time slicing) (4035 ms)
+       ✕ Can branch state (wip state) (11268 ms)
  react-state
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4740 ms)
-       ✓ No tearing finally on mount (11775 ms)
+       ✓ No tearing finally on update (4681 ms)
+       ✓ No tearing finally on mount (11680 ms)
      Level 2
-       ✓ No tearing temporarily on update (8820 ms)
-       ✓ No tearing temporarily on mount (11779 ms)
+       ✓ No tearing temporarily on update (8782 ms)
+       ✓ No tearing temporarily on mount (11686 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3817 ms)
-       ✓ Can branch state (wip state) (6288 ms)
+       ✓ Can interrupt render (time slicing) (3751 ms)
+       ✓ Can branch state (wip state) (6198 ms)
  simplux
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4828 ms)
-       ✓ No tearing finally on mount (11812 ms)
+       ✓ No tearing finally on update (4657 ms)
+       ✓ No tearing finally on mount (11747 ms)
      Level 2
-       ✓ No tearing temporarily on update (8857 ms)
-       ✓ No tearing temporarily on mount (11758 ms)
+       ✓ No tearing temporarily on update (8829 ms)
+       ✓ No tearing temporarily on mount (9755 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3788 ms)
-       ✕ Can branch state (wip state) (10255 ms)
+       ✓ Can interrupt render (time slicing) (3793 ms)
+       ✕ Can branch state (wip state) (10297 ms)
  apollo-client
    With useTransition
      Level 1
-       ✓ No tearing finally on update (7969 ms)
-       ✓ No tearing finally on mount (7025 ms)
+       ✓ No tearing finally on update (7951 ms)
+       ✓ No tearing finally on mount (7023 ms)
      Level 2
-       ✕ No tearing temporarily on update (12180 ms)
-       ✓ No tearing temporarily on mount (6957 ms)
+       ✕ No tearing temporarily on update (12164 ms)
+       ✓ No tearing temporarily on mount (6936 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (7706 ms)
-       ✕ Can branch state (wip state) (7484 ms)
+       ✕ Can interrupt render (time slicing) (7637 ms)
+       ✕ Can branch state (wip state) (7473 ms)
  recoil
    With useTransition
      Level 1
-       ✓ No tearing finally on update (7920 ms)
-       ✓ No tearing finally on mount (10795 ms)
+       ✓ No tearing finally on update (7861 ms)
+       ✓ No tearing finally on mount (9742 ms)
      Level 2
-       ✓ No tearing temporarily on update (13053 ms)
-       ✓ No tearing temporarily on mount (10795 ms)
+       ✓ No tearing temporarily on update (11948 ms)
+       ✓ No tearing temporarily on mount (11698 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (7889 ms)
-       ✕ Can branch state (wip state) (7789 ms)
+       ✕ Can interrupt render (time slicing) (7811 ms)
+       ✕ Can branch state (wip state) (7723 ms)
  jotai
    With useTransition
      Level 1
-       ✓ No tearing finally on update (6782 ms)
-       ✓ No tearing finally on mount (12790 ms)
+       ✓ No tearing finally on update (6700 ms)
+       ✓ No tearing finally on mount (13710 ms)
      Level 2
-       ✓ No tearing temporarily on update (9859 ms)
-       ✕ No tearing temporarily on mount (13696 ms)
+       ✓ No tearing temporarily on update (9785 ms)
+       ✕ No tearing temporarily on mount (13667 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4857 ms)
-       ✕ Can branch state (wip state) (13272 ms)
+       ✓ Can interrupt render (time slicing) (4766 ms)
+       ✕ Can branch state (wip state) (13268 ms)
  jotai-versioned-write
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5733 ms)
-       ✓ No tearing finally on mount (13791 ms)
+       ✓ No tearing finally on update (5740 ms)
+       ✓ No tearing finally on mount (13796 ms)
      Level 2
-       ✓ No tearing temporarily on update (9866 ms)
-       ✓ No tearing temporarily on mount (13780 ms)
+       ✓ No tearing temporarily on update (9848 ms)
+       ✓ No tearing temporarily on mount (12799 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4811 ms)
-       ✓ Can branch state (wip state) (7313 ms)
+       ✓ Can interrupt render (time slicing) (4791 ms)
+       ✓ Can branch state (wip state) (7273 ms)
+ use-atom
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (8786 ms)
+       ✓ No tearing finally on mount (17901 ms)
+     Level 2
+       ✓ No tearing temporarily on update (10815 ms)
+       ✓ No tearing temporarily on mount (19697 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (5754 ms)
+       ✕ Can branch state (wip state) (9478 ms)
  effector
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4733 ms)
-       ✓ No tearing finally on mount (11694 ms)
+       ✓ No tearing finally on update (4655 ms)
+       ✓ No tearing finally on mount (11700 ms)
      Level 2
-       ✕ No tearing temporarily on update (8805 ms)
-       ✕ No tearing temporarily on mount (11680 ms)
+       ✕ No tearing temporarily on update (8767 ms)
+       ✕ No tearing temporarily on mount (11005 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3768 ms)
-       ✕ Can branch state (wip state) (3996 ms)
+       ✓ Can interrupt render (time slicing) (3733 ms)
+       ✕ Can branch state (wip state) (3925 ms)
  react-rxjs
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8444 ms)
-       ✓ No tearing finally on mount (10703 ms)
+       ✓ No tearing finally on update (8099 ms)
+       ✓ No tearing finally on mount (11646 ms)
      Level 2
-       ✓ No tearing temporarily on update (13112 ms)
-       ✕ No tearing temporarily on mount (10677 ms)
+       ✓ No tearing temporarily on update (13086 ms)
+       ✕ No tearing temporarily on mount (11687 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8139 ms)
-       ✕ Can branch state (wip state) (7712 ms)
+       ✕ Can interrupt render (time slicing) (8053 ms)
+       ✕ Can branch state (wip state) (7631 ms)
  valtio
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8179 ms)
-       ✓ No tearing finally on mount (6915 ms)
+       ✓ No tearing finally on update (8082 ms)
+       ✓ No tearing finally on mount (6852 ms)
      Level 2
-       ✓ No tearing temporarily on update (13165 ms)
-       ✓ No tearing temporarily on mount (6952 ms)
+       ✓ No tearing temporarily on update (13067 ms)
+       ✓ No tearing temporarily on mount (6821 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8159 ms)
-       ✕ Can branch state (wip state) (7694 ms)
+       ✕ Can interrupt render (time slicing) (8070 ms)
+       ✕ Can branch state (wip state) (7608 ms)
 
 ```
 </details>
@@ -370,6 +381,15 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://github.com/dai-shi/use-atom">use-atom</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/zerobias/effector">effector</a></th>

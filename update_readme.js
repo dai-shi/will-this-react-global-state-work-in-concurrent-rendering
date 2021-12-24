@@ -2,20 +2,21 @@ const fs = require('fs');
 
 const libraries = {
   'react-redux': '<a href="https://react-redux.js.org">react-redux</a>',
+  zustand: '<a href="https://github.com/pmndrs/zustand">zustand</a>',
   'react-tracked': '<a href="https://react-tracked.js.org">react-tracked</a>',
   constate: '<a href="https://github.com/diegohaz/constate">constate</a>',
-  zustand: '<a href="https://github.com/pmndrs/zustand">zustand</a>',
   'react-hooks-global-state': '<a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a>',
   'use-context-selector': '<a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)',
   'use-subscription': '<a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)',
-  simplux: '<a href="https://github.com/MrWolfZ/simplux">simplux</a>',
   'apollo-client': '<a href="https://github.com/apollographql/apollo-client">apollo-client</a>',
   recoil: '<a href="https://recoiljs.org">recoil</a>',
   jotai: '<a href="https://github.com/pmndrs/jotai">jotai</a>',
   'jotai-versioned-write': '<a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a>',
+  'use-atom': '<a href="https://github.com/dai-shi/use-atom">use-atom</a>',
+  valtio: '<a href="https://github.com/pmndrs/valtio">valtio</a>',
   effector: '<a href="https://github.com/zerobias/effector">effector</a>',
   'react-rxjs': '<a href="https://react-rxjs.org">react-rxjs</a>',
-  valtio: '<a href="https://github.com/pmndrs/valtio">valtio</a>',
+  simplux: '<a href="https://github.com/MrWolfZ/simplux">simplux</a>',
 };
 
 function wrap(content, tag) { return `<${tag}>${content}</${tag}>`; }

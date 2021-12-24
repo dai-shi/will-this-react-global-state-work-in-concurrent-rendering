@@ -14,22 +14,23 @@ const sleep = (ms) => new Promise((r) => {
 jest.setTimeout(20 * 1000);
 
 const names = [
+  // 'react-state',
   'react-redux',
+  'zustand',
   'react-tracked',
   'constate',
-  'zustand',
   'react-hooks-global-state',
   'use-context-selector',
   'use-subscription',
-  'react-state',
-  'simplux',
   'apollo-client',
   'recoil',
   'jotai',
   'jotai-versioned-write',
+  'use-atom',
+  'valtio',
   'effector',
   'react-rxjs',
-  'valtio',
+  'simplux',
 ];
 
 names.forEach((name) => {
