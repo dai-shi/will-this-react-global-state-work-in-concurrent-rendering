@@ -91,6 +91,7 @@ names.forEach((name) => {
             await page.click('#transitionIncrement');
             await sleep(100);
           }
+          await sleep(5000);
           // check if there's inconsistency during update
           // see useCheckTearing() in src/common.js
           await expect(page.title()).resolves.not.toMatch(/TEARED/);
