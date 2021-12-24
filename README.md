@@ -65,15 +65,16 @@ yarn jest:update
 
 ## Test scenario
 
-- Level 1
-  - test 1: updated properly with transition
-- Level 2
-  - test 2: no tearing with transition
-  - test 5: updated properly with auto increment (EXPERIMENTAL)
-  - test 6: no tearing with auto increment (EXPERIMENTAL)
-- Level 3
-  - test 3: ability to interrupt render
-  - test 4: proper branching with transition
+- With useTransition
+  - Level 1
+    - 1: No tearing finally on update
+    - 2: No tearing finally on mount
+  - Level 2
+    - 3: No tearing temporarily on update (13119 ms)
+    - 4: No tearing temporarily on mount (6879 ms)
+  - Level 3
+    - 5: Can interrupt render (time slicing) (8089 ms)
+    - 6: Can branch state (wip state) (7719 ms)
 
 ## Results
 
@@ -81,150 +82,181 @@ yarn jest:update
 <summary>Raw Output</summary>
 
 ```
- react-redux
-   with useTransition
-     ✓ test 1: updated properly with transition (3939 ms)
-     ✓ test 2: no tearing with transition (25 ms)
-     ✕ test 3: ability to interrupt render (2 ms)
-     ✕ test 4: proper branching with transition (4516 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2212 ms)
-     ✕ test 6: no tearing with auto increment (3 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (8222 ms)
+       ✓ No tearing finally on mount (6948 ms)
+     Level 2
+       ✓ No tearing temporarily on update (13119 ms)
+       ✓ No tearing temporarily on mount (6879 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (8089 ms)
+       ✕ Can branch state (wip state) (7719 ms)
  react-tracked
-   with useTransition
-     ✓ test 1: updated properly with transition (3619 ms)
-     ✓ test 2: no tearing with transition (30 ms)
-     ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (5447 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (6141 ms)
-     ✓ test 6: no tearing with auto increment (2 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (6728 ms)
+       ✓ No tearing finally on mount (18772 ms)
+     Level 2
+       ✓ No tearing temporarily on update (9825 ms)
+       ✓ No tearing temporarily on mount (18754 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (4772 ms)
+       ✓ Can branch state (wip state) (10300 ms)
  constate
-   with useTransition
-     ✓ test 1: updated properly with transition (2667 ms)
-     ✓ test 2: no tearing with transition (26 ms)
-     ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (3452 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4012 ms)
-     ✓ test 6: no tearing with auto increment (2 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (4811 ms)
+       ✓ No tearing finally on mount (11766 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8783 ms)
+       ✓ No tearing temporarily on mount (11750 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3787 ms)
+       ✓ Can branch state (wip state) (6305 ms)
  zustand
-   with useTransition
-     ✓ test 1: updated properly with transition (3889 ms)
-     ✓ test 2: no tearing with transition (27 ms)
-     ✕ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (4520 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2227 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (8158 ms)
+       ✓ No tearing finally on mount (6866 ms)
+     Level 2
+       ✓ No tearing temporarily on update (13114 ms)
+       ✓ No tearing temporarily on mount (6874 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (8109 ms)
+       ✕ Can branch state (wip state) (7679 ms)
  react-hooks-global-state
-   with useTransition
-     ✓ test 1: updated properly with transition (3466 ms)
-     ✓ test 2: no tearing with transition (25 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7233 ms)
-   with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13223 ms)
-     ✕ test 6: no tearing with auto increment (5 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (5777 ms)
+       ✓ No tearing finally on mount (11908 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8856 ms)
+       ✕ No tearing temporarily on mount (11735 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3799 ms)
+       ✕ Can branch state (wip state) (11261 ms)
  use-context-selector
-   with useTransition
-     ✓ test 1: updated properly with transition (3627 ms)
-     ✓ test 2: no tearing with transition (25 ms)
-     ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (5442 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (6143 ms)
-     ✓ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (6756 ms)
+       ✓ No tearing finally on mount (18733 ms)
+     Level 2
+       ✓ No tearing temporarily on update (9866 ms)
+       ✓ No tearing temporarily on mount (18764 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (4816 ms)
+       ✓ Can branch state (wip state) (10268 ms)
  use-subscription
-   with useTransition
-     ✓ test 1: updated properly with transition (3523 ms)
-     ✓ test 2: no tearing with transition (120 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7571 ms)
-   with intensive auto increment
-     ✕ test 5: updated properly with auto increment (13194 ms)
-     ✕ test 6: no tearing with auto increment (4 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (5798 ms)
+       ✓ No tearing finally on mount (11732 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8789 ms)
+       ✕ No tearing temporarily on mount (11686 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3781 ms)
+       ✕ Can branch state (wip state) (11229 ms)
  react-state
-   with useTransition
-     ✓ test 1: updated properly with transition (2635 ms)
-     ✓ test 2: no tearing with transition (23 ms)
-     ✓ test 3: ability to interrupt render
-     ✓ test 4: proper branching with transition (3464 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4008 ms)
-     ✓ test 6: no tearing with auto increment
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (4740 ms)
+       ✓ No tearing finally on mount (11775 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8820 ms)
+       ✓ No tearing temporarily on mount (11779 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3817 ms)
+       ✓ Can branch state (wip state) (6288 ms)
  simplux
-   with useTransition
-     ✓ test 1: updated properly with transition (2682 ms)
-     ✓ test 2: no tearing with transition (29 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (7396 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4078 ms)
-     ✓ test 6: no tearing with auto increment (2 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (4828 ms)
+       ✓ No tearing finally on mount (11812 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8857 ms)
+       ✓ No tearing temporarily on mount (11758 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3788 ms)
+       ✕ Can branch state (wip state) (10255 ms)
  apollo-client
-   with useTransition
-     ✓ test 1: updated properly with transition (3751 ms)
-     ✕ test 2: no tearing with transition (28 ms)
-     ✕ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (3869 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2406 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (7969 ms)
+       ✓ No tearing finally on mount (7025 ms)
+     Level 2
+       ✕ No tearing temporarily on update (12180 ms)
+       ✓ No tearing temporarily on mount (6957 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (7706 ms)
+       ✕ Can branch state (wip state) (7484 ms)
  recoil
-   with useTransition
-     ✓ test 1: updated properly with transition (3637 ms)
-     ✓ test 2: no tearing with transition (25 ms)
-     ✕ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (4362 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (3053 ms)
-     ✓ test 6: no tearing with auto increment (2 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (7920 ms)
+       ✓ No tearing finally on mount (10795 ms)
+     Level 2
+       ✓ No tearing temporarily on update (13053 ms)
+       ✓ No tearing temporarily on mount (10795 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (7889 ms)
+       ✕ Can branch state (wip state) (7789 ms)
  jotai
-   with useTransition
-     ✓ test 1: updated properly with transition (4036 ms)
-     ✓ test 2: no tearing with transition (27 ms)
-     ✓ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (8684 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (5236 ms)
-     ✓ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (6782 ms)
+       ✓ No tearing finally on mount (12790 ms)
+     Level 2
+       ✓ No tearing temporarily on update (9859 ms)
+       ✕ No tearing temporarily on mount (13696 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (4857 ms)
+       ✕ Can branch state (wip state) (13272 ms)
  jotai-versioned-write
-   with useTransition
-     ✓ test 1: updated properly with transition (2675 ms)
-     ✓ test 2: no tearing with transition (29 ms)
-     ✓ test 3: ability to interrupt render (1 ms)
-     ✓ test 4: proper branching with transition (3481 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (4024 ms)
-     ✓ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (5733 ms)
+       ✓ No tearing finally on mount (13791 ms)
+     Level 2
+       ✓ No tearing temporarily on update (9866 ms)
+       ✓ No tearing temporarily on mount (13780 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (4811 ms)
+       ✓ Can branch state (wip state) (7313 ms)
  effector
-   with useTransition
-     ✓ test 1: updated properly with transition (2503 ms)
-     ✕ test 2: no tearing with transition (30 ms)
-     ✓ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (994 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2207 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (4733 ms)
+       ✓ No tearing finally on mount (11694 ms)
+     Level 2
+       ✕ No tearing temporarily on update (8805 ms)
+       ✕ No tearing temporarily on mount (11680 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3768 ms)
+       ✕ Can branch state (wip state) (3996 ms)
  react-rxjs
-   with useTransition
-     ✓ test 1: updated properly with transition (3911 ms)
-     ✓ test 2: no tearing with transition (29 ms)
-     ✕ test 3: ability to interrupt render
-     ✕ test 4: proper branching with transition (4524 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (3020 ms)
-     ✓ test 6: no tearing with auto increment
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (8444 ms)
+       ✓ No tearing finally on mount (10703 ms)
+     Level 2
+       ✓ No tearing temporarily on update (13112 ms)
+       ✕ No tearing temporarily on mount (10677 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (8139 ms)
+       ✕ Can branch state (wip state) (7712 ms)
  valtio
-   with useTransition
-     ✓ test 1: updated properly with transition (3910 ms)
-     ✓ test 2: no tearing with transition (32 ms)
-     ✕ test 3: ability to interrupt render (1 ms)
-     ✕ test 4: proper branching with transition (4515 ms)
-   with intensive auto increment
-     ✓ test 5: updated properly with auto increment (2214 ms)
-     ✕ test 6: no tearing with auto increment (1 ms)
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (8179 ms)
+       ✓ No tearing finally on mount (6915 ms)
+     Level 2
+       ✓ No tearing temporarily on update (13165 ms)
+       ✓ No tearing temporarily on mount (6952 ms)
+     Level 3
+       ✕ Can interrupt render (time slicing) (8159 ms)
+       ✕ Can branch state (wip state) (7694 ms)
 
 ```
 </details>
@@ -235,9 +267,9 @@ yarn jest:update
 		<th><a href="https://react-redux.js.org">react-redux</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>
@@ -262,9 +294,9 @@ yarn jest:update
 		<th><a href="https://github.com/pmndrs/zustand">zustand</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>
@@ -273,7 +305,7 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:x:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>
@@ -291,7 +323,7 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:x:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>
@@ -299,27 +331,27 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/apollographql/apollo-client">apollo-client</a></th>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
 		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 	</tr>
 	<tr>
 		<th><a href="https://recoiljs.org">recoil</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:x:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/pmndrs/jotai">jotai</a></th>
@@ -328,7 +360,7 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
 		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
+		<td>:x:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a></th>
@@ -342,8 +374,8 @@ yarn jest:update
 	<tr>
 		<th><a href="https://github.com/zerobias/effector">effector</a></th>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
@@ -352,18 +384,18 @@ yarn jest:update
 		<th><a href="https://react-rxjs.org">react-rxjs</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
 		<td>:x:</td>
 		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
+		<td>:x:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/pmndrs/valtio">valtio</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 	</tr>
 
