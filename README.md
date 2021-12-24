@@ -2,7 +2,7 @@
 
 Test tearing and branching in React concurrent rendering
 
-Caveat: These tests are originally designed for obsolete concurrent mode. We should revisit them for new concurrent rendering feature.
+- [Discussion in React 18 WG](https://github.com/reactwg/react-18/discussions/116)
 
 ## Introduction
 
