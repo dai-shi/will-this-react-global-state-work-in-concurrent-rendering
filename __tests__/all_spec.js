@@ -182,5 +182,80 @@ names.forEach((name) => {
         });
       });
     });
+
+    describe('With useDeferredValue', () => {
+      describe('Level 1', () => {
+        it('No tearing finally on update', async () => {
+          await page.click('#transitionShowDeferred');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
+          for (let loop = 0; loop < REPEAT; loop += 1) {
+            await page.click('#normalIncrement');
+            await sleep(100);
+          }
+          // check if all counts become REPEAT
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: `${REPEAT}`,
+              timeout: 10 * 1000,
+            });
+          }));
+        });
+
+        it('No tearing finally on mount', async () => {
+          await page.click('#startAutoIncrement');
+          await sleep(100);
+          await page.click('#transitionShowDeferred');
+          await sleep(1000);
+          await page.click('#stopAutoIncrement');
+          await sleep(2000);
+          const count = page.evaluate(() => document.querySelector('.count:first-of-type'));
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: count,
+              timeout: 10 * 1000,
+            });
+          }));
+        });
+      });
+
+      describe('Level 2', () => {
+        it('No tearing temporarily on update', async () => {
+          await page.click('#transitionShowDeferred');
+          // wait until all counts become zero
+          await Promise.all(ids.map(async (i) => {
+            await expect(page).toMatchElement(`.count:nth-of-type(${i + 1})`, {
+              text: '0',
+              timeout: 5 * 1000,
+            });
+          }));
+          for (let loop = 0; loop < REPEAT; loop += 1) {
+            await page.click('#normalIncrement');
+            await sleep(100);
+          }
+          await sleep(5000);
+          // check if there's inconsistency during update
+          // see useCheckTearing() in src/common.js
+          await expect(page.title()).resolves.not.toMatch(/TEARED/);
+        });
+
+        it('No tearing temporarily on mount', async () => {
+          await page.click('#startAutoIncrement');
+          await sleep(100);
+          await page.click('#transitionShowDeferred');
+          await sleep(1000);
+          await page.click('#stopAutoIncrement');
+          await sleep(2000);
+          // check if there's inconsistency during update
+          // see useCheckTearing() in src/common.js
+          await expect(page.title()).resolves.not.toMatch(/TEARED/);
+        });
+      });
+    });
   });
 });
