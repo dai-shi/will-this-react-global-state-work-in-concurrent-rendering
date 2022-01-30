@@ -24,6 +24,7 @@ const names = [
   'use-subscription',
   'apollo-client',
   'recoil',
+  'recoil_UNSTABLE',
   'jotai',
   'jotai-versioned-write',
   'use-atom',

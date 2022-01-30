@@ -10,6 +10,7 @@ const libraries = {
   'use-subscription': '<a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)',
   'apollo-client': '<a href="https://github.com/apollographql/apollo-client">apollo-client</a>',
   recoil: '<a href="https://recoiljs.org">recoil</a>',
+  recoil_UNSTABLE: '<a href="https://recoiljs.org">recoil (UNSTABLE)</a>',
   jotai: '<a href="https://github.com/pmndrs/jotai">jotai</a>',
   'jotai-versioned-write': '<a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a>',
   'use-atom': '<a href="https://github.com/dai-shi/use-atom">use-atom</a>',
