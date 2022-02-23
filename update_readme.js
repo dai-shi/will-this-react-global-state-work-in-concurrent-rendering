@@ -18,6 +18,7 @@ const libraries = {
   effector: '<a href="https://github.com/zerobias/effector">effector</a>',
   'react-rxjs': '<a href="https://react-rxjs.org">react-rxjs</a>',
   simplux: '<a href="https://github.com/MrWolfZ/simplux">simplux</a>',
+  precoil: '<a href="https://github.com/mntm-lib/precoil">@mntm/precoil</a>',
 };
 
 const numTests = 10;

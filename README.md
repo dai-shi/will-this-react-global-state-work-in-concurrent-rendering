@@ -394,6 +394,24 @@ yarn jest:update
      Level 2
        ✓ No tearing temporarily on update (14795 ms)
        ✓ No tearing temporarily on mount (5674 ms)
+ precoil
+   With useTransition
+     Level 1
+       ✓ No tearing finally on update (4568 ms)
+       ✓ No tearing finally on mount (9431 ms)
+     Level 2
+       ✓ No tearing temporarily on update (8602 ms)
+       ✕ No tearing temporarily on mount (9371 ms)
+     Level 3
+       ✓ Can interrupt render (time slicing) (3616 ms)
+       ✕ Can branch state (wip state) (9141 ms)
+   With useDeferredValue
+     Level 1
+       ✓ No tearing finally on update (9606 ms)
+       ✓ No tearing finally on mount (5647 ms)
+     Level 2
+       ✓ No tearing temporarily on update (14502 ms)
+       ✕ No tearing temporarily on mount (5475 ms)
 
 ```
 </details>
@@ -620,6 +638,19 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+	</tr>
+  <tr>
+		<th><a href="https://github.com/mntm-lib/precoil">@mntm/precoil</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 	</tr>
 
 </table>

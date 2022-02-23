@@ -34,6 +34,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:precoil": "cross-env NAME=precoil webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -44,6 +45,7 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.6.0-beta.3",
+    "@mntm/precoil": "^4.1.1",
     "@react-rxjs/core": "^0.8.4",
     "@simplux/core": "^0.17.0",
     "@simplux/react": "^0.17.0",

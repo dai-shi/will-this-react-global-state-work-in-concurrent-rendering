@@ -32,6 +32,7 @@ const names = [
   'effector',
   'react-rxjs',
   'simplux',
+  'precoil',
 ];
 
 names.forEach((name) => {

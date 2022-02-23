@@ -24,7 +24,7 @@ module.exports = {
       resolve: {
         fullySpecified: false,
       },
-      exclude: /node_modules\/(?!(@apollo)\/).*/,
+      exclude: /node_modules\/(?!(@apollo|@mntm)\/).*/,
       use: [{
         loader: 'babel-loader',
         options: {
