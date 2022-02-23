@@ -639,7 +639,7 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 	</tr>
-  <tr>
+	<tr>
 		<th><a href="https://github.com/mntm-lib/precoil">@mntm/precoil</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
