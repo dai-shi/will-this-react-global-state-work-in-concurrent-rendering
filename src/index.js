@@ -18,7 +18,11 @@ document.title = name;
 
 // concurrent mode
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // sync mode
 // ReactDOM.render(<App />, document.getElementById('app'));

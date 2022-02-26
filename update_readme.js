@@ -2,6 +2,7 @@ const fs = require('fs');
 
 const libraries = {
   'react-redux': '<a href="https://react-redux.js.org">react-redux</a>',
+  mobx: '<a href="https://github.com/mobxjs/mobx">mobx</a>',
   zustand: '<a href="https://github.com/pmndrs/zustand">zustand</a>',
   'react-tracked': '<a href="https://react-tracked.js.org">react-tracked</a>',
   constate: '<a href="https://github.com/diegohaz/constate">constate</a>',

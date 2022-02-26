@@ -17,6 +17,7 @@ const names = [
   // 'react-state',
   'react-redux',
   'zustand',
+  'mobx',
   'react-tracked',
   'constate',
   'react-hooks-global-state',
