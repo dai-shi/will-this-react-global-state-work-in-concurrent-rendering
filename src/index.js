@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 let name;
 let App;
@@ -17,7 +17,7 @@ if (process.env.NAME) {
 document.title = name;
 
 // concurrent mode
-const root = ReactDOM.createRoot(document.getElementById('app'));
+const root = createRoot(document.getElementById('app'));
 root.render(<App />);
 
 // sync mode
