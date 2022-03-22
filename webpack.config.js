@@ -13,7 +13,9 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'),
     }),
-    new webpack.EnvironmentPlugin(['NAME']),
+    new webpack.EnvironmentPlugin({
+      NAME: '',
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
