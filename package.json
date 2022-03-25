@@ -60,7 +60,7 @@
     "recoil": "^0.6.1",
     "redux": "^4.1.2",
     "rxjs": "^7.5.5",
-    "use-atom": "^0.6.1",
+    "use-atom": "https://pkg.csb.dev/dai-shi/use-atom/commit/3d730009/use-atom",
     "use-context-selector": "^1.3.9",
     "use-subscription": "^1.5.1",
     "valtio": "https://pkg.csb.dev/pmndrs/valtio/commit/8139eea8/valtio",
