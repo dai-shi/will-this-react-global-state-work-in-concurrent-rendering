@@ -643,10 +643,10 @@ yarn jest:update
 		<th><a href="https://react-query.tanstack.com/">react-query</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-        <td>:x:</td>
+		<td>:x:</td>
 		<td>:white_check_mark:</td>
-        <td>:x:</td>
-        <td>:x:</td>
+		<td>:x:</td>
+		<td>:x:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
