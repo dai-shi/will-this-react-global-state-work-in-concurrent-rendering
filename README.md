@@ -59,7 +59,7 @@ yarn jest:json
 yarn jest:update
 ```
 
-## Screencast (old)
+## Screencast (old one with react-redux v7. v8 works great.)
 
 <img src="https://user-images.githubusercontent.com/490574/61502196-ce109200-aa0d-11e9-9efc-6203545d367c.gif" alt="Preview" width="350" />
 
