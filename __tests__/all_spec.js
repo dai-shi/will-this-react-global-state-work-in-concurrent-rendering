@@ -32,6 +32,7 @@ const names = [
   'effector',
   'react-rxjs',
   'simplux',
+  'react-query',
 ];
 
 names.forEach((name) => {
