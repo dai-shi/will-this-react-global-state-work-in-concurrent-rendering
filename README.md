@@ -6,7 +6,7 @@ Test tearing and branching in React concurrent rendering
 
 ## Introduction
 
-React 18 is coming with a new feature called "concurrent rendering".
+React 18 comes with a new feature called "concurrent rendering".
 With global state, there's a theoretical issue called "tearing"
 that might occur in React concurrent rendering.
 
@@ -91,309 +91,309 @@ yarn jest:update
 ```
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8196 ms)
-       ✓ No tearing finally on mount (4769 ms)
+       ✓ No tearing finally on update (8085 ms)
+       ✓ No tearing finally on mount (4691 ms)
      Level 2
-       ✓ No tearing temporarily on update (13080 ms)
-       ✓ No tearing temporarily on mount (4688 ms)
+       ✓ No tearing temporarily on update (13011 ms)
+       ✓ No tearing temporarily on mount (4628 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8051 ms)
-       ✕ Can branch state (wip state) (6757 ms)
+       ✕ Can interrupt render (time slicing) (8004 ms)
+       ✕ Can branch state (wip state) (6719 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9773 ms)
-       ✓ No tearing finally on mount (4700 ms)
+       ✓ No tearing finally on update (9779 ms)
+       ✓ No tearing finally on mount (4672 ms)
      Level 2
-       ✓ No tearing temporarily on update (14752 ms)
-       ✓ No tearing temporarily on mount (4676 ms)
+       ✓ No tearing temporarily on update (14749 ms)
+       ✓ No tearing temporarily on mount (4616 ms)
  zustand
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8031 ms)
-       ✓ No tearing finally on mount (4708 ms)
+       ✓ No tearing finally on update (8012 ms)
+       ✓ No tearing finally on mount (4664 ms)
      Level 2
-       ✓ No tearing temporarily on update (12989 ms)
-       ✓ No tearing temporarily on mount (4616 ms)
+       ✓ No tearing temporarily on update (12982 ms)
+       ✓ No tearing temporarily on mount (4621 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8017 ms)
-       ✕ Can branch state (wip state) (6682 ms)
+       ✕ Can interrupt render (time slicing) (8068 ms)
+       ✕ Can branch state (wip state) (6725 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9704 ms)
-       ✓ No tearing finally on mount (4678 ms)
+       ✓ No tearing finally on update (9715 ms)
+       ✓ No tearing finally on mount (4650 ms)
      Level 2
-       ✓ No tearing temporarily on update (14684 ms)
-       ✓ No tearing temporarily on mount (4647 ms)
+       ✓ No tearing temporarily on update (14736 ms)
+       ✓ No tearing temporarily on mount (4602 ms)
  react-tracked
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5659 ms)
-       ✓ No tearing finally on mount (15550 ms)
+       ✓ No tearing finally on update (5662 ms)
+       ✓ No tearing finally on mount (11581 ms)
      Level 2
-       ✓ No tearing temporarily on update (8787 ms)
-       ✓ No tearing temporarily on mount (13542 ms)
+       ✓ No tearing temporarily on update (8717 ms)
+       ✓ No tearing temporarily on mount (11485 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3745 ms)
-       ✓ Can branch state (wip state) (8360 ms)
+       ✓ Can interrupt render (time slicing) (3728 ms)
+       ✓ Can branch state (wip state) (8303 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (15602 ms)
-       ✓ No tearing finally on mount (6609 ms)
+       ✓ No tearing finally on update (15482 ms)
+       ✓ No tearing finally on mount (6563 ms)
      Level 2
-       ✓ No tearing temporarily on update (19600 ms)
-       ✓ No tearing temporarily on mount (8508 ms)
+       ✓ No tearing temporarily on update (19593 ms)
+       ✓ No tearing temporarily on mount (8512 ms)
  constate
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4698 ms)
-       ✓ No tearing finally on mount (9523 ms)
+       ✓ No tearing finally on update (4716 ms)
+       ✓ No tearing finally on mount (8556 ms)
      Level 2
-       ✓ No tearing temporarily on update (8736 ms)
-       ✓ No tearing temporarily on mount (9518 ms)
+       ✓ No tearing temporarily on update (8711 ms)
+       ✓ No tearing temporarily on mount (7484 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3742 ms)
-       ✓ Can branch state (wip state) (5223 ms)
+       ✓ Can interrupt render (time slicing) (3750 ms)
+       ✓ Can branch state (wip state) (5308 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9746 ms)
-       ✓ No tearing finally on mount (5740 ms)
+       ✓ No tearing finally on update (9773 ms)
+       ✓ No tearing finally on mount (5746 ms)
      Level 2
-       ✓ No tearing temporarily on update (14702 ms)
-       ✓ No tearing temporarily on mount (5651 ms)
+       ✓ No tearing temporarily on update (14733 ms)
+       ✓ No tearing temporarily on mount (5685 ms)
  react-hooks-global-state
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5626 ms)
-       ✓ No tearing finally on mount (9576 ms)
+       ✓ No tearing finally on update (5661 ms)
+       ✓ No tearing finally on mount (7550 ms)
      Level 2
-       ✓ No tearing temporarily on update (9654 ms)
-       ✕ No tearing temporarily on mount (8513 ms)
+       ✓ No tearing temporarily on update (8699 ms)
+       ✕ No tearing temporarily on mount (8490 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3749 ms)
-       ✕ Can branch state (wip state) (10222 ms)
+       ✓ Can interrupt render (time slicing) (3699 ms)
+       ✕ Can branch state (wip state) (10226 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (11392 ms)
-       ✓ No tearing finally on mount (5776 ms)
+       ✓ No tearing finally on update (11326 ms)
+       ✓ No tearing finally on mount (5704 ms)
      Level 2
-       ✓ No tearing temporarily on update (15491 ms)
-       ✕ No tearing temporarily on mount (5647 ms)
+       ✓ No tearing temporarily on update (15439 ms)
+       ✕ No tearing temporarily on mount (6590 ms)
  use-context-selector
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5732 ms)
-       ✓ No tearing finally on mount (13581 ms)
+       ✓ No tearing finally on update (5672 ms)
+       ✓ No tearing finally on mount (11549 ms)
      Level 2
-       ✓ No tearing temporarily on update (8766 ms)
-       ✓ No tearing temporarily on mount (15439 ms)
+       ✓ No tearing temporarily on update (8699 ms)
+       ✓ No tearing temporarily on mount (11491 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3697 ms)
-       ✓ Can branch state (wip state) (8246 ms)
+       ✓ Can interrupt render (time slicing) (3740 ms)
+       ✓ Can branch state (wip state) (8302 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (15420 ms)
-       ✓ No tearing finally on mount (8621 ms)
+       ✓ No tearing finally on update (15525 ms)
+       ✓ No tearing finally on mount (8575 ms)
      Level 2
-       ✓ No tearing temporarily on update (19594 ms)
-       ✓ No tearing temporarily on mount (8485 ms)
+       ✓ No tearing temporarily on update (19598 ms)
+       ✓ No tearing temporarily on mount (8492 ms)
  use-subscription
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5658 ms)
-       ✓ No tearing finally on mount (7565 ms)
+       ✓ No tearing finally on update (8041 ms)
+       ✓ No tearing finally on mount (4758 ms)
      Level 2
-       ✓ No tearing temporarily on update (8772 ms)
-       ✕ No tearing temporarily on mount (9517 ms)
+       ✓ No tearing temporarily on update (13010 ms)
+       ✓ No tearing temporarily on mount (4615 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3714 ms)
-       ✕ Can branch state (wip state) (10259 ms)
+       ✕ Can interrupt render (time slicing) (8046 ms)
+       ✕ Can branch state (wip state) (6696 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (11355 ms)
-       ✓ No tearing finally on mount (5749 ms)
+       ✓ No tearing finally on update (9761 ms)
+       ✓ No tearing finally on mount (4605 ms)
      Level 2
-       ✓ No tearing temporarily on update (15469 ms)
-       ✕ No tearing temporarily on mount (5691 ms)
+       ✓ No tearing temporarily on update (14712 ms)
+       ✓ No tearing temporarily on mount (4670 ms)
  apollo-client
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8201 ms)
-       ✓ No tearing finally on mount (5956 ms)
+       ✓ No tearing finally on update (8203 ms)
+       ✓ No tearing finally on mount (6712 ms)
      Level 2
-       ✓ No tearing temporarily on update (13114 ms)
-       ✕ No tearing temporarily on mount (5854 ms)
+       ✓ No tearing temporarily on update (13117 ms)
+       ✕ No tearing temporarily on mount (5617 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8057 ms)
-       ✕ Can branch state (wip state) (7798 ms)
+       ✕ Can interrupt render (time slicing) (8133 ms)
+       ✕ Can branch state (wip state) (7815 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (10618 ms)
-       ✓ No tearing finally on mount (6078 ms)
+       ✓ No tearing finally on update (9563 ms)
+       ✓ No tearing finally on mount (6656 ms)
      Level 2
-       ✓ No tearing temporarily on update (11689 ms)
-       ✕ No tearing temporarily on mount (6049 ms)
+       ✓ No tearing temporarily on update (11630 ms)
+       ✕ No tearing temporarily on mount (5634 ms)
  recoil
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8124 ms)
-       ✓ No tearing finally on mount (4700 ms)
+       ✓ No tearing finally on update (8108 ms)
+       ✓ No tearing finally on mount (4672 ms)
      Level 2
-       ✓ No tearing temporarily on update (13084 ms)
-       ✓ No tearing temporarily on mount (4647 ms)
+       ✓ No tearing temporarily on update (13041 ms)
+       ✓ No tearing temporarily on mount (4618 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8049 ms)
-       ✕ Can branch state (wip state) (6755 ms)
+       ✕ Can interrupt render (time slicing) (8052 ms)
+       ✕ Can branch state (wip state) (6735 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9802 ms)
-       ✓ No tearing finally on mount (4710 ms)
+       ✓ No tearing finally on update (9782 ms)
+       ✓ No tearing finally on mount (4650 ms)
      Level 2
-       ✓ No tearing temporarily on update (14772 ms)
-       ✓ No tearing temporarily on mount (4667 ms)
+       ✓ No tearing temporarily on update (14748 ms)
+       ✓ No tearing temporarily on mount (4633 ms)
  recoil_UNSTABLE
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5720 ms)
-       ✓ No tearing finally on mount (8570 ms)
+       ✓ No tearing finally on update (5684 ms)
+       ✓ No tearing finally on mount (7611 ms)
      Level 2
-       ✓ No tearing temporarily on update (8780 ms)
-       ✕ No tearing temporarily on mount (8517 ms)
+       ✓ No tearing temporarily on update (8785 ms)
+       ✕ No tearing temporarily on mount (6566 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3694 ms)
-       ✕ Can branch state (wip state) (10230 ms)
+       ✓ Can interrupt render (time slicing) (3783 ms)
+       ✕ Can branch state (wip state) (10265 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (11312 ms)
-       ✓ No tearing finally on mount (5711 ms)
+       ✓ No tearing finally on update (11412 ms)
+       ✓ No tearing finally on mount (5699 ms)
      Level 2
-       ✓ No tearing temporarily on update (15405 ms)
-       ✕ No tearing temporarily on mount (5605 ms)
+       ✓ No tearing temporarily on update (15468 ms)
+       ✕ No tearing temporarily on mount (6598 ms)
  jotai
    With useTransition
      Level 1
-       ✓ No tearing finally on update (6673 ms)
-       ✓ No tearing finally on mount (12505 ms)
+       ✓ No tearing finally on update (6705 ms)
+       ✓ No tearing finally on mount (10568 ms)
      Level 2
-       ✓ No tearing temporarily on update (9736 ms)
-       ✕ No tearing temporarily on mount (12522 ms)
+       ✓ No tearing temporarily on update (9762 ms)
+       ✕ No tearing temporarily on mount (9500 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4680 ms)
-       ✕ Can branch state (wip state) (11240 ms)
+       ✓ Can interrupt render (time slicing) (4743 ms)
+       ✕ Can branch state (wip state) (11253 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (16471 ms)
-       ✓ No tearing finally on mount (13595 ms)
+       ✓ No tearing finally on update (16384 ms)
+       ✓ No tearing finally on mount (10546 ms)
      Level 2
-       ✓ No tearing temporarily on update (20592 ms)
-       ✕ No tearing temporarily on mount (13540 ms)
+       ✓ No tearing temporarily on update (20415 ms)
+       ✕ No tearing temporarily on mount (9505 ms)
  jotai-versioned-write
    With useTransition
      Level 1
-       ✓ No tearing finally on update (5734 ms)
-       ✓ No tearing finally on mount (8615 ms)
+       ✓ No tearing finally on update (5697 ms)
+       ✓ No tearing finally on mount (9599 ms)
      Level 2
-       ✓ No tearing temporarily on update (9793 ms)
-       ✓ No tearing temporarily on mount (9544 ms)
+       ✓ No tearing temporarily on update (9733 ms)
+       ✓ No tearing temporarily on mount (8514 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4698 ms)
-       ✓ Can branch state (wip state) (6259 ms)
+       ✓ Can interrupt render (time slicing) (4754 ms)
+       ✓ Can branch state (wip state) (6312 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (11535 ms)
-       ✓ No tearing finally on mount (5725 ms)
+       ✓ No tearing finally on update (10786 ms)
+       ✓ No tearing finally on mount (6728 ms)
      Level 2
-       ✓ No tearing temporarily on update (15654 ms)
-       ✓ No tearing temporarily on mount (5604 ms)
+       ✓ No tearing temporarily on update (15750 ms)
+       ✓ No tearing temporarily on mount (6630 ms)
  use-atom
    With useTransition
      Level 1
-       ✓ No tearing finally on update (6667 ms)
-       ✓ No tearing finally on mount (13530 ms)
+       ✓ No tearing finally on update (6675 ms)
+       ✓ No tearing finally on mount (13543 ms)
      Level 2
-       ✓ No tearing temporarily on update (9703 ms)
-       ✓ No tearing temporarily on mount (15462 ms)
+       ✓ No tearing temporarily on update (9762 ms)
+       ✓ No tearing temporarily on mount (13504 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (4718 ms)
-       ✓ Can branch state (wip state) (9270 ms)
+       ✓ Can interrupt render (time slicing) (4732 ms)
+       ✓ Can branch state (wip state) (9277 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (16638 ms)
-       ✓ No tearing finally on mount (8520 ms)
+       ✓ No tearing finally on update (16506 ms)
+       ✓ No tearing finally on mount (6563 ms)
      Level 2
-       ✓ No tearing temporarily on update (20801 ms)
-       ✓ No tearing temporarily on mount (6536 ms)
+       ✓ No tearing temporarily on update (20604 ms)
+       ✓ No tearing temporarily on mount (6475 ms)
  valtio
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8081 ms)
-       ✓ No tearing finally on mount (4697 ms)
+       ✓ No tearing finally on update (8070 ms)
+       ✓ No tearing finally on mount (4698 ms)
      Level 2
-       ✓ No tearing temporarily on update (13027 ms)
-       ✓ No tearing temporarily on mount (4730 ms)
+       ✓ No tearing temporarily on update (12987 ms)
+       ✓ No tearing temporarily on mount (4634 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8063 ms)
-       ✕ Can branch state (wip state) (3740 ms)
+       ✕ Can interrupt render (time slicing) (8064 ms)
+       ✕ Can branch state (wip state) (6734 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9776 ms)
-       ✓ No tearing finally on mount (4713 ms)
+       ✓ No tearing finally on update (9761 ms)
+       ✓ No tearing finally on mount (4669 ms)
      Level 2
-       ✓ No tearing temporarily on update (14775 ms)
-       ✓ No tearing temporarily on mount (4679 ms)
+       ✓ No tearing temporarily on update (14767 ms)
+       ✓ No tearing temporarily on mount (4617 ms)
  effector
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4710 ms)
-       ✓ No tearing finally on mount (9597 ms)
+       ✓ No tearing finally on update (4643 ms)
+       ✓ No tearing finally on mount (8532 ms)
      Level 2
-       ✕ No tearing temporarily on update (8810 ms)
-       ✕ No tearing temporarily on mount (9531 ms)
+       ✕ No tearing temporarily on update (8754 ms)
+       ✕ No tearing temporarily on mount (8480 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3742 ms)
-       ✕ Can branch state (wip state) (3002 ms)
+       ✓ Can interrupt render (time slicing) (3759 ms)
+       ✕ Can branch state (wip state) (3050 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9751 ms)
-       ✓ No tearing finally on mount (5762 ms)
+       ✓ No tearing finally on update (9732 ms)
+       ✓ No tearing finally on mount (6601 ms)
      Level 2
-       ✓ No tearing temporarily on update (14774 ms)
-       ✕ No tearing temporarily on mount (5716 ms)
+       ✓ No tearing temporarily on update (14722 ms)
+       ✕ No tearing temporarily on mount (6543 ms)
  react-rxjs
    With useTransition
      Level 1
-       ✓ No tearing finally on update (8140 ms)
-       ✓ No tearing finally on mount (4730 ms)
+       ✓ No tearing finally on update (8058 ms)
+       ✓ No tearing finally on mount (4725 ms)
      Level 2
-       ✓ No tearing temporarily on update (13103 ms)
-       ✓ No tearing temporarily on mount (4682 ms)
+       ✓ No tearing temporarily on update (13023 ms)
+       ✓ No tearing temporarily on mount (4664 ms)
      Level 3
-       ✕ Can interrupt render (time slicing) (8065 ms)
-       ✕ Can branch state (wip state) (6753 ms)
+       ✕ Can interrupt render (time slicing) (8013 ms)
+       ✕ Can branch state (wip state) (6770 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9772 ms)
-       ✓ No tearing finally on mount (4731 ms)
+       ✓ No tearing finally on update (9763 ms)
+       ✓ No tearing finally on mount (4700 ms)
      Level 2
-       ✓ No tearing temporarily on update (14708 ms)
-       ✓ No tearing temporarily on mount (4642 ms)
+       ✓ No tearing temporarily on update (14738 ms)
+       ✓ No tearing temporarily on mount (4625 ms)
  simplux
    With useTransition
      Level 1
-       ✓ No tearing finally on update (4664 ms)
-       ✓ No tearing finally on mount (9539 ms)
+       ✓ No tearing finally on update (4726 ms)
+       ✓ No tearing finally on mount (8542 ms)
      Level 2
-       ✓ No tearing temporarily on update (8695 ms)
-       ✓ No tearing temporarily on mount (9497 ms)
+       ✓ No tearing temporarily on update (8753 ms)
+       ✓ No tearing temporarily on mount (8514 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3686 ms)
-       ✕ Can branch state (wip state) (10343 ms)
+       ✓ Can interrupt render (time slicing) (3731 ms)
+       ✕ Can branch state (wip state) (10287 ms)
    With useDeferredValue
      Level 1
-       ✓ No tearing finally on update (9746 ms)
-       ✓ No tearing finally on mount (6781 ms)
+       ✓ No tearing finally on update (9725 ms)
+       ✓ No tearing finally on mount (5684 ms)
      Level 2
-       ✓ No tearing temporarily on update (14735 ms)
-       ✓ No tearing temporarily on mount (5672 ms)
+       ✓ No tearing temporarily on update (14725 ms)
+       ✓ No tearing temporarily on mount (6662 ms)
 
 ```
 </details>
@@ -483,13 +483,13 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
 		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/apollographql/apollo-client">apollo-client</a></th>
