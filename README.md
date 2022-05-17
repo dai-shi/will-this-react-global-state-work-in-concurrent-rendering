@@ -394,6 +394,24 @@ yarn jest:update
      Level 2
        ✓ No tearing temporarily on update (14725 ms)
        ✓ No tearing temporarily on mount (6662 ms)
+  react-query
+    With useTransition
+      Level 1
+        ✓ No tearing finally on update (7999 ms)
+        ✓ No tearing finally on mount (4581 ms)
+      Level 2
+        ✕ No tearing temporarily on update (12924 ms)
+        ✓ No tearing temporarily on mount (4490 ms)
+      Level 3
+        ✕ Can interrupt render (time slicing) (7951 ms)
+        ✕ Can branch state (wip state) (6627 ms)
+    With useDeferredValue
+      Level 1
+        ✓ No tearing finally on update (9478 ms)
+        ✓ No tearing finally on mount (4535 ms)
+      Level 2
+        ✓ No tearing temporarily on update (13580 ms)
+        ✓ No tearing temporarily on mount (4495 ms)
 
 ```
 </details>
@@ -615,6 +633,19 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+	</tr>
+	<tr>
+		<th><a href="https://react-query.tanstack.com/">react-query</a></th>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:x:</td>
 		<td>:x:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
