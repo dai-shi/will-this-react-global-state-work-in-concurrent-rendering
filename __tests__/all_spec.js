@@ -20,6 +20,7 @@ const names = [
   'react-tracked',
   'constate',
   'react-hooks-global-state',
+  'use-context-selector-base',
   'use-context-selector',
   'use-subscription',
   'apollo-client',

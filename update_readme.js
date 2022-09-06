@@ -6,6 +6,7 @@ const libraries = {
   'react-tracked': '<a href="https://react-tracked.js.org">react-tracked</a>',
   constate: '<a href="https://github.com/diegohaz/constate">constate</a>',
   'react-hooks-global-state': '<a href="https://github.com/dai-shi/react-hooks-global-state">react-hooks-global-state</a>',
+  'use-context-selector-base': '<a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer, w/o useContextUpdate)',
   'use-context-selector': '<a href="https://github.com/dai-shi/use-context-selector">use-context-selector</a> (w/ useReducer)',
   'use-subscription': '<a href="https://github.com/facebook/react/tree/master/packages/use-subscription">use-subscription</a> (w/ redux)',
   'apollo-client': '<a href="https://github.com/apollographql/apollo-client">apollo-client</a>',
