@@ -22,6 +22,7 @@
     "build:constate": "cross-env NAME=constate webpack",
     "build:zustand": "cross-env NAME=zustand webpack",
     "build:react-hooks-global-state": "cross-env NAME=react-hooks-global-state webpack",
+    "build:use-context-selector-base": "cross-env NAME=use-context-selector-base webpack",
     "build:use-context-selector": "cross-env NAME=use-context-selector webpack",
     "build:use-subscription": "cross-env NAME=use-subscription webpack",
     "build:react-state": "cross-env NAME=react-state webpack",
