@@ -27,7 +27,6 @@ const names = [
   'recoil',
   'recoil_UNSTABLE',
   'jotai',
-  'jotai-versioned-write',
   'use-atom',
   'valtio',
   'effector',

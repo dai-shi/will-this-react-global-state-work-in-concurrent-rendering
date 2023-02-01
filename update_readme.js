@@ -13,7 +13,6 @@ const libraries = {
   recoil: '<a href="https://recoiljs.org">recoil</a>',
   recoil_UNSTABLE: '<a href="https://recoiljs.org">recoil (UNSTABLE)</a>',
   jotai: '<a href="https://github.com/pmndrs/jotai">jotai</a>',
-  'jotai-versioned-write': '<a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a>',
   'use-atom': '<a href="https://github.com/dai-shi/use-atom">use-atom</a>',
   valtio: '<a href="https://github.com/pmndrs/valtio">valtio</a>',
   effector: '<a href="https://github.com/zerobias/effector">effector</a>',

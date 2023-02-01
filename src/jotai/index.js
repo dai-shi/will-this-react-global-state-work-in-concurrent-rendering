@@ -1,6 +1,10 @@
 import React, { useCallback } from 'react';
-import { Provider, atom, useAtom } from 'jotai';
-import { useUpdateAtom } from 'jotai/utils';
+import {
+  Provider,
+  atom,
+  useAtom,
+  useSetAtom,
+} from 'jotai';
 
 import {
   reducer,
@@ -26,14 +30,14 @@ const useCount = () => {
 };
 
 const useIncrement = () => {
-  const dispatch = useUpdateAtom(countState);
+  const dispatch = useSetAtom(countState);
   return useCallback(() => {
     dispatch(incrementAction);
   }, [dispatch]);
 };
 
 const useDouble = () => {
-  const dispatch = useUpdateAtom(countState);
+  const dispatch = useSetAtom(countState);
   return useCallback(() => {
     dispatch(doubleAction);
   }, [dispatch]);

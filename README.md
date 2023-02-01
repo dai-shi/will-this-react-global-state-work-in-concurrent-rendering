@@ -304,24 +304,6 @@ yarn jest:update
      Level 2
        ✓ No tearing temporarily on update (15742 ms)
        ✕ No tearing temporarily on mount (6654 ms)
- jotai-versioned-write
-   With useTransition
-     Level 1
-       ✓ No tearing finally on update (6690 ms)
-       ✓ No tearing finally on mount (8656 ms)
-     Level 2
-       ✓ No tearing temporarily on update (9767 ms)
-       ✕ No tearing temporarily on mount (8639 ms)
-     Level 3
-       ✓ Can interrupt render (time slicing) (4740 ms)
-       ✕ Can branch state (wip state) (6600 ms)
-   With useDeferredValue
-     Level 1
-       ✓ No tearing finally on update (10713 ms)
-       ✓ No tearing finally on mount (8651 ms)
-     Level 2
-       ✓ No tearing temporarily on update (15730 ms)
-       ✓ No tearing temporarily on mount (7670 ms)
  use-atom
    With useTransition
      Level 1
@@ -591,19 +573,6 @@ yarn jest:update
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
-	</tr>
-	<tr>
-		<th><a href="https://github.com/pmndrs/jotai">jotai (experimental versioned write)</a></th>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
-		<td>:white_check_mark:</td>
 	</tr>
 	<tr>
 		<th><a href="https://github.com/dai-shi/use-atom">use-atom</a></th>
