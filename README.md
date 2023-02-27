@@ -38,7 +38,7 @@ if it's clicked it will trigger state mutation.
 This is to emulate mutating an external state outside of React,
 for example updating state by Redux middleware.
 
-The render has intentionaly expensive computation.
+The render has intentionally expensive computation.
 If the mutation happens during rendering with in a tree,
 there could be an inconsistency in the state.
 If it finds the inconsistency, the test will fail.
