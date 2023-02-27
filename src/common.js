@@ -67,6 +67,7 @@ export const createApp = (
   useDouble,
   Root = React.Fragment,
   componentWrapper = React.memo,
+  mainWrapper = (fn) => fn,
 ) => {
   const Counter = componentWrapper(() => {
     const count = useCount();
@@ -80,7 +81,7 @@ export const createApp = (
     return <div className="count">{count}</div>;
   });
 
-  const Main = () => {
+  const Main = mainWrapper(() => {
     const [isPending, startTransition] = useTransition();
     const [mode, setMode] = useState(null);
     const transitionHide = () => {
@@ -142,7 +143,7 @@ export const createApp = (
         <div id="mainCount" className="count">{mode === 'deferred' ? deferredCount : count}</div>
       </div>
     );
-  };
+  });
 
   const App = () => (
     <Root>

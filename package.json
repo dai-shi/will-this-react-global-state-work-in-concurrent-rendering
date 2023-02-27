@@ -35,6 +35,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
+    "build:mobx": "cross-env NAME=mobx webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
@@ -53,6 +54,8 @@
     "effector-react": "^22.4.0",
     "graphql": "^16.6.0",
     "jotai": "^2.0.0",
+    "mobx": "^6.8.0",
+    "mobx-react-lite": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hooks-global-state": "^2.1.0",
