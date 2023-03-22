@@ -35,7 +35,7 @@
     "build:effector": "cross-env NAME=effector webpack",
     "build:react-rxjs": "cross-env NAME=react-rxjs webpack",
     "build:valtio": "cross-env NAME=valtio webpack",
-    "build:mobx": "cross-env NAME=mobx webpack",
+    "build:mobx-react-lite": "cross-env NAME=mobx-react-lite webpack",
     "build-all": "run-s build:*"
   },
   "keywords": [
