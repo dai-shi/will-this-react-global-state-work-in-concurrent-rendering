@@ -19,6 +19,7 @@ const libraries = {
   'react-rxjs': '<a href="https://react-rxjs.org">react-rxjs</a>',
   simplux: '<a href="https://github.com/MrWolfZ/simplux">simplux</a>',
   'react-query': '<a href="https://react-query.tanstack.com/">react-query</a>',
+  'mobx-react-lite': '<a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a>',
 };
 
 const numTests = 10;

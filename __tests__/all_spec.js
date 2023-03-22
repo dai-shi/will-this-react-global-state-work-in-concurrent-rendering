@@ -33,6 +33,7 @@ const names = [
   'react-rxjs',
   'simplux',
   'react-query',
+  'mobx-react-lite',
 ];
 
 names.forEach((name) => {
