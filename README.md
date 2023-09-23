@@ -418,10 +418,10 @@ yarn jest:update
        ✓ No tearing finally on update (4651 ms)
        ✓ No tearing finally on mount (5610 ms)
      Level 2
-       ✕ No tearing temporarily on update (8739 ms)
-       ✕ No tearing temporarily on mount (6586 ms)
+       ✓ No tearing temporarily on update (8739 ms)
+       ✓ No tearing temporarily on mount (6586 ms)
      Level 3
-       ✓ Can interrupt render (time slicing) (3692 ms)
+       ✕ Can interrupt render (time slicing) (3692 ms)
        ✕ Can branch state (wip state) (3071 ms)
    With useDeferredValue
      Level 1
@@ -429,7 +429,7 @@ yarn jest:update
        ✓ No tearing finally on mount (6595 ms)
      Level 2
        ✓ No tearing temporarily on update (14724 ms)
-       ✕ No tearing temporarily on mount (6568 ms)
+       ✓ No tearing temporarily on mount (6568 ms)
 
 ```
 </details>
@@ -674,14 +674,14 @@ yarn jest:update
 		<th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
-		<td>:x:</td>
-		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:white_check_mark:</td>
 		<td>:x:</td>
+		<td>:x:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
+		<td>:white_check_mark:</td>
 	</tr>
 
 </table>
